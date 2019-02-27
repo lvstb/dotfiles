@@ -1,0 +1,12 @@
+[user]
+    name = Lars Van Steenbergen
+    email = lars@infra-consult.be
+[push]
+    default = simple
+[core]
+    editor = vim
+    autoctrl = input
+    whitespace = space-before-tab, trailing-space
+    excludesfile = ~/.gitignore
+[credential]
+    helper = osxkeychain
