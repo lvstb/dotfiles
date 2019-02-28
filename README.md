@@ -1,3 +1,7 @@
+# My personal dotfiles
+
+These are my personal dotfiles.
+
 ## Install Dotfiles
 
 To install these dotfiles, clone the repo.
