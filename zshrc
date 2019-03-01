@@ -1,8 +1,8 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/lvansteenbergen/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 # Include files with functions and aliases
-source /Users/lvansteenbergen/.zsh_alias
-source /Users/lvansteenbergen/.zsh_functions
+source ~/.zsh_alias
+source ~/.zsh_functions
 
 
 # Set name of the theme to load.
@@ -95,18 +95,18 @@ export AWS_PROFILE=masl
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/lvansteenbergen/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/lvansteenbergen/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+#if [ -f '/Users/lvansteenbergen/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/lvansteenbergen/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/lvansteenbergen/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/lvansteenbergen/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+#if [ -f '/Users/lvansteenbergen/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/lvansteenbergen/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 #if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 export PATH="/usr/local/bin/:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/Users/lvansteenbergen/Library/Python/3.6/bin:$PATH"
+export PATH="~/Library/Python/3.6/bin:$PATH"
 #export PATH="/usr/local/opt/vim@7.4/bin:$PATH"
 autoload -U promptinit; promptinit
 prompt pure
 #RPROMPT=$(aws iam list-account-aliases --output text 2>/dev/null| awk '{print $2}')
-awsprompt=${ACCOUNT=`aws iam list-account-aliases --output text 2>/dev/null| awk '{print $2}'`}
-RPROMPT='%{$fg_no_bold[magenta]%}~%{$fg_no_bold[yellow]%}${awsprompt}%{$reset_color%}'
+#awsprompt=${ACCOUNT=`aws iam list-account-aliases --output text 2>/dev/null| awk '{print $2}'`}
+#RPROMPT='%{$fg_no_bold[magenta]%}~%{$fg_no_bold[yellow]%}${awsprompt}%{$reset_color%}'

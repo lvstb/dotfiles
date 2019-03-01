@@ -2,13 +2,13 @@
 shopt -s dotglob
 
 DOTFILES_DIR=`dirname $0`
+echo $DOTFILES_DIR
 
 # Detect OS ---------------------------------------------------------{{{
-if [ -f /etc/os-release ]; then
-    . /etc/os-release
-    DISTRO= $ID
-elif [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
     DISTRO= mac
+else
+    DISTRO=$(for f in $(find /etc -type f -maxdepth 1 \( ! -wholename /etc/os-release ! -wholename /etc/lsb-release -wholename /etc/\*release -o -wholename /etc/\*version \) 2> /dev/null); do echo ${f:5:${#f}-13}; done)
 fi
 
 case "$DISTRO" in
@@ -17,8 +17,10 @@ case "$DISTRO" in
         func_apt-get
         ;;
     centos)
-        PACKAGEMANAGER="yum"
-        func_yum
+	sudo yum install epel-release -y	
+	sudo yum update -y	
+	curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+	sudo xargs yum -y install < ~/dotfiles/applist
         ;;
     redhat)
         PACKAGEMANAGER="up2date"
@@ -56,25 +58,26 @@ func_brew() {
 # }}}
 
 # Install utils -----------------------------------------------------{{{
-npm install --global pure-prompt
-pip3 install powerline-status pipenv --user --upgrade
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+sudo npm install --global --unsafe-perm pure-prompt
+sudo pip3 install powerline-status pipenv --user --upgrade
+sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # }}}
 
 # Symlink dotfiles --------------------------------------------------{{{
 
-ln -s $DOTFILES_DIR/gitconfig ~/.gitconfig
-ln -s $DOTFILES_DIR/gitignore ~/.gitignore
-ln -s $DOTFILES_DIR/tmux.conf ~/.tmux.conf
-ln -s $DOTFILES_DIR/xterm-256color-italic.terminfo ~/xterm-256color-italic.terminfo
-ln -s $DOTFILES_DIR/tmux.terminfo ~/tmux.terminfo
-ln -s $DOTFILES_DIR/vimrc ~/.vimrc
-ln -s $DOTFILES_DIR/vim ~/
-ln -s $DOTFILES_DIR/config ~/.config
-ln -s $DOTFILES_DIR/zshrc ~/.zshrc
-ln -s $DOTFILES_DIR/zshrc_alias ~/.zshrc_alias
-ln -s $DOTFILES_DIR/zshrc_functions ~/.zshrc_functions
-ln -s $DOTFILES_DIR/.oh-my-zsh ~/
+ln -sf $DOTFILES_DIR/gitconfig ~/.gitconfig
+ln -sf $DOTFILES_DIR/gitignore ~/.gitignore
+ln -sf $DOTFILES_DIR/vim ~/.vim
+ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
+ln -sf $DOTFILES_DIR/xterm-256color-italic.terminfo ~/xterm-256color-italic.terminfo
+ln -sf $DOTFILES_DIR/tmux.terminfo ~/tmux.terminfo
+ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
+ln -sf $DOTFILES_DIR/vim ~/
+ln -sf $DOTFILES_DIR/config ~/.config
+ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
+ln -sf $DOTFILES_DIR/zsh_alias ~/.zsh_alias
+ln -sf $DOTFILES_DIR/zsh_functions ~/.zsh_functions
+ln -sf $DOTFILES_DIR/oh-my-zsh ~/
 
 # }}}
 
