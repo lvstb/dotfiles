@@ -86,8 +86,8 @@ ln -sf $DOTFILES_DIR/oh-my-zsh ~/
 wget https://github.com/sindresorhus/pure/blob/master/pure.zsh
 wget https://github.com/sindresorhus/pure/blob/master/async.zsh
 
-ln -sf pure.zsh ~/.local/share/zsh/pure-prompt/prompt_pure_setup
-ln -sf async.zsh ~/.local/share/zsh/pure-prompt/async
+ln -sf pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
+ln -sf async.zsh /usr/local/share/zsh/site-functions/async
 
 # }}}
 
