@@ -58,7 +58,7 @@ func_brew() {
 # }}}
 
 # Install utils -----------------------------------------------------{{{
-sudo npm install --global --unsafe-perm pure-prompt
+#npm install --global pure-prompt
 sudo pip3 install powerline-status pipenv --user --upgrade
 sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # }}}

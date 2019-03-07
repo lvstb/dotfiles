@@ -10,7 +10,7 @@ source ~/.zsh_functions
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME=""
-
+fpath+=('$PWD/functions')
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -105,6 +105,9 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="~/Library/Python/3.6/bin:$PATH"
 #export PATH="/usr/local/opt/vim@7.4/bin:$PATH"
+fpath=( "$HOME/.zfunctions" $fpath )
+
+
 autoload -U promptinit; promptinit
 prompt pure
 #RPROMPT=$(aws iam list-account-aliases --output text 2>/dev/null| awk '{print $2}')
