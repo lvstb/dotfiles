@@ -1,6 +1,6 @@
 nodejs
 python-pip
-python
+python3
 ansible
 awscli
 bash
