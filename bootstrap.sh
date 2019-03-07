@@ -83,11 +83,12 @@ ln -sf $DOTFILES_DIR/oh-my-zsh ~/
 
 
 # change prompt --------------------------------------------------{{{
-wget https://github.com/sindresorhus/pure/blob/master/pure.zsh
-wget https://github.com/sindresorhus/pure/blob/master/async.zsh
 
-ln -sf pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
-ln -sf async.zsh /usr/local/share/zsh/site-functions/async
+wget https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
+wget https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh
+
+sudo ln -sf pure.zsh /usr/local/share/zsh/site-functions/prompt_pure_setup
+sudo ln -sf async.zsh /usr/local/share/zsh/site-functions/async
 
 # }}}
 
