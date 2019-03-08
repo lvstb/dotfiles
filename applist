@@ -1,10 +1,8 @@
-nodejs
 python-pip
 python3
 ansible
 awscli
 bash
-bat
 cookiecutter
 docker
 git
@@ -15,12 +13,9 @@ httpie
 hugo
 iperf
 jq
-kubernetes-cli
-kubernetes-helm
 less
 mosh
 ncdu
-openssh
 perl
 pipenv
 pyenv
