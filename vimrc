@@ -53,7 +53,6 @@ set hlsearch
 set incsearch
 set wildignore+=*/.git/*,*/tmp/*,*.swp
 "set t_Co=256              " Number of colors
-
 set spellfile=$HOME/.vim-spell-en.utf-8.add "Word list file
 match ErrorMsg '\s\+$'
 
@@ -311,7 +310,7 @@ set signcolumn=yes
 syntax on
 let base16colorspace=256
 let g:rehash256 = 1
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 colorscheme nord
 let g:nord_italic = 1
 let g:nord_underline = 1
@@ -321,7 +320,7 @@ let g:nord_cursor_line_number_background = 1
 
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
+"set termguicolors
 highlight ErrorMsg guibg=White guifg=Red
 highlight LineNr guifg=#b3b3b3
 " Assure the tabline color is black
