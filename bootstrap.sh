@@ -5,37 +5,38 @@ DOTFILES_DIR=`dirname $0`
 echo $DOTFILES_DIR
 
 # Detect OS ---------------------------------------------------------{{{
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    DISTRO= mac
-else
-    DISTRO=$(for f in $(find /etc -type f -maxdepth 1 \( ! -wholename /etc/os-release ! -wholename /etc/lsb-release -wholename /etc/\*release -o -wholename /etc/\*version \) 2> /dev/null); do echo ${f:5:${#f}-13}; done)
-fi
+##if [[ "$OSTYPE" == "darwin"* ]]; then
+#    DISTRO= mac
+#else
+##    DISTRO=$(for f in $(find /etc -type f -maxdepth 1 \( ! -wholename /etc/os-release ! -wholename /etc/lsb-release -wholename /etc/\*release -o -wholename /etc/\*version \) 2> /dev/null); do echo ${f:5:${#f}-13}; done)
+##fi
+#    DISTRO= mac
+#case "$DISTRO" in
+#    debian)
+#        sudo apt -y update && sudo apt -y upgrade
+#        sudo xargs apt -y install < ~/dotfiles/applist
+#        wget https://github.com/sharkdp/bat/releases/download/v0.10.0/bat_0.10.0_amd64.deb && sudo dpkg -i bat_0.10.0_amd64.deb:wq
+#        #Install kubernetes-cli
+#        sudo apt-get update && sudo apt-get install -y apt-transport-https
+#        curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+#        echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+#        sudo apt-get update
+#        sudo apt-get install -y kubectl
+#        #install kubernetes-helm
+#        sudo snap install helm --classic
+#	    sudo snap install ripgrep --classic
+#        ;;
+#    mac)
 
-case "$DISTRO" in
-    debian)
-        sudo apt -y update && sudo apt -y upgrade
-        sudo xargs apt -y install < ~/dotfiles/applist
-        wget https://github.com/sharkdp/bat/releases/download/v0.10.0/bat_0.10.0_amd64.deb && sudo dpkg -i bat_0.10.0_amd64.deb:wq
-        #Install kubernetes-cli
-        sudo apt-get update && sudo apt-get install -y apt-transport-https
-        curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-        echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
-        sudo apt-get update
-        sudo apt-get install -y kubectl
-        #install kubernetes-helm
-        sudo snap install helm --classic
-	    sudo snap install ripgrep --classic
-        ;;
-    mac)
-        brew bundle $DOTFILES_DIR/brewfile
-        ln -s $DOTFILES_DIR/atom ~/.atom
-        apm install --packages-file ~/.atom/package.list
-        ;;
-    *)
-        echo "ERROR: Your Distribution is not supported by this installation script! Please use a supported distribution"
-        exit 2
-        ;;
-esac
+brew bundle $DOTFILES_DIR/brewfile
+        #ln -s $DOTFILES_DIR/atom ~/.atom
+        #apm install --packages-file ~/.atom/package.list
+        #;;
+#    *)
+#        echo "ERROR: Your Distribution is not supported by this installation script! Please use a supported distribution"
+#        exit 2
+#        ;;
+#esac
 
 # }}}
 
@@ -65,13 +66,13 @@ ln -sf $DOTFILES_DIR/oh-my-zsh ~/
 
 
 # change prompt --------------------------------------------------{{{
-mkdir -p ~/oh-my-zsh/functions
+mkdir -p ~/.oh-my-zsh/functions
 
 wget https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
 wget https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh
 
 mv pure.zsh ~/.oh-my-zsh/functions/prompt_pure_setup
-mv async.zsh ~/oh-my-zsh/functions/async
+mv async.zsh ~/.oh-my-zsh/functions/async
 
 # }}}
 
@@ -87,9 +88,4 @@ if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
 fi
 # }}}
 
-# source the .zshrc to apply all changes--------------------------------{{{
 source $HOME/.zshrc
-# }}}
-
-echo "Successfully updated dotfiles!"
-echo " "

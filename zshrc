@@ -92,8 +92,6 @@ export AWS_PROFILE=masl
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # The next line updates PATH for the Google Cloud SDK.
 #if [ -f '/Users/lvansteenbergen/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/lvansteenbergen/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -110,6 +108,3 @@ export PATH="~/Library/Python/3.6/bin:$PATH"
 
 autoload -U promptinit; promptinit
 prompt pure
-#RPROMPT=$(aws iam list-account-aliases --output text 2>/dev/null| awk '{print $2}')
-#awsprompt=${ACCOUNT=`aws iam list-account-aliases --output text 2>/dev/null| awk '{print $2}'`}
-#RPROMPT='%{$fg_no_bold[magenta]%}~%{$fg_no_bold[yellow]%}${awsprompt}%{$reset_color%}'

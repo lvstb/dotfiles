@@ -56,13 +56,6 @@ set wildignore+=*/.git/*,*/tmp/*,*.swp
 set spellfile=$HOME/.vim-spell-en.utf-8.add "Word list file
 match ErrorMsg '\s\+$'
 
-" if &term =~ '256color'
-"   " Disable Background Color Erase (BCE) so that color schemes
-"   " work properly when Vim is used inside tmux and GNU screen.
-"   " See also http://snk.tuxfamily.org/log/vim-256color-bce.html
-"  set t_ut=
-"endif
-
 " }}}
 " Backup {{{
 set backup
@@ -73,8 +66,6 @@ set writebackup
 " }}}
 " Plugins {{{
 call plug#begin()
-" Plug 'davidhalter/jedi-vim'
-" Plug 'ervandew/supertab'
 Plug 'Shougo/neocomplete.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-commentary'
@@ -86,7 +77,7 @@ Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'elzr/vim-json'
-"Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
 Plug 'https://github.com/m-kat/aws-vim'
 Plug 'tpope/vim-fugitive'
@@ -100,12 +91,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'alecthomas/gometalinter'
 " Color schemes
 Plug 'chriskempson/base16-vim'
-"Plug 'tomasr/molokai'
-"Plug 'sjl/badwolf'
-"Plug 'morhetz/gruvbox'
-"Plug 'altercation/vim-colors-solarized'
-"Plug 'dracula/vim'
-"Plug 'vim-scripts/wombat256.vim'
 Plug 'arcticicestudio/nord-vim'
 call plug#end()
 " }}}
@@ -178,6 +163,12 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " }}}
+" Airline {{{
+"
+let g:airline_theme                       = 'nord'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+"}}}
 " Leader shortcuts {{{
 
 " Check a key binding, ex: verbose nmap <Leader>r
@@ -191,8 +182,6 @@ nnoremap <Leader>b :CtrlPBuffer<CR>|              " CTRLP find buffer mode
 nnoremap <Leader>bm :CtrlPMixed<CR>|              " CTRLP find files, buffers and MRU files
 nnoremap <Leader>bs :CtrlPMRU<CR>|                " CTRLP find MRU files
 vnoremap <Leader>c :w !pbcopy<CR><CR>|            " Copy to clipboard
-nnoremap <Leader>cs :colorscheme solarized<CR>|   " Switch color scheme
-nnoremap <Leader>cb :colorscheme badwolf<CR>|     " Switch color scheme
 nnoremap <Leader>d :bd<CR>|                       " delete the current buffer
 nnoremap <Leader>ev :vsp $MYVIMRC<cr>|            " Open up .vimrc quickly in a new buffer
 nnoremap <Leader>gg :Goyo<CR>|                    " Switch to Goyo
