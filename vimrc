@@ -97,7 +97,8 @@ call plug#end()
 " }}}
 " ALE {{{
 " Check Python files with flake8 and pylint.
-let g:ale_linters = { 'python': ['flake8', 'black', 'isort', 'mypy', 'prospector', 'pyls', 'pycodestyle'], }
+let g:ale_linters = { 'python': ['flake8', 'black', 'isort', 'mypy', 'prospector', 'pyls', 'pycodestyle'],
+\                     'cloudformation': ['cfn-python-lint'],}
 " Fix Python files with autopep8 and yapf.
 let g:ale_fixers = ['autopep8', 'yapf']
 let g:ale_open_list = 'on_save'
@@ -168,6 +169,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 let g:airline_theme                       = 'nord'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 "}}}
 " Leader shortcuts {{{
 
@@ -276,30 +278,13 @@ endif
 " }}}
 " Gitgutter {{{
 set signcolumn=yes
+let g:gitgutter_sign_modified = '»'
 " }}}
-" Syntastic {{{
-" let g:syntastic_error_symbol = 'EE'
-" let g:syntastic_warning_symbol = 'WW'
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" }}}
-" vim-jedi {{{
-" let g:jedi#auto_initialization = 1
-" let g:jedi#completions_enabled = 1
-" let g:jedi#auto_vim_configuration = 1
-" Fix for Neocomplete
-" let g:jedi#popup_select_first = 0
-" }}}
+
 " Colors {{{
-"if has("termguicolors")     " set true colors
-"  set t_8f=[38;2;%lu;%lu;%lum  " Needed in tmux
-"  set t_8b=[48;2;%lu;%lu;%lum  " Ditto
-"  set termguicolors
-"endif
 syntax on
 let base16colorspace=256
 let g:rehash256 = 1
-"let g:solarized_termcolors=256
 colorscheme nord
 let g:nord_italic = 1
 let g:nord_underline = 1
@@ -307,6 +292,7 @@ let g:nord_italic_comments = 1
 let g:nord_comment_brightness = 15
 let g:nord_cursor_line_number_background = 1
 
+highlight Comment cterm=italic
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 "set termguicolors
@@ -314,18 +300,9 @@ highlight ErrorMsg guibg=White guifg=Red
 highlight LineNr guifg=#b3b3b3
 " Assure the tabline color is black
 highlight TabLineFill term=bold cterm=bold ctermbg=0
-
-" autocmd BufEnter * colorscheme base16-tomorrow-night
-" autocmd BufEnter *.py colorscheme badwolf
-"
 "}}}
 
-au BufReadPost Jenkinsfile set syntax=groovy
-au BufReadPost Jenkinsfile set filetype=groovy
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-" autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr><C-o>
-
-" autocmd BufWritePost *.py call Flake8()
 
 au BufEnter * call MyLastWindow()
 function! MyLastWindow()
@@ -341,5 +318,3 @@ endfunction
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
-" vim:foldmethod=marker:foldlevel=0
-highlight Comment cterm=italic
