@@ -1,7 +1,7 @@
 
 
 <p align="center" style="text-align:center;">
-  <img src="img/dot.png" width="50" />
+  <img src="img/dot.png" width="500" />
   </p>
 
 These are my personal dotfiles.  
