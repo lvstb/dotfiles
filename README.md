@@ -1,7 +1,7 @@
 
 
 <p align="center" style="text-align:center;">
-  <img src="https://github.com/lvstb/dotfiles/raw/master/img/dot.png
+  <img src="https://github.com/lvstb/dotfiles/blob/master/img/dot.png
   " width="50" />
   </p>
 
