@@ -1,8 +1,0 @@
-[core]
-account = lars@larsenbritt.be
-project = infra-consult
-
-[compute]
-zone = us-central1-a
-region = us-central1
-
