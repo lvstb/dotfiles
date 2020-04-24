@@ -7,6 +7,6 @@
     editor = vim
     autoctrl = input
     whitespace = space-before-tab, trailing-space
-    excludesfile = ~/.gitignore
+	excludesfile = /Users/lvstb/.gitignore_global
 [credential]
     helper = osxkeychain

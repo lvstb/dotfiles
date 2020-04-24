@@ -1,0 +1,13 @@
+2019-05-29 15:09:14: "checkForUpdates: Initializing..."
+2019-05-29 15:09:14: "checkForUpdates: Checking with options {"includePreReleases":false}"
+2019-05-29 15:09:15: "Error: Cannot get latest release info: {
+  "message": "Server Error"
+}
+
+Error: Cannot get latest release info: {
+  "message": "Server Error"
+}
+
+    at fetchLatestRelease (/Applications/Joplin.app/Contents/Resources/app/checkForUpdates.js:56:10)
+    at process._tickCallback (internal/process/next_tick.js:68:7)"
+2019-05-29 15:09:15: "checkForUpdates: Done."

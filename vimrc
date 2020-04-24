@@ -92,13 +92,17 @@ Plug 'alecthomas/gometalinter'
 " Color schemes
 Plug 'chriskempson/base16-vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
 " }}}
 " }}}
 " ALE {{{
+let g:ale_linter_aliases = {'yaml': ['cloudformation', 'yaml']}
 " Check Python files with flake8 and pylint.
-let g:ale_linters = { 'python': ['flake8', 'black', 'isort', 'mypy', 'prospector', 'pyls', 'pycodestyle'],
-\                     'cloudformation': ['cfn-python-lint'],}
+let g:ale_linters = {
+                \   'python': ['flake8', 'black', 'isort', 'mypy', 'prospector', 'pyls', 'pycodestyle'],
+                \   'cfn_yaml': ['cfn_python_lint'],
+                \   }
 " Fix Python files with autopep8 and yapf.
 let g:ale_fixers = ['autopep8', 'yapf']
 let g:ale_open_list = 'on_save'
@@ -170,6 +174,8 @@ let g:airline_theme                       = 'nord'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
+"%{ALEGetStatusLine()}
+"let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 "}}}
 " Leader shortcuts {{{
 
@@ -202,6 +208,8 @@ nnoremap <Leader>vq :VimuxCloseRunner<CR>|        " Close vim tmux runner opened
 nnoremap <Leader>vx :VimuxInterruptRunner<CR>|    " Interrupt any command running in the runner pane
 nnoremap <Leader>vz :call VimuxZoomRunner()<CR>|  " Zoom the runner pane (use <bind-key> z to restore runner pane)
 nnoremap <Leader>w :w<CR>|                        " Save buffer
+nnoremap <Leader>ms :MarkdownPreview<CR>|        " Start MarkdownPreview
+nnoremap <Leader>mx :MarkdownPreviewStop<CR>|        " Stop MarkdownPreview
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
@@ -302,7 +310,30 @@ highlight LineNr guifg=#b3b3b3
 highlight TabLineFill term=bold cterm=bold ctermbg=0
 "}}}
 
+"filetype specific stuff
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" CloudFormation filetype config
+autocmd BufRead,BufNewFile cfn-*.yaml,cfn-*.yml call SetCloudFormationOptions()
+function SetCloudFormationOptions()
+    setl nowrap
+    set ft=cloudformation
+    set syntax=yaml
+    set tabstop=2
+    set expandtab
+    set shiftwidth=2
+    set softtabstop=2
+    set foldmethod=indent
+    set foldlevel=99
+    set commentstring=#\ %s
+endfunction
+
+
+" add yaml stuffs
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+au! BufNewFile,BufReadPost *.{cnf,cf} set filetype=cloudformation
 
 au BufEnter * call MyLastWindow()
 function! MyLastWindow()
@@ -314,6 +345,12 @@ function! MyLastWindow()
     endif
   endif
 endfunction
+
+" Markdown editor stuff
+ " preview page title
+ " ${name} will be replace with the file name
+let g:mkdp_page_title = '「${name}」'
+let g:mkdp_auto_start = 0
 
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)

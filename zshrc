@@ -77,6 +77,9 @@ export LANG=en_US.UTF-8
 
 #set environment variables
 export AWS_PROFILE=masl
+#Prevents the aws plugin of manipulating rprompt
+export SHOW_AWS_PROMPT=false
+export EDITOR=vim
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -108,3 +111,10 @@ export PATH="~/Library/Python/3.6/bin:$PATH"
 
 autoload -U promptinit; promptinit
 prompt pure
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/lvstb/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lvstb/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/lvstb/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lvstb/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/openjdk@11/bin:$PATH"

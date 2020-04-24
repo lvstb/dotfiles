@@ -14,3 +14,5 @@ alias stopbicky='aws ec2 stop-instances --instance-ids i-04c7f23f7303bd3ec &>/de
 alias gobicky='ssh lars@63.35.157.229 -i .ssh/bicky.pem'
 alias setaws='export AWS_DEFAULT_PROFILE=infraconsult'
 alias setmasl='export AWS_DEFAULT_PROFILE=masl'
+alias glog='git log --oneline --graph --all'
+

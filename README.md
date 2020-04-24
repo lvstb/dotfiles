@@ -1,4 +1,9 @@
-# My personal dotfiles
+
+
+<p align="center" style="text-align:center;">
+  <img src="https://github.com/lvstb/dotfiles/raw/master/img/dot.png
+  " width="50" />
+  </p>
 
 These are my personal dotfiles.  
 
@@ -11,9 +16,8 @@ If the bootstrap script is done, go in VIM and do :PlugInstall! to install all v
 
 ## Features
 
-- Brewfile/applist, depending on the os (mac/linux) it will install packages listed in the brewfile (mac) or the applist (linux)
+- Brewfile, depending on the os (mac/linux) it will install packages listed in the brewfile.
 - Zsh and oh-my-zsh config and tweaks
-- Personalised atom install
 - Tmux with personalization
 - Vim with plugins and personalization
 
