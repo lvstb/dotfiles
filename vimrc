@@ -71,7 +71,7 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
@@ -86,11 +86,13 @@ Plug 'pearofducks/ansible-vim'
 " Plug 'bling/vim-bufferline'
 Plug 'ap/vim-buftabline'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'alecthomas/gometalinter'
 " Color schemes
 Plug 'chriskempson/base16-vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
@@ -170,10 +172,10 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " }}}
 " Airline {{{
 "
-let g:airline_theme                       = 'nord'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ale#enabled = 1
+"let g:airline_theme                       = 'nord'
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#ale#enabled = 1
 "%{ALEGetStatusLine()}
 "let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 "}}}
@@ -210,6 +212,9 @@ nnoremap <Leader>vz :call VimuxZoomRunner()<CR>|  " Zoom the runner pane (use <b
 nnoremap <Leader>w :w<CR>|                        " Save buffer
 nnoremap <Leader>ms :MarkdownPreview<CR>|        " Start MarkdownPreview
 nnoremap <Leader>mx :MarkdownPreviewStop<CR>|        " Stop MarkdownPreview
+nnoremap <Leader>f :Files<CR>|                    " fzf search all files
+nnoremap <Leader>g :GFiles<CR>|                   " fzf search for git tracked files
+nnoremap <Leader>h :History<CR>|
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
@@ -351,6 +356,18 @@ endfunction
  " ${name} will be replace with the file name
 let g:mkdp_page_title = '「${name}」'
 let g:mkdp_auto_start = 0
+
+source ~/.config/statusline.vim
+
+
+
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
