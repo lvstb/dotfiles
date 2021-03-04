@@ -10,4 +10,6 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-/config/gcloud
+config/gcloud
+config/spot*
+config/syncthing
