@@ -10,3 +10,18 @@
 	excludesfile = /Users/lvstb/.gitignore_global
 [credential]
     helper = osxkeychain
+[alias]
+    l=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --no-merges
+    rl = reflog --date=format:%T --pretty=format:\"%C(yellow)%h%Creset %C(037)%gD:%Creset %C(white)%gs%Creset%C(auto)%d%Creset\"
+    ls = "!cd ${GIT_PREFIX:-.} && git l --stat"
+    ld = log -p
+    ldf = ld --follow
+    lg = l --graph
+    msg = show -s --pretty=%b
+
+    modified = !git --no-pager diff HEAD --name-only
+    s = status -sb
+    st = status
+    sta = -c diff.ignoreSubmodules=none st
+    ss = !git --no-pager show --stat
+    untracked = ls-files --others --exclude-standard
