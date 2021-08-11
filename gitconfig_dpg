@@ -1,0 +1,6 @@
+[user]
+    name = Lars Van Steenbergen
+    email = lars.van.steenbergen@persgroep.net
+[http]
+    sslCAInfo = /Users/lvstb/.zcli/zscaler_root.pem
+

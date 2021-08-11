@@ -1,0 +1,8 @@
+[user]
+    name = lvstb
+    email = lars@wingu.dev
+    signingkey = A5E334598B1B429C
+
+[commit]
+    gpgsign = true
+
