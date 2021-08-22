@@ -14,6 +14,9 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'EdenEast/nightfox.nvim'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'shaunsingh/nord.nvim'
 "Plug 'https://github.com/m-kat/aws-vim'
 "Plug 'tpope/vim-fugitive'
@@ -25,7 +28,7 @@ Plug 'shaunsingh/nord.nvim'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 "Plug 'alecthomas/gometalinter'
-" Color schemes
+" ghtfox_style = "palefox"Color schemes
 "Plug 'chriskempson/base16-vim'
 "Plug 'junegunn/fzf'
 "Plug 'junegunn/fzf.vim'
@@ -33,13 +36,17 @@ Plug 'shaunsingh/nord.nvim'
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
 
-" Example config in Vim-Script
+" Example config in Vim-Scriptj
 let g:nord_contrast = v:true
 let g:nord_borders = v:false
 let g:nord_disable_background = v:true
 let g:nord_italic = v:false
 
 "Vim-Script:
+"let g:nightfox_style = "nordfox"
+"let g:nightfox_transparent = "true"
+"let g:nightfox_terminal_colors = "true"
+
 colorscheme nord
 
 source $HOME/.config/nvim/config/general.vimrc
@@ -50,4 +57,4 @@ source $HOME/.config/nvim/config/plugins.vimrc
 "source $HOME/.config/nvim/config/line.vimrc
 
 "Include lua config
-:lua require'init'
+":lua require'init'
