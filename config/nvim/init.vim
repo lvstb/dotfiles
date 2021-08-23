@@ -11,7 +11,7 @@ Plug 'elzr/vim-json'
 Plug 'airblade/vim-gitgutter'
 "Plug 'mhinz/vim-signify'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-compe'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'kyazdani42/nvim-web-devicons'
 "Plug 'EdenEast/nightfox.nvim'
@@ -52,9 +52,9 @@ colorscheme nord
 source $HOME/.config/nvim/config/general.vimrc
 
 "source $HOME/.config/nvim/config/init.vimrc
-source $HOME/.config/nvim/config/plugins.vimrc
+"source $HOME/.config/nvim/config/plugins.vimrc
 "source $HOME/.config/nvim/config/keys.vimrc
 "source $HOME/.config/nvim/config/line.vimrc
 
 "Include lua config
-":lua require'init'
+:lua require'init'
