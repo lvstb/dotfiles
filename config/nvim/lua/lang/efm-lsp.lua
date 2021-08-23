@@ -1,6 +1,7 @@
 --brew install efm-langserver
 require "lspconfig".efm.setup {
     init_options = {documentFormatting = true},
+    filetypes = {"lua",},
     settings = {
         rootMarkers = {".git/"},
         languages = {
@@ -10,12 +11,6 @@ require "lspconfig".efm.setup {
                  formatStdin = true
                 }
             },
-            yaml = {
-                {
-                 lintCommand = 'cfn-lint',
-                 lintStdin = true
-                }
-            }
         }
     }
 }

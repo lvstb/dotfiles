@@ -48,5 +48,8 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+" Make completemenu better
 set completeopt=noinsert,noselect,menuone
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+

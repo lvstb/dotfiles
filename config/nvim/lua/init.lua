@@ -5,4 +5,7 @@
 require 'lang.python-lsp'
 require 'lang.efm-lsp'
 require 'plugins.compe-config'
-
+require 'plugins.treesitter-config'
+require 'plugins.general'
+require 'plugins.linter'
+require 'key'
