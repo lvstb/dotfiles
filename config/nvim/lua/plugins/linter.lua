@@ -1,8 +1,6 @@
-
-
-
 local null_ls = require('null-ls')
 local null_helpers = require('null-ls.helpers')
+
 
 local cfn_lint = {
 method = null_ls.methods.DIAGNOSTICS,
@@ -48,11 +46,16 @@ end,
 
 null_ls.config({
 sources = {
-cfn_lint,
-}
+    cfn_lint,
+    }
 })
 
 require("lspconfig")["null-ls"].setup({
-    -- see the nvim-lspconfig documentation for available configuration options
-    on_attach = my_custom_on_attach
+   --  on_attach = my_custom_on_attach
+       on_attach = function(client)
+        if client.resolved_capabilities.document_formatting then
+                vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.                  formatting_sync()")
+        end
+   end
 })
+

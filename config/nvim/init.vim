@@ -4,6 +4,7 @@ set nocompatible              " be iMproved, required filetype off              
 call plug#begin()
 Plug 'shaunsingh/nord.nvim'
 Plug 'tpope/vim-commentary'                             "Comment out stuff with a simple keycombination
+Plug 'psf/black'
 "Plug 'tpope/vim-repeat'
 "Plug 'itchyny/lightline.vim'
 "Plug 'scrooloose/nerdtree'
@@ -23,6 +24,7 @@ Plug 'folke/lsp-colors.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'ThePrimeagen/git-worktree.nvim'
 "Plug 'tpope/vim-fugitive'
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
