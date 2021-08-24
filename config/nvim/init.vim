@@ -10,6 +10,8 @@ Plug 'psf/black'
 "Plug 'scrooloose/nerdtree'
 Plug 'elzr/vim-json'
 Plug 'airblade/vim-gitgutter'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'lukas-reineke/indent-blankline.nvim'
 "Plug 'mhinz/vim-signify'
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'
@@ -25,6 +27,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'ThePrimeagen/git-worktree.nvim'
+Plug 'onsails/lspkind-nvim'
 "Plug 'tpope/vim-fugitive'
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
@@ -34,7 +37,7 @@ let g:nord_contrast = v:true
 "let g:nord_borders = v:false
 "let g:nord_disable_background = v:true
 let g:nord_italic = v:false
-
+let g:indent_blankline_show_trailing_blankline_indent = v:false
 "Vim-Script:
 "let g:nightfox_style = "palefox"
 "let g:nightfox_transparent = "true"
