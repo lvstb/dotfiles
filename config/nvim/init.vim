@@ -40,17 +40,6 @@ let g:nord_italic = v:false
 "let g:nightfox_transparent = "true"
 "let g:nightfox_terminal_colors = "true"
 set termguicolors
-
-"lua << EOF
-"require("onedark").setup({
-"  functionStyle = "italic",
-"  transparent = "true",
-"  sidebars = {"qf", "vista_kind", "terminal", "packer"},
-"
-"  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-"  colors = {hint = "orange", error = "#ff0000"}
-"})
-"EOF
 colorscheme nord
 
 source $HOME/.config/nvim/config/general.vimrc

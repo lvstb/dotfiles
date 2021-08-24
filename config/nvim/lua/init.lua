@@ -4,6 +4,7 @@
 --require'lsp_config'
 require 'lang.python-lsp'
 require 'lang.efm-lsp'
+require 'lang.yaml-lsp'
 require 'plugins.compe-config'
 require 'plugins.treesitter-config'
 require 'plugins.general'
