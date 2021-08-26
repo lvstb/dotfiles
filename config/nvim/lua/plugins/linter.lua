@@ -1,7 +1,7 @@
 local null_ls = require('null-ls')
 local null_helpers = require('null-ls.helpers')
 
-
+-- cloudformation linting
 local cfn_lint = {
 method = null_ls.methods.DIAGNOSTICS,
 filetypes = {'yaml'},
@@ -44,17 +44,31 @@ end,
 })
 }
 
+--Built in formatters
+local sources = {
+  null_ls.builtins.diagnostics.hadolint,
+  null_ls.builtins.formatting.terraform_fmt,
+  null_ls.builtins.formatting.shfmt,
+  null_ls.builtins.formatting.gofmt,
+  null_ls.builtins.formatting.eslint_d,
+  null_ls.builtins.formatting.black,
+  null_ls.builtins.formatting.isort,
+  null_ls.builtins.diagnostics.flake8,
+  null_ls.builtins.diagnostics.write_good,
+  null_ls.builtins.diagnostics.markdownlint,
+  cfn_lint,
+}
+
 null_ls.config({
-sources = {
-    cfn_lint,
-    }
+  sources=sources,
+  diagnostics_format = '[#{c}] #{m}',
 })
 
 require("lspconfig")["null-ls"].setup({
    --  on_attach = my_custom_on_attach
        on_attach = function(client)
         if client.resolved_capabilities.document_formatting then
-                vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.                  formatting_sync()")
+                vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
         end
    end
 })

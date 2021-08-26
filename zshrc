@@ -102,6 +102,7 @@ export EDITOR=vim
 #if [ -f '/Users/lvansteenbergen/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/lvansteenbergen/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 #if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 export PATH="/usr/local/bin/:$PATH"
+export PATH="/usr/local/bin/brew:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="~/Library/Python/3.6/bin:$PATH"
