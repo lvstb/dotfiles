@@ -7,6 +7,7 @@ Plug 'tpope/vim-commentary'                             "Comment out stuff with 
 "Plug 'tpope/vim-repeat'
 "Plug 'itchyny/lightline.vim'
 "Plug 'scrooloose/nerdtree'
+Plug 'p00f/nvim-ts-rainbow'
 Plug 'elzr/vim-json'
 Plug 'SmiteshP/nvim-gps'
 Plug 'airblade/vim-gitgutter'
