@@ -2,7 +2,7 @@ set nocompatible              " be iMproved, required filetype off              
 
 
 call plug#begin()
-Plug 'shaunsingh/nord.nvim'
+""Plug 'shaunsingh/nord.nvim'
 Plug 'tpope/vim-commentary'                             "Comment out stuff with a simple keycombination
 "Plug 'tpope/vim-repeat'
 "Plug 'itchyny/lightline.vim'
@@ -32,6 +32,7 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'ThePrimeagen/git-worktree.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'arcticicestudio/nord-vim'
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
 

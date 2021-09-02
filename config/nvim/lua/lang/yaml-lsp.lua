@@ -8,7 +8,7 @@ require'lspconfig'.yamlls.setup{
                         completion = true,
 
                         customTags = {
-                            "!fn",
+                    "!fn",
                     "!And",
                     "!If",
                     "!Not",

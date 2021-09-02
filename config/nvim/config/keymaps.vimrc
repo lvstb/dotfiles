@@ -2,7 +2,7 @@ let mapleader = ","
 let maplocalleader = ","
 vnoremap <Leader>c :w !pbcopy<CR><CR>|            " Copy to clipboard
 nnoremap <Leader>v :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-nnoremap <leader>rs :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>| " Remove trailing whitespaces
+"nnoremap <leader>rs :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>| " Remove trailing whitespaces
 nnoremap <Leader>h :History<CR>|
 " Move single row on wrapped lines
 nmap j gj
