@@ -2,18 +2,16 @@ set nocompatible              " be iMproved, required filetype off              
 
 
 call plug#begin()
-""Plug 'shaunsingh/nord.nvim'
 Plug 'tpope/vim-commentary'                             "Comment out stuff with a simple keycombination
 "Plug 'tpope/vim-repeat'
 "Plug 'itchyny/lightline.vim'
-"Plug 'scrooloose/nerdtree'
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'elzr/vim-json'
 Plug 'SmiteshP/nvim-gps'
 Plug 'airblade/vim-gitgutter'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'hoob3rt/lualine.nvim'
 "Plug 'mhinz/vim-signify'
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'
@@ -42,10 +40,8 @@ let g:nord_contrast = v:true
 "let g:nord_disable_background = v:true
 let g:nord_italic = v:false
 let g:indent_blankline_show_trailing_blankline_indent = v:false
-"Vim-Script:
-"let g:nightfox_style = "palefox"
-"let g:nightfox_transparent = "true"
-"let g:nightfox_terminal_colors = "true"
+
+syntax on
 set termguicolors
 colorscheme nord
 
