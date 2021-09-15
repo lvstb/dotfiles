@@ -1,4 +1,3 @@
-alias lsd='exa -lhaa'
 alias h='history'
 alias mount='mount |column -t'
 alias leech='aria2c'
