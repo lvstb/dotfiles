@@ -13,4 +13,9 @@ Thumbs.db
 config/gcloud
 config/spot*
 config/syncthing
-
+config/nvim/node_modules
+config/nvim/plugged
+config/nvim/package*
+node_modules
+package*
+yarn*

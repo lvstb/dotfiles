@@ -34,6 +34,8 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+"Open terminal below window
+nnoremap <leader>t :below 10sp term://$SHELL<cr>i
 
 " Highlight yanks
 augroup highlight_yanks

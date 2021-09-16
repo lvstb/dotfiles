@@ -53,7 +53,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions brew colored-man-pages aws zsh-syntax-highlighting)
+plugins=(autojump git zsh-autosuggestions brew colored-man-pages aws zsh-syntax-highlighting)
 
 # User configuration
 
@@ -76,7 +76,7 @@ export LANG=en_US.UTF-8
  fi
 
 #set environment variables
-export AWS_PROFILE=masl
+#export AWS_PROFILE=masl
 #Prevents the aws plugin of manipulating rprompt
 export SHOW_AWS_PROMPT=false
 export EDITOR=vim
