@@ -19,3 +19,4 @@ config/nvim/package*
 node_modules
 package*
 yarn*
+vim/plugged
