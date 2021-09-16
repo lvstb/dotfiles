@@ -16,11 +16,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 ln -sf $DOTFILES_DIR/gitconfig ~/.gitconfig
 ln -sf $DOTFILES_DIR/gitignore ~/.gitignore_global
-ln -sf $DOTFILES_DIR/vim ~/.vim
 ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES_DIR/xterm-256color-italic.terminfo ~/xterm-256color-italic.terminfo
 ln -sf $DOTFILES_DIR/tmux.terminfo ~/tmux.terminfo
-ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
 ln -sf $DOTFILES_DIR/config ~/.config
 ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
 ln -sf $DOTFILES_DIR/zsh_alias ~/.zsh_alias
