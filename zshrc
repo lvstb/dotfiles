@@ -121,3 +121,4 @@ if [ -f '/Users/lvstb/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/binutils/bin:$PATH"

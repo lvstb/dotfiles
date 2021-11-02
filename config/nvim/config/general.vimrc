@@ -36,5 +36,10 @@ set autowrite             " Automatically :write before running commands
 set number relativenumber       " Display line numbers
 set nu rnu                      "Together with relative numbers tis creates a hybrid one
 
+set history=1000          " Remember ALL THE commands!
+set undolevels=1000       " Do ALL THE undo's!
+set undoreload=10000      " Maximum number lines to save for undo on a buffer reload
+set virtualedit=onemore   " Allow for cursor beyond last character
+
 set nobackup
 set noswapfile
