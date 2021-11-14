@@ -1,5 +1,3 @@
-local is_wsl = vim.env.USER == "lvstb"
-
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Don't show the dumb matching stuff.
@@ -7,20 +5,6 @@ vim.opt.shortmess:append "c"
 
 vim.opt.runtimepath = vim.opt.runtimepath + '~/dotfiles/config/nvim/snippets'
 require('luasnip/loaders/from_vscode').lazy_load()
--- Complextras.nvim configuration
--- vim.api.nvim_set_keymap(
---   "i",
---   "<C-x><C-m>",
---   [[<c-r>=luaeval("require('complextras').complete_matching_line()")<CR>]],
---   { noremap = true }
--- )
-
--- vim.api.nvim_set_keymap(
---   "i",
---   "<C-x><C-d>",
---   [[<c-r>=luaeval("require('complextras').complete_line_from_cwd()")<CR>]],
---   { noremap = true }
--- )
 
 local lspkind = require "lspkind"
 lspkind.init()
@@ -55,13 +39,6 @@ cmp.setup {
       end,
     },
 
-    ["<Tab>"] = cmp.mapping {
-      i = cmp.config.disable,
-      c = function(fallback)
-        fallback()
-      end,
-    },
-
     -- Testing
     ["<c-q>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
@@ -72,49 +49,45 @@ cmp.setup {
     --  First you have to just promise to read `:help ins-completion`.
     --
 
-    -- ["<Tab>"] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item()
-    --   elseif luasnip.expand_or_jumpable() then
-    --     luasnip.expand_or_jump()
-    --   elseif has_words_before() then
-    --     cmp.complete()
-    --   else
-    --     fallback()
-    --   end
-    -- end, { "i", "s" }),
+     ["<Tab>"] = cmp.mapping(function(fallback)
+       if cmp.visible() then
+         cmp.select_next_item()
+       elseif luasnip.expand_or_jumpable() then
+         luasnip.expand_or_jump()
+       elseif has_words_before() then
+         cmp.complete()
+       else
+         fallback()
+       end
+     end, { "i", "s" }),
 
-    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_prev_item()
-    --   elseif luasnip.jumpable(-1) then
-    --     luasnip.jump(-1)
-    --   else
-    --     fallback()
-    --   end
-    -- end, { "i", "s" }),
-	--
-	--
-	--
-	--
-	--
-    -- ["<Tab>"] = function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item()
-    --   else
-    --     fallback()
-    --   end
-    -- end,
-    -- ["<S-Tab>"] = function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_prev_item()
-    --   else
-    --     fallback()
-    --   end
-    -- end,
+     ["<S-Tab>"] = cmp.mapping(function(fallback)
+       if cmp.visible() then
+         cmp.select_prev_item()
+       elseif luasnip.jumpable(-1) then
+         luasnip.jump(-1)
+       else
+         fallback()
+       end
+     end, { "i", "s" }),
+
+
+     ["<Tab>"] = function(fallback)
+       if cmp.visible() then
+         cmp.select_next_item()
+       else
+         fallback()
+       end
+     end,
+     ["<S-Tab>"] = function(fallback)
+       if cmp.visible() then
+         cmp.select_prev_item()
+       else
+         fallback()
+       end
+     end,
   },
 
-  -- Youtube:
   --    the order of your sources matter (by default). That gives them priority
   --    you can configure:
   --        keyword_length
@@ -128,7 +101,6 @@ cmp.setup {
     -- Youtube: Could enable this only for lua, but nvim_lua handles that already.
     { name = "nvim_lua" },
     { name = "zsh" },
-
     { name = "nvim_lsp" },
     { name = "path" },
     { name = "luasnip" },
@@ -170,38 +142,26 @@ cmp.setup {
     end,
   },
 
-  -- formatting = {
-	-- format = require("lspkind").cmp_format({with_text = true, menu = ({
-	  -- buffer = "[Buffer]",
-	  -- nvim_lsp = "[LSP]",
-	  -- luasnip = "[LuaSnip]",
-	  -- nvim_lua = "[Lua]",
-	  -- latex_symbols = "[Latex]",
-	-- })}),
-  -- },
-
-  -- formatting = {
-  --   -- Youtube: How to set up nice formatting for your sources.
-  --   format = lspkind.cmp_format {
-  --     with_text = true,
-  --     menu = {
-  --       buffer = "[buf]",
-  --       nvim_lsp = "[LSP]",
-  --       nvim_lua = "[api]",
-  --       path = "[path]",
-  --       luasnip = "[snip]",
-  --       gh_issues = "[issues]",
-  --       tn = "[TabNine]",
-  --     },
-  --   },
-  -- },
+  formatting = {
+    -- Youtube: How to set up nice formatting for your sources.
+    format = lspkind.cmp_format {
+      with_text = true,
+      menu = {
+        buffer = "[buf]",
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[api]",
+        path = "[path]",
+        luasnip = "[snip]",
+      },
+    },
+  },
 
   experimental = {
     -- I like the new menu better! Nice work hrsh7th
     native_menu = false,
 
     -- Let's play with this for a day or two
-    ghost_text = not is_wsl,
+    ghost_text = true,
   },
 }
 
@@ -216,7 +176,7 @@ cmp.setup.cmdline("/", {
   sources = cmp.config.sources({
     { name = "nvim_lsp_document_symbol" },
   }, {
-    -- { name = "buffer", keyword_length = 5 },
+    { name = "buffer", keyword_length = 5 },
   }),
 })
 
@@ -252,27 +212,8 @@ autocmd FileType lua lua require'cmp'.setup.buffer {
 \ }
 --]]
 
--- Add vim-dadbod-completion in sql files
--- vim.cmd [[
---   augroup DadbodSql
---     au!
---     autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
---   augroup END
--- ]]
 
 --[[
 " Disable cmp for a buffer
 autocmd FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = false }
 --]]
--- Youtube: customizing appearance
---
--- nvim-cmp highlight groups.
--- local Group = require("colorbuddy.group").Group
--- local g = require("colorbuddy.group").groups
--- local s = require("colorbuddy.style").styles
-
--- Group.new("CmpItemAbbr", g.Comment)
--- Group.new("CmpItemAbbrDeprecated", g.Error)
--- Group.new("CmpItemAbbrMatchFuzzy", g.CmpItemAbbr.fg:dark(), nil, s.italic)
--- Group.new("CmpItemKind", g.Special)
--- Group.new("CmpItemMenu", g.NonText)

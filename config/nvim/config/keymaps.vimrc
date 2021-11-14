@@ -25,14 +25,10 @@ inoremap  jj <esc>
 inoremap  jk <esc>
 
 "  using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+noremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" Compe tab navigation
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 "Open terminal below window
 nnoremap <leader>t :below 10sp term://$SHELL<cr>i

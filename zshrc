@@ -105,7 +105,7 @@ export PATH="/usr/local/bin/:$PATH"
 export PATH="/usr/local/bin/brew:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="~/Library/Python/3.6/bin:$PATH"
+export PATH="~/Library/Python/3.7/bin:$PATH"
 #export PATH="/usr/local/opt/vim@7.4/bin:$PATH"
 #fpath=( "$HOME/.zfunctions" $fpath )
 

@@ -8,6 +8,8 @@ brew bundle $DOTFILES_DIR/brewfile
 
 # Install utils -----------------------------------------------------{{{
 sudo pip install powerline-status pipenv --user --upgrade
+sudo pip install jedi --user --upgrade
+
 sudo git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
 # }}}
