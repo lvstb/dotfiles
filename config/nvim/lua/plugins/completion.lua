@@ -3,7 +3,16 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 -- Don't show the dumb matching stuff.
 vim.opt.shortmess:append "c"
 
-vim.opt.runtimepath = vim.opt.runtimepath + '~/dotfiles/config/nvim/snippets'
+-- vim.o.runtimepath = vim.o.runtimepath .. ',/Users/lvstb/dotfiles/config/nvim/snippets,'
+
+local luasnip = require("luasnip")
+
+-- snippets per filetype
+luasnip.snippets = {
+  cloudformation = {'Users/lvstb/dotfiles/config/nvim/snippets'}
+}
+
+require("luasnip/loaders/from_vscode").load({include = {"cloudformation"}})
 require('luasnip/loaders/from_vscode').lazy_load()
 
 local lspkind = require "lspkind"
