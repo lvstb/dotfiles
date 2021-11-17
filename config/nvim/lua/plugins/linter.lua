@@ -51,9 +51,12 @@ local sources = {
   null_ls.builtins.formatting.terraform_fmt,
   null_ls.builtins.formatting.shfmt,
   null_ls.builtins.formatting.gofmt,
-  null_ls.builtins.formatting.eslint_d,
-  null_ls.builtins.formatting.black,
-  null_ls.builtins.formatting.isort,
+  null_ls.builtins.formatting.black.with({
+	  extra_args = { "--experimental-string-processing" }
+  }),
+  null_ls.builtins.formatting.isort.with({
+	  extra_args = { "--profile", "black" }
+  }),
   null_ls.builtins.diagnostics.flake8,
   null_ls.builtins.diagnostics.write_good,
   null_ls.builtins.diagnostics.markdownlint,
