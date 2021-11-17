@@ -212,7 +212,7 @@ cmp.setup.cmdline(":", {
 	hi CmpItemAbbrMatch guifg=#5E81AC
 	hi CmpItemAbbrMatchFuzzy guifg=#81A1C1
 	hi CmpItemKind guifg=#B48EAD
-	hi CmpItemMenu guifg=#B48EAD
+	hi CmpItemMenu guifg=#a3be8c
 	]]
 
 --[[
