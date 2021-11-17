@@ -207,6 +207,14 @@ cmp.setup.cmdline(":", {
   }),
 })
 
+	vim.cmd [[
+	hi CmpItemAbbr guifg=#D8DEE9
+	hi CmpItemAbbrMatch guifg=#5E81AC
+	hi CmpItemAbbrMatchFuzzy guifg=#81A1C1
+	hi CmpItemKind guifg=#B48EAD
+	hi CmpItemMenu guifg=#B48EAD
+	]]
+
 --[[
 " Setup buffer configuration (nvim-lua source only enables in Lua filetype).
 "
