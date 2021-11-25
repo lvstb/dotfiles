@@ -50,3 +50,6 @@
     ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
     # Will start a repo in this directory
     this = !git init && git add . && git commit -m \"initial commit\"
+[user]
+	name = Lars Van Steenbergen
+	email = lars.van.steenbergen@persgroep.net

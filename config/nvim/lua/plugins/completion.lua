@@ -3,17 +3,31 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 -- Don't show the dumb matching stuff.
 vim.opt.shortmess:append "c"
 
--- vim.o.runtimepath = vim.o.runtimepath .. ',/Users/lvstb/dotfiles/config/nvim/snippets,'
+local ls = require("luasnip")
+ls.config.set_config({
+	history = true,
+	-- Update more often, :h events for more info.
+	updateevents = "TextChanged,TextChangedI",
+	-- ext_opts = {
+	-- 	[types.choiceNode] = {
+	-- 		active = {
+	-- 			virt_text = { { "choiceNode", "Comment" } },
+	-- 		},
+	-- 	},
+	-- },
+	-- treesitter-hl has 100, use something higher (default is 200).
+	ext_base_prio = 300,
+	-- minimal increase in priority.
+	ext_prio_increase = 1,
+	enable_autosnippets = true,
+})
 
-local luasnip = require("luasnip")
-
+require("luasnip/loaders/from_vscode").load({ paths = { "/Users/lvstb/dotfiles/config/nvim/snippets" } })
+-- require("luasnip.loaders.from_vscode").lazy_load(paths='/Users/lvstb/dotfiles/config/nvim/snippets/cloudformation')
 -- snippets per filetype
-luasnip.snippets = {
-  cloudformation = {'Users/lvstb/dotfiles/config/nvim/snippets'}
-}
-
-require("luasnip/loaders/from_vscode").load({include = {"cloudformation"}})
-require('luasnip/loaders/from_vscode').lazy_load()
+-- luasnip.snippets = {
+--   cloudformation = {'Users/lvstb/dotfiles/config/nvim/snippets'}
+--}
 
 local lspkind = require "lspkind"
 lspkind.init()
