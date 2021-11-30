@@ -63,6 +63,8 @@ require("trouble").setup {
     auto_close = false, -- automatically close the list when you have no diagnostics
 }
 
+require('nvim-autopairs').setup{}
+
 require("indent_blankline").setup {
     char = "│",
     show_first_indent_level = true,
