@@ -11,6 +11,7 @@ Thumbs.db
 .Trashes
 
 config/gcloud
+config/configstore/snyk.json
 config/spot*
 config/syncthing
 config/nvim/node_modules
