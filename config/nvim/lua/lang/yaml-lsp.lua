@@ -27,6 +27,7 @@ require'lspconfig'.yamlls.setup{
                     "!ImportValue",
                     "!Select",
                     "!Split",
+                    "!Split sequence",
                     "!Join sequence"
                         },
                 },
