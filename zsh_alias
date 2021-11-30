@@ -12,7 +12,7 @@ alias startbicky='aws ec2 start-instances --instance-ids i-04c7f23f7303bd3ec &>/
 alias stopbicky='aws ec2 stop-instances --instance-ids i-04c7f23f7303bd3ec &>/dev/null'
 alias gdiff='git diff origin/master..HEAD'
 alias l='exa --icons'
-alias lsd='exa -lhaa'
+alias lsd='exa -lhaa --icons'
 alias ls='exa --group-directories-first'
 alias ll='exa -la --color always --icons -G -x -s name'
 alias lt='exa --tree --level=2'
