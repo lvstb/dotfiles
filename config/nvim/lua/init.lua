@@ -1,6 +1,7 @@
 require 'lang.python-lsp'
 require 'lang.yaml-lsp'
 require 'lang.go-lsp'
+require 'lang.ts-lsp'
 require 'plugins.completion'
 require 'plugins.treesitter-config'
 require 'plugins.general'
