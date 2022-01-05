@@ -28,6 +28,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'glepnir/dashboard-nvim'
 "Plug 'mbbill/undotree'
 Plug 'folke/trouble.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -46,17 +47,17 @@ Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " Example config in Vim-Scriptj
-let g:nord_contrast = v:true
-"let g:nord_borders = v:false
-"let g:nord_disable_background = v:true
-let g:nord_italic = v:false
-let g:indent_blankline_show_trailing_blankline_indent = v:false
+"let g:nord_contrast = v:true
+""let g:nord_borders = v:false
+""let g:nord_disable_background = v:true
+"let g:nord_italic = v:false
+"let g:indent_blankline_show_trailing_blankline_indent = v:false
 
-syntax on
+" syntax on
 set termguicolors
-colorscheme nord
+" colorscheme nord
 
-source $HOME/.config/nvim/config/general.vimrc
+"source $HOME/.config/nvim/config/general.vimrc
 "source $HOME/.config/nvim/config/init.vimrc
 "source $HOME/.config/nvim/config/plugins.vimrc
 source $HOME/.config/nvim/config/keymaps.vimrc
