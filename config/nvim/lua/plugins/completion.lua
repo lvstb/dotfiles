@@ -22,7 +22,7 @@ ls.config.set_config({
 	enable_autosnippets = true,
 })
 
-require("luasnip/loaders/from_vscode").load({ paths = { "/Users/lvstb/dotfiles/config/nvim/snippets" } })
+require("luasnip/loaders/from_vscode").load({ paths = { "/Users/lvstb/dotfiles/config/nvim/snippets/cloudformation" } })
 -- require("luasnip.loaders.from_vscode").lazy_load(paths='/Users/lvstb/dotfiles/config/nvim/snippets/cloudformation')
 -- snippets per filetype
 -- luasnip.snippets = {

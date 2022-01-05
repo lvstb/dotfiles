@@ -63,13 +63,13 @@ local sources = {
   cfn_lint,
 }
 
-null_ls.config({
+null_ls.setup({
   debug=false,
   sources=sources,
   diagnostics_format = '[#{c}] #{m}',
 })
 
-require("lspconfig")["null-ls"].setup({
+require("null-ls").setup({
 	-- on_attach = attach
 	on_attach = function(client)
 	 if client.resolved_capabilities.document_formatting then

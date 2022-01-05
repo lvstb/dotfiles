@@ -1,3 +1,4 @@
+require 'plug'
 require 'lang.python-lsp'
 require 'lang.yaml-lsp'
 require 'lang.go-lsp'
