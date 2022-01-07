@@ -1,4 +1,5 @@
 -- https://github.com/ChristianChiarulli/nvim
+-- https://gist.github.com/benfrain/97f2b91087121b2d4ba0dcc4202d252f
 
 local fn = vim.fn
 
@@ -10,6 +11,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
     vim.cmd [[packadd packer.nvim]]
 end
 
+-- returns the require for use in `config` parameter of packer's use
+-- expects the name of the config file
+function get_setup(name)
+  return string.format('require("plugins/%s")', name)
+end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
@@ -38,26 +44,47 @@ return require('packer').startup(function(use)
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
-    use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
-    use 'windwp/nvim-autopairs' -- Autopairs, integrates with both cmp and treesitter
+    -- use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
     use 'tpope/vim-commentary'
-    use 'kyazdani42/nvim-web-devicons'
-    use 'norcalli/nvim-colorizer.lua'
-    use 'lukas-reineke/indent-blankline.nvim'
+    use ({ "kyazdani42/nvim-web-devicons", config = get_setup("web-devicons") })
+    use ({ 'norcalli/nvim-colorizer.lua',
+            config = get_setup("colorizer"),
+            event = "BufReadPre"
+        })
+    use ({ 'lukas-reineke/indent-blankline.nvim', config = get_setup("indent-blankline") })
     use {'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
 
     -- Galaxyline
-    use {'glepnir/galaxyline.nvim', branch = 'main'}
-    use 'SmiteshP/nvim-gps'
+    use ({
+        'glepnir/galaxyline.nvim',
+        branch = 'main',
+        event = "VimEnter",
+        config = get_setup("galaxyline"),
+        requires = {
+            { "kyazdani42/nvim-web-devicons", opt = true },
+            { "SmiteshP/nvim-gps", opt = true}
+        }
+        })
 
     -- cmp plugins
-    use 'hrsh7th/nvim-cmp' -- The completion plugin
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer' -- Buffer completions
-    use 'hrsh7th/cmp-path' -- Path completions
-    use 'hrsh7th/cmp-nvim-lua'
-    use 'hrsh7th/cmp-cmdline' -- Cmdline completions
-    use 'saadparwaiz1/cmp_luasnip' -- Snippet completions
+    use ({
+        'hrsh7th/nvim-cmp',
+        requires = {
+            { 'hrsh7th/cmp-nvim-lsp'},
+            { 'hrsh7th/cmp-buffer'}, -- Buffer completions
+            { 'hrsh7th/cmp-path'}, -- Path completions
+            { 'hrsh7th/cmp-nvim-lua'},
+            { 'hrsh7th/cmp-cmdline'}, -- Cmdline completions
+            { 'saadparwaiz1/cmp_luasnip'}, -- Snippet completions
+          --{ "f3fora/cmp-spell", { "hrsh7th/cmp-calc" }, { "hrsh7th/cmp-emoji" } },
+        },
+        config = get_setup("cmp")
+        }) -- The completion plugin
+    use({
+      "windwp/nvim-autopairs",
+      after = "nvim-cmp",
+      config = get_setup("autopairs"),
+    })
 
     -- colorscheme
     use 'arcticicestudio/nord-vim'
@@ -67,15 +94,18 @@ return require('packer').startup(function(use)
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
     -- Treesitter
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'p00f/nvim-ts-rainbow'
+    use ({ 'nvim-treesitter/nvim-treesitter',
+            run = ':TSUpdate',
+            config = get_setup("treesitter-config")
+        })
 
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-    use 'jose-elias-alvarez/null-ls.nvim' -- for formatters and linters
+    use ({ 'jose-elias-alvarez/null-ls.nvim', config = get_setup("linter") }) -- for formatters and linters
     use 'onsails/lspkind-nvim' -- Vscode style pictograms
-    use 'folke/trouble.nvim'
+    use ({ 'folke/trouble.nvim', config = get_setup("trouble") })
     use 'folke/lsp-colors.nvim' -- creates missing LSP diagnostics highlight groups
     --use 'jose-elias-alvarez/nvim-lsp-ts-utils'
     -- use {'filipdutescu/renamer.nvim',
@@ -84,14 +114,30 @@ return require('packer').startup(function(use)
     --     }
 
     -- Telescope
-    use 'nvim-telescope/telescope.nvim'
-    use {'nvim-telescope/telescope-fzy-native.nvim'}
+    use({
+      "nvim-telescope/telescope.nvim",
+      module = "telescope",
+      cmd = "Telescope",
+      requires = {
+        { "nvim-lua/popup.nvim" },
+        { "nvim-lua/plenary.nvim" },
+        { "nvim-telescope/telescope-fzy-native.nvim" }
+      },
+      config = get_setup("telescope"),
+    })
+
     use 'nvim-telescope/telescope-file-browser.nvim'
     use 'ThePrimeagen/git-worktree.nvim'
 
     -- Git
-    use 'airblade/vim-gitgutter'
+    --use 'airblade/vim-gitgutter'
     use 'tpope/vim-fugitive'
+    use({
+      "lewis6991/gitsigns.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+      event = "BufReadPre",
+      config = get_setup("gitsigns"),
+    })
 
     if packer_bootstrap then
         require('packer').sync()

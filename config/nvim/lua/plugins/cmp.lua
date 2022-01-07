@@ -2,6 +2,8 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Don't show the dumb matching stuff.
 vim.opt.shortmess:append "c"
+-- vim.opt.spell = true
+-- vim.opt.spelllang = { 'en_us' }
 
 local ls = require("luasnip")
 ls.config.set_config({
