@@ -134,4 +134,26 @@ local function load_options()
     bind_option(bw_local)
 end
 
+-- LSP Prevents inline buffer annotations
+vim.diagnostic.open_float()
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_on_insert = false,
+})
+
+local signs = {
+  Error = "ﰸ",
+  Warn = "",
+  Hint = "",
+  Info = "",
+}
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = nil })
+end
+
+vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float()]])
+
 load_options()
