@@ -26,7 +26,7 @@ local buffer_not_empty = function()
 end
 
 local in_git_repo = function ()
-  local vcs = require('galaxyline.provider_vcs')
+  local vcs = require("galaxyline.providers.vcs")
   local branch_name = vcs.get_git_branch()
 
   return branch_name ~= nil
@@ -92,7 +92,7 @@ gls.left[3] ={
   FileIcon = {
     provider = 'FileIcon',
     condition = buffer_not_empty,
-    highlight = { require('galaxyline.provider_fileinfo').get_file_icon_color, colors.section_bg },
+    highlight = { require('galaxyline.providers.fileinfo').get_file_icon_color, colors.section_bg },
   },
 }
 gls.left[4] = {
@@ -115,7 +115,7 @@ gls.left[5] = {
 gls.left[6] = {
   GitBranch = {
     provider = function()
-      local vcs = require('galaxyline.provider_vcs')
+      local vcs = require('galaxyline.providers.vcs')
       local branch_name = vcs.get_git_branch()
       if (string.len(branch_name) > 28) then
         return string.sub(branch_name, 1, 25).."..."

@@ -115,16 +115,28 @@ _G.packer_plugins = {
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["galaxyline.nvim"] = {
-    loaded = true,
-    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
-    url = "https://github.com/glepnir/galaxyline.nvim"
+    config = { 'require("plugins/galaxyline")' },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/opt/galaxyline.nvim",
+    url = "https://github.com/NTBBloodbath/galaxyline.nvim"
   },
   ["git-worktree.nvim"] = {
     loaded = true,
     path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/git-worktree.nvim",
     url = "https://github.com/ThePrimeagen/git-worktree.nvim"
   },
+  ["gitsigns.nvim"] = {
+    config = { 'require("plugins/gitsigns")' },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/opt/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["indent-blankline.nvim"] = {
+    config = { 'require("plugins/indent-blankline")' },
     loaded = true,
     path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
@@ -150,28 +162,36 @@ _G.packer_plugins = {
     url = "https://github.com/arcticicestudio/nord-vim"
   },
   ["null-ls.nvim"] = {
+    config = { 'require("plugins/linter")' },
     loaded = true,
     path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
+    config = { 'require("plugins/autopairs")' },
+    load_after = {},
     loaded = true,
-    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    needs_bufread = false,
+    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/opt/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
+    after = { "nvim-autopairs" },
     loaded = true,
-    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp"
+    only_config = true
   },
   ["nvim-colorizer.lua"] = {
-    loaded = true,
-    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    config = { 'require("plugins/colorizer")' },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/opt/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-gps"] = {
-    loaded = true,
-    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/nvim-gps",
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/opt/nvim-gps",
     url = "https://github.com/SmiteshP/nvim-gps"
   },
   ["nvim-lsp-installer"] = {
@@ -185,6 +205,7 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
+    config = { 'require("plugins/treesitter-config")' },
     loaded = true,
     path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -195,6 +216,7 @@ _G.packer_plugins = {
     url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["nvim-web-devicons"] = {
+    config = { 'require("plugins/web-devicons")' },
     loaded = true,
     path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
@@ -225,11 +247,16 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope-fzy-native.nvim"
   },
   ["telescope.nvim"] = {
-    loaded = true,
-    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    commands = { "Telescope" },
+    config = { 'require("plugins/telescope")' },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/opt/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["trouble.nvim"] = {
+    config = { 'require("plugins/trouble")' },
     loaded = true,
     path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
@@ -243,15 +270,84 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-gitgutter"] = {
-    loaded = true,
-    path = "/Users/lvstb/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
-    url = "https://github.com/airblade/vim-gitgutter"
   }
 }
 
 time([[Defining packer_plugins]], false)
+local module_lazy_loads = {
+  ["^telescope"] = "telescope.nvim"
+}
+local lazy_load_called = {['packer.load'] = true}
+local function lazy_load_module(module_name)
+  local to_load = {}
+  if lazy_load_called[module_name] then return nil end
+  lazy_load_called[module_name] = true
+  for module_pat, plugin_name in pairs(module_lazy_loads) do
+    if not _G.packer_plugins[plugin_name].loaded and string.match(module_name, module_pat) then
+      to_load[#to_load + 1] = plugin_name
+    end
+  end
+
+  if #to_load > 0 then
+    require('packer.load')(to_load, {module = module_name}, _G.packer_plugins)
+    local loaded_mod = package.loaded[module_name]
+    if loaded_mod then
+      return function(modname) return loaded_mod end
+    end
+  end
+end
+
+if not vim.g.packer_custom_loader_enabled then
+  table.insert(package.loaders, 1, lazy_load_module)
+  vim.g.packer_custom_loader_enabled = true
+end
+
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require("plugins/indent-blankline")
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-web-devicons
+time([[Config for nvim-web-devicons]], true)
+require("plugins/web-devicons")
+time([[Config for nvim-web-devicons]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require("plugins/treesitter-config")
+time([[Config for nvim-treesitter]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+require("plugins/trouble")
+time([[Config for trouble.nvim]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require("plugins/cmp")
+time([[Config for nvim-cmp]], false)
+-- Config for: null-ls.nvim
+time([[Config for null-ls.nvim]], true)
+require("plugins/linter")
+time([[Config for null-ls.nvim]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-autopairs ]]
+
+-- Config for: nvim-autopairs
+require("plugins/autopairs")
+
+time([[Sequenced loading]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au BufReadPre * ++once lua require("packer.load")({'gitsigns.nvim', 'nvim-colorizer.lua'}, { event = "BufReadPre *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'galaxyline.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

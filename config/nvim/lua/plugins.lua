@@ -56,7 +56,7 @@ return require('packer').startup(function(use)
 
     -- Galaxyline
     use ({
-        'glepnir/galaxyline.nvim',
+        'NTBBloodbath/galaxyline.nvim',
         branch = 'main',
         event = "VimEnter",
         config = get_setup("galaxyline"),
