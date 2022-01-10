@@ -28,17 +28,17 @@ augroup restore_cursor
   autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g`\"" | endif
 augroup END
 
-"Cloudformation filetype
- autocmd BufRead,BufNewFile *cf*.{yaml,yml} call SetCloudFormationOptions()
-function SetCloudFormationOptions()
-    setl nowrap
-    set ft=cloudformation
-    set syntax=yaml
-    set tabstop=2
-    set expandtab
-    set shiftwidth=2
-    set softtabstop=2
-    set foldmethod=indent
-    set foldlevel=99
-    set commentstring=#\ %s
-endfunction
+""Cloudformation filetype
+" autocmd BufRead,BufNewFile *cf*.{yaml,yml} call SetCloudFormationOptions()
+"function SetCloudFormationOptions()
+"    setl nowrap
+"    set ft=cloudformation
+"    set syntax=yaml
+"    set tabstop=2
+"    set expandtab
+"    set shiftwidth=2
+"    set softtabstop=2
+"    set foldmethod=indent
+"    set foldlevel=99
+"    set commentstring=#\ %s
+"endfunction

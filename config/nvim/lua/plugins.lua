@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
         })
     use ({ 'lukas-reineke/indent-blankline.nvim', config = get_setup("indent-blankline") })
     use {'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
+    use({ "nathom/filetype.nvim", config = get_setup("filetype") })
 
     -- Galaxyline
     use ({

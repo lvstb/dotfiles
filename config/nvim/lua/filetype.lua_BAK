@@ -1,0 +1,29 @@
+vim.filetype.add({
+ -- extension = {
+ --     yaml = "cloudformation",
+ --    -- bar = function(path, bufnr)
+ --    -- if some_condition() then
+ --    --     return "barscript"
+ --    -- end
+ --    -- return "bar"
+ --    -- end,
+ -- },
+ -- filename = {
+ --     ["*.yaml"] = "cloudformation",
+-- --     ["/etc/foo/config"] = "toml",
+--  },
+ pattern = {
+     [".?cf.*%.ya?ml"] = "cloudformation"
+--     [".cf.ya?ml"] = "cloudformation",
+    -- [".*&zwj;/etc/foo/.*"] = "fooscript",
+    -- Using an optional priority
+    -- [".*&zwj;/etc/foo/.*%.conf"] = { "dosini", { priority = 10 } },
+    -- ["README.(%a+)$"] = function(path, bufnr, ext)
+    -- if ext == "md" then
+    --     return "markdown"
+    -- elseif ext == "rst" then
+    --     return "rst"
+    -- end
+    -- end,
+ },
+})

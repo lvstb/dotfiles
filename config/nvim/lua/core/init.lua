@@ -20,32 +20,25 @@ local createdir = function()
     end
 end
 
-local leader_map = function()
-    vim.g.mapleader = ","
-    vim.api.nvim_set_keymap("n", " ", "", {noremap = true})
-    vim.api.nvim_set_keymap("x", " ", "", {noremap = true})
-end
+-- local leader_map = function()
+--     vim.g.mapleader = ","
+--     vim.api.nvim_set_keymap("n", " ", "", {noremap = true})
+--     vim.api.nvim_set_keymap("x", " ", "", {noremap = true})
+-- end
 
 local load_core = function()
-    --local pack = require("core.pack")
     createdir()
-    --disable_distribution_plugins()
-    leader_map()
+    -- leader_map()
 
-    --pack.ensure_plugins()
-    --neovide_config()
-    --dashboard_config()
-    -- clipboard_settings()
 
     require("core.options")
-    require("core.mapping")
     --require("keymap")
     --require("core.event")
     --pack.load_compile()
     --Include autocommands in vimscript
     vim.cmd 'source $HOME/.config/nvim/lua/core/autocommands.vim'
-    vim.cmd 'source $HOME/.config/nvim/lua/core/keymaps.vimrc'
     vim.cmd [[colorscheme nord]]
+
 end
 
 load_core()
