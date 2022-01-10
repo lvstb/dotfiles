@@ -6,7 +6,7 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    PACKER_BOOTSTRAP= fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
     print "Installing packer, close and reopen Neovim..."
     vim.cmd [[packadd packer.nvim]]
 end
@@ -102,7 +102,7 @@ return require('packer').startup(function(use)
 
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
-    use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    use ({ "williamboman/nvim-lsp-installer", config = get_setup("lsp-installer") }) -- simple to use language server installer
     use ({ 'jose-elias-alvarez/null-ls.nvim', config = get_setup("linter") }) -- for formatters and linters
     use 'onsails/lspkind-nvim' -- Vscode style pictograms
     use ({ 'folke/trouble.nvim', config = get_setup("trouble") })
@@ -139,7 +139,7 @@ return require('packer').startup(function(use)
       config = get_setup("gitsigns"),
     })
 
-    if packer_bootstrap then
+    if PACKER_BOOTSTRAP then
         require('packer').sync()
     end
 end)
