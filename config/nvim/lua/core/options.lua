@@ -137,11 +137,15 @@ end
 -- LSP Prevents inline buffer annotations
 vim.diagnostic.open_float()
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = false,
+--  virtual_text = false,
   signs = true,
   underline = true,
   update_on_insert = false,
 })
+
+-- since neovim 0.6 this is how to disable inline diagonostics
+-- https://github.com/neovim/nvim-lspconfig/issues/662
+vim.diagnostic.config({virtual_text = false})
 
 local signs = {
   Error = "ﰸ",
