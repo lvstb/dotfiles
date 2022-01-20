@@ -22,5 +22,5 @@ package*
 yarn*
 vim/plugged
 
-gitconfig-*
+gitconfig_*
 config/nvim/plugin/packer_compiled.lua
