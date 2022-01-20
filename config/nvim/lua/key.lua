@@ -85,6 +85,10 @@ map("n", "<Leader>xq", "<cmd>Trouble quicfix<cr>", { noremap = true, silent = tr
 map("n", "<Leader>gR", "<cmd>Trouble lsp_references<cr>", { noremap = true, silent = true})
 
 -- Renamer
-vim.api.nvim_set_keymap('i', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('v', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+
+-- Copy/Paste
+map("v", "<Leader>c", "\"+y")
+map("n", "<Leader>v", "\"+p")
