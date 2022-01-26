@@ -8,7 +8,6 @@ vim.opt.spelllang = { 'en_us' }
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 local lspkind = require("lspkind")
-
 luasnip.config.set_config({
 	history = true,
 	-- Update more often, :h events for more info.
@@ -27,12 +26,11 @@ luasnip.config.set_config({
 	enable_autosnippets = true,
 })
 
-require("luasnip/loaders/from_vscode").load({ paths = { "/Users/lvstb/dotfiles/config/nvim/snippets/cloudformation" } })
+ require("luasnip/loaders/from_vscode").load({ paths = { "/Users/lvstb/dotfiles/config/nvim/snippets/" } })
 -- require("luasnip.loaders.from_vscode").lazy_load(paths='/Users/lvstb/dotfiles/config/nvim/snippets/cloudformation')
--- snippets per filetype
 
-local cmp = require("cmp")
-local lspkind = require("lspkind")
+luasnip.filetype_set("cloudformation", { "cloudformation" })
+
 
 cmp.setup {
     snippet = {
@@ -180,7 +178,6 @@ cmp.setup.cmdline(":", {
     },
   }),
 })
-
 	vim.cmd [[
 	hi CmpItemAbbr guifg=#D8DEE9
 	hi CmpItemAbbrMatch guifg=#5E81AC

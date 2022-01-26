@@ -108,12 +108,12 @@ return require('packer').startup(function(use)
     use ({ 'jose-elias-alvarez/null-ls.nvim', config = get_setup("linter") }) -- for formatters and linters
     use 'onsails/lspkind-nvim' -- Vscode style pictograms
     use ({ 'folke/trouble.nvim', config = get_setup("trouble") })
-    use 'folke/lsp-colors.nvim' -- creates missing LSP diagnostics highlight groups
+    -- use ({'folke/lsp-colors.nvim', config = get_setup("lsp-colors") }) -- creates missing LSP diagnostics highlight groups
+    use ({'j-hui/fidget.nvim', config = get_setup("fidget") })
     -- use {'filipdutescu/renamer.nvim',
     --         branch = 'master',
     --         requires = { {'nvim-lua/plenary.nvim'} }
     --     }
-
     -- Telescope
     use({
       "nvim-telescope/telescope.nvim",
