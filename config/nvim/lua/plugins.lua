@@ -77,7 +77,7 @@ return require('packer').startup(function(use)
             { 'hrsh7th/cmp-nvim-lua'},
             { 'hrsh7th/cmp-cmdline'}, -- Cmdline completions
             { 'saadparwaiz1/cmp_luasnip'}, -- Snippet completions
-          --{ "f3fora/cmp-spell", { "hrsh7th/cmp-calc" }, { "hrsh7th/cmp-emoji" } },
+            { "f3fora/cmp-spell", { "hrsh7th/cmp-calc" }, { "hrsh7th/cmp-emoji" } },
         },
         config = get_setup("cmp")
         }) -- The completion plugin
@@ -89,6 +89,7 @@ return require('packer').startup(function(use)
 
     -- colorscheme
     use 'arcticicestudio/nord-vim'
+    use 'sainnhe/everforest'
 
     -- snippets
     use "L3MON4D3/LuaSnip" --snippet engine
@@ -108,7 +109,6 @@ return require('packer').startup(function(use)
     use 'onsails/lspkind-nvim' -- Vscode style pictograms
     use ({ 'folke/trouble.nvim', config = get_setup("trouble") })
     use 'folke/lsp-colors.nvim' -- creates missing LSP diagnostics highlight groups
-    --use 'jose-elias-alvarez/nvim-lsp-ts-utils'
     -- use {'filipdutescu/renamer.nvim',
     --         branch = 'master',
     --         requires = { {'nvim-lua/plenary.nvim'} }

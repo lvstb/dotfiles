@@ -2,11 +2,14 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Don't show the dumb matching stuff.
 vim.opt.shortmess:append "c"
--- vim.opt.spell = true
--- vim.opt.spelllang = { 'en_us' }
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us' }
 
-local ls = require("luasnip")
-ls.config.set_config({
+local luasnip = require("luasnip")
+local cmp = require("cmp")
+local lspkind = require("lspkind")
+
+luasnip.config.set_config({
 	history = true,
 	-- Update more often, :h events for more info.
 	updateevents = "TextChanged,TextChangedI",
@@ -27,91 +30,46 @@ ls.config.set_config({
 require("luasnip/loaders/from_vscode").load({ paths = { "/Users/lvstb/dotfiles/config/nvim/snippets/cloudformation" } })
 -- require("luasnip.loaders.from_vscode").lazy_load(paths='/Users/lvstb/dotfiles/config/nvim/snippets/cloudformation')
 -- snippets per filetype
--- luasnip.snippets = {
---   cloudformation = {'Users/lvstb/dotfiles/config/nvim/snippets'}
---}
 
-local lspkind = require "lspkind"
-lspkind.init()
-
-local cmp = require "cmp"
+local cmp = require("cmp")
+local lspkind = require("lspkind")
 
 cmp.setup {
-  mapping = {
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-e>"] = cmp.mapping.close(),
-    ["<c-y>"] = cmp.mapping(
-      cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Insert,
+    snippet = {
+        expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+        end,
+    },
+    mapping = {
+        ['<C-p>'] = cmp.mapping.select_prev_item(),
+        ['<C-n>'] = cmp.mapping.select_next_item(),
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.close(),
+        ['<CR>'] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Replace,
         select = true,
-      },
-      { "i", "c" }
-    ),
-
-    ["<c-space>"] = cmp.mapping {
-      i = cmp.mapping.complete(),
-      c = function(
-        _ --[[fallback]]
-      )
+        },
+        ['<Tab>'] = function(fallback)
         if cmp.visible() then
-          if not cmp.confirm { select = true } then
-            return
-          end
+            cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
         else
-          cmp.complete()
+            fallback()
         end
-      end,
+        end,
+        ['<S-Tab>'] = function(fallback)
+        if cmp.visible() then
+            cmp.select_prev_item()
+        elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+        else
+            fallback()
+        end
+        end,
     },
-
-    -- Testing
-    ["<c-q>"] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-
-    -- If you want tab completion :'(
-    --  First you have to just promise to read `:help ins-completion`.
-    --
-
-     ["<Tab>"] = cmp.mapping(function(fallback)
-       if cmp.visible() then
-         cmp.select_next_item()
-       elseif luasnip.expand_or_jumpable() then
-         luasnip.expand_or_jump()
-       elseif has_words_before() then
-         cmp.complete()
-       else
-         fallback()
-       end
-     end, { "i", "s" }),
-
-     ["<S-Tab>"] = cmp.mapping(function(fallback)
-       if cmp.visible() then
-         cmp.select_prev_item()
-       elseif luasnip.jumpable(-1) then
-         luasnip.jump(-1)
-       else
-         fallback()
-       end
-     end, { "i", "s" }),
-
-
-     ["<Tab>"] = function(fallback)
-       if cmp.visible() then
-         cmp.select_next_item()
-       else
-         fallback()
-       end
-     end,
-     ["<S-Tab>"] = function(fallback)
-       if cmp.visible() then
-         cmp.select_prev_item()
-       else
-         fallback()
-       end
-     end,
-  },
 
   --    the order of your sources matter (by default). That gives them priority
   --    you can configure:
@@ -244,7 +202,6 @@ autocmd FileType lua lua require'cmp'.setup.buffer {
 \   },
 \ }
 --]]
-
 
 --[[
 " Disable cmp for a buffer

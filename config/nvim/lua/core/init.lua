@@ -30,7 +30,6 @@ local load_core = function()
     createdir()
     -- leader_map()
 
-
     require("core.options")
     --require("keymap")
     --require("core.event")
