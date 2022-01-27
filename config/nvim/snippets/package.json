@@ -1,0 +1,28 @@
+{
+  "name": "custom-snippets",
+  "engines": {
+    "vscode": "^1.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "cloudformation"
+        "path": "./cloudformation/custom.json"
+      },
+      {
+        "language": "cloudformation"
+        "path": "./cloudformation/resource-types.json"
+      },
+      {
+        "language": "cloudformation"
+        "path": "./cloudformation/condition-functions.json"
+      },
+      {
+        "language": "cloudformation"
+        "path": "./cloudformation/parameter-types.json"
+      },
+      {
+        "language": "cloudformation"
+        "path": "./cloudformation/intrinsic-functions.json"
+      },
+    ]
