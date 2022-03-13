@@ -22,7 +22,7 @@ fpath+=('$PWD/functions')
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+ export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -31,7 +31,7 @@ fpath+=('$PWD/functions')
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-#ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -53,7 +53,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z git brew colored-man-pages aws zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(z git brew colored-man-pages awslars zsh-syntax-highlighting zsh-autosuggestions)
 
 # User configuration
 
@@ -109,6 +109,11 @@ export PATH="~/Library/Python/3.7/bin:$PATH"
 #export PATH="/usr/local/opt/vim@7.4/bin:$PATH"
 #fpath=( "$HOME/.zfunctions" $fpath )
 
+# AWS SSO (DPG)
+export AWS_PROFILE=default
+export AWS_DEFAULT_REGION=eu-west-1
+export AWS_DEFAULT_SSO_START_URL=https://d-93677093a7.awsapps.com/start
+export AWS_DEFAULT_SSO_REGION=eu-west-1
 
 autoload -U promptinit; promptinit
 prompt pure
