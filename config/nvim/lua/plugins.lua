@@ -101,6 +101,7 @@ return require('packer').startup(function(use)
             run = ':TSUpdate',
             config = get_setup("treesitter-config")
         })
+    use("nvim-treesitter/nvim-treesitter-textobjects")
 
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
@@ -114,6 +115,7 @@ return require('packer').startup(function(use)
     --         branch = 'master',
     --         requires = { {'nvim-lua/plenary.nvim'} }
     --     }
+
     -- Telescope
     use({
       "nvim-telescope/telescope.nvim",
@@ -138,6 +140,17 @@ return require('packer').startup(function(use)
       requires = { "nvim-lua/plenary.nvim" },
       event = "BufReadPre",
       config = get_setup("gitsigns"),
+    })
+
+    --Various
+    use({
+        'phaazon/hop.nvim',
+        config = get_setup("hop"),
+        -- branch = 'v1', -- optional but strongly recommended
+    })
+    use({
+        "simrat39/symbols-outline.nvim",
+        config = get_setup("outline"),
     })
 
     if PACKER_BOOTSTRAP then
