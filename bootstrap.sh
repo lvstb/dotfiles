@@ -4,7 +4,7 @@ shopt -s dotglob
 DOTFILES_DIR=`dirname $0`
 echo $DOTFILES_DIR
 
-brew bundle $DOTFILES_DIR/brewfile
+brew bundle --file=$DOTFILES_DIR/brewfile
 
 # Install utils -----------------------------------------------------{{{
 sudo pip install powerline-status pipenv --user --upgrade
