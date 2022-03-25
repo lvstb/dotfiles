@@ -53,7 +53,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z git brew colored-man-pages awslars zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(z git brew colored-man-pages awslars)
 
 # User configuration
 
@@ -78,7 +78,7 @@ export LANG=en_US.UTF-8
 #set environment variables
 #export AWS_PROFILE=masl
 #Prevents the aws plugin of manipulating rprompt
-export SHOW_AWS_PROMPT=false
+export SHOW_AWS_PROMPT=true
 export EDITOR=vim
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -117,6 +117,9 @@ export AWS_DEFAULT_SSO_REGION=eu-west-1
 
 autoload -U promptinit; promptinit
 prompt pure
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/lvstb/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lvstb/Downloads/google-cloud-sdk/path.zsh.inc'; fi
