@@ -115,11 +115,13 @@ export AWS_DEFAULT_REGION=eu-west-1
 export AWS_DEFAULT_SSO_START_URL=https://d-93677093a7.awsapps.com/start
 export AWS_DEFAULT_SSO_REGION=eu-west-1
 
-autoload -U promptinit; promptinit
-prompt pure
+# autoload -U promptinit; promptinit
+# prompt pure
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/lvstb/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lvstb/Downloads/google-cloud-sdk/path.zsh.inc'; fi
@@ -130,3 +132,4 @@ export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/binutils/bin:$PATH"
+eval "$(starship init zsh)"
