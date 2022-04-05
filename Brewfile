@@ -113,4 +113,3 @@ cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 cask "xquartz"
-password = ditiseentest

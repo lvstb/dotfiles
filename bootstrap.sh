@@ -31,13 +31,13 @@ ln -sf $DOTFILES_DIR/oh-my-zsh ~/
 
 
 # change prompt --------------------------------------------------{{{
-mkdir -p ~/.oh-my-zsh/functions
+# mkdir -p ~/.oh-my-zsh/functions
 
-wget https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
-wget https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh
+# wget https://raw.githubusercontent.com/sindresorhus/pure/master/pure.zsh
+# wget https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh
 
-mv pure.zsh ~/.oh-my-zsh/functions/prompt_pure_setup
-mv async.zsh ~/.oh-my-zsh/functions/async
+# mv pure.zsh ~/.oh-my-zsh/functions/prompt_pure_setup
+# mv async.zsh ~/.oh-my-zsh/functions/async
 
 # }}}
 
@@ -47,10 +47,10 @@ chsh -s $(which zsh)
 # }}}
 
 # Install Plug for all vim plugins--------------------------------------{{{
-if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
-  echo "Installing Plug"
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
+# if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
+#   echo "Installing Plug"
+#   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# fi
 # }}}
 
 source $HOME/.zshrc

@@ -12,15 +12,6 @@
 #[package]
 #disabled = true
 
-#[aws]
-#format = '[$symbol($profile )(\($region\) )]($style)'
-## style = "bold blue"
-## symbol = "🅰 "
-#[aws.region_aliases]
-#eu-west-1 = "eu"
-## [aws.profile_aliases]
-## picture-admin=picture
-
 ## I'd like to be able to get rid of the "on" prefix in a future version
 #[git_branch]
 #symbol = ""
@@ -54,7 +45,6 @@
 #disabled = true
 ##symbol = ""
 ##style = "bold yellow"jh
-#
 format = """
 $username\
 $hostname\
@@ -66,6 +56,10 @@ $cmd_duration\
 $line_break\
 $python\
 $character"""
+
+right_format = """
+$aws\
+"""
 
 [directory]
 style = "blue"
@@ -101,3 +95,12 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
+
+[aws]
+format = '[$symbol($profile )(\($region\) )]($style)'
+style = "bold yellow"
+symbol = "🅰 "
+#[aws.region_aliases]
+#eu-west-1 = "eu"
+## [aws.profile_aliases]
+## picture-admin=picture
