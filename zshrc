@@ -106,6 +106,8 @@ export PATH="/usr/local/bin/brew:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="~/Library/Python/3.7/bin:$PATH"
+export GOPATH=~/go export
+PATH=$GOPATH/bin:$PATH
 #export PATH="/usr/local/opt/vim@7.4/bin:$PATH"
 #fpath=( "$HOME/.zfunctions" $fpath )
 
@@ -132,4 +134,5 @@ export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/binutils/bin:$PATH"
+
 eval "$(starship init zsh)"

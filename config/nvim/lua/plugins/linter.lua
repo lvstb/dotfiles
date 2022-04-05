@@ -51,6 +51,7 @@ local sources = {
   null_ls.builtins.formatting.terraform_fmt,
   null_ls.builtins.formatting.shfmt,
   null_ls.builtins.formatting.gofmt,
+  null_ls.builtins.formatting.prettierd,
   null_ls.builtins.formatting.black.with({
 	  extra_args = { "--experimental-string-processing" }
   }),
@@ -60,6 +61,7 @@ local sources = {
   null_ls.builtins.diagnostics.flake8,
   null_ls.builtins.diagnostics.write_good,
   null_ls.builtins.diagnostics.markdownlint,
+  null_ls.builtins.code_actions.eslint_d,
   cfn_lint,
 }
 
