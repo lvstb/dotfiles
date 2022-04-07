@@ -60,7 +60,8 @@ map("n", "<leader>fi", '<cmd>lua require("telescope.builtin").git_status()<cr>')
 map("n", "<leader>ca", '<cmd>lua require("telescope.builtin").lsp_code_actions()<cr>')
 map("n", "<leader>cs", '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>')
 map("n", "<leader>cd", '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<cr>')
-map("n", "<leader>cr", '<cmd>lua require("telescope.builtin").lsp_references()<cr>')
+map("n", "<leader>cr", '<cmd>lua require("telescope.builtin").lsp_definitions()<cr>')
+map("n", "<leader>ct", '<cmd>lua require("telescope.builtin").lsp_type_definitions()<cr>')
 map("n", "<C-p>", '<cmd>lua require("telescope.builtin").git_files()<cr>')
 
 -- Easier split mappings

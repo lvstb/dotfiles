@@ -49,6 +49,9 @@ M.search_dotfiles = function()
     })
 end
 
+require "telescope.builtin".lsp_definitions { jump_type = "never" }
+require "telescope.builtin".lsp_type_definitions { jump_type = "never" }
+
 M.git_branches = function()
     require("telescope.builtin").git_branches({
         attach_mappings = function(_, map)
