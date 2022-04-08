@@ -138,8 +138,8 @@ return require('packer').startup(function(use)
     use({
       "lewis6991/gitsigns.nvim",
       requires = { "nvim-lua/plenary.nvim" },
-      event = "BufReadPre",
-      config = get_setup("gitsigns"),
+        event = "BufReadPre",
+        config = get_setup("gitsigns"),
     })
 
     --Various
@@ -152,6 +152,7 @@ return require('packer').startup(function(use)
         "simrat39/symbols-outline.nvim",
         config = get_setup("outline"),
     })
+    use 'kosayoda/nvim-lightbulb'
 
     if PACKER_BOOTSTRAP then
         require('packer').sync()
