@@ -128,7 +128,6 @@ return require('packer').startup(function(use)
       },
       config = get_setup("telescope"),
     })
-
     use 'nvim-telescope/telescope-file-browser.nvim'
     use 'ThePrimeagen/git-worktree.nvim'
 

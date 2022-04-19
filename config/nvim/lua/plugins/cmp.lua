@@ -116,13 +116,6 @@ cmp.setup {
     },
   },
 
-  -- Youtube: mention that you need a separate snippets plugin
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-    end,
-  },
-
   formatting = {
     -- Youtube: How to set up nice formatting for your sources.
     format = lspkind.cmp_format {

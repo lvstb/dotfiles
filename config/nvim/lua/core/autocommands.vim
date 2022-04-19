@@ -42,3 +42,5 @@ augroup END
 "    set foldlevel=99
 "    set commentstring=#\ %s
 "endfunction
+"
+autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
