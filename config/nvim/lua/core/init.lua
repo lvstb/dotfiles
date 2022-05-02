@@ -31,12 +31,11 @@ local load_core = function()
     -- leader_map()
 
     require("core.options")
-    --require("keymap")
+    require ("core.theme")
     --require("core.event")
-    --pack.load_compile()
     --Include autocommands in vimscript
     vim.cmd 'source $HOME/.config/nvim/lua/core/autocommands.vim'
-    vim.cmd [[colorscheme nord]]
+    -- vim.cmd [[colorscheme onenord]]
 
 end
 

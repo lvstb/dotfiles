@@ -90,6 +90,7 @@ return require('packer').startup(function(use)
     -- colorscheme
     use 'arcticicestudio/nord-vim'
     use 'sainnhe/everforest'
+    use 'rmehri01/onenord.nvim'
 
     -- snippets
     use "L3MON4D3/LuaSnip" --snippet engine
@@ -132,7 +133,6 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/git-worktree.nvim'
 
     -- Git
-    --use 'airblade/vim-gitgutter'
     use 'tpope/vim-fugitive'
     use({
       "lewis6991/gitsigns.nvim",

@@ -5,8 +5,8 @@
   -- }
 
 require'nvim-treesitter.configs'.setup {
-   ensure_installed = 'maintained',
-   highlight = {enable = true, disable = {'vim', 'yaml'}},
+   -- ensure_installed = 'maintained',
+   highlight = {enable = true, disable = {'vim'}},
   textobjects = {
        select = {
            enable = true,
