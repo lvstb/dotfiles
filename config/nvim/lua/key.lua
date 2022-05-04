@@ -39,7 +39,6 @@ map("n", "<Leader>n", "<cmd>enew<CR>")
 -- Make visual yanks place the cursor back where started
 map("v", "y", "ygv<Esc>")
 
-
 -- Make Y yank to end of the line
 map("n", "Y", "y$")
 
@@ -77,7 +76,6 @@ map("n", "<Leader>[", "<C-W>_", { silent = true })
 map("n", "<Leader>]", "<C-W>|", { silent = true })
 map("n", "<Leader>=", "<C-W>=", { silent = true })
 
-
 -- Hop
 map("n", "m", "<cmd>lua require'hop'.hint_words()<cr>")
 map("n", ";", "<cmd>lua require'hop'.hint_lines()<cr>")
@@ -95,10 +93,8 @@ map("n", "<Leader>xl", "<cmd>Trouble loclist<cr>", { noremap = true, silent = tr
 map("n", "<Leader>xq", "<cmd>Trouble quicfix<cr>", { noremap = true, silent = true})
 map("n", "<Leader>gR", "<cmd>Trouble lsp_references<cr>", { noremap = true, silent = true})
 
--- Renamer
--- vim.api.nvim_set_keymap('i', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('v', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+--LSP
+map("n", "<Leader>rn", "<cmd>:lua vim.lsp.buf.rename()<cr>")
 
 -- Copy/Paste
 map("v", "<Leader>c", "\"+y")

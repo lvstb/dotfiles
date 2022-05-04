@@ -44,7 +44,6 @@ return require('packer').startup(function(use)
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
-    -- use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
     use 'tpope/vim-commentary'
     use ({ "kyazdani42/nvim-web-devicons", config = get_setup("web-devicons") })
     use ({ 'norcalli/nvim-colorizer.lua',
@@ -114,7 +113,8 @@ return require('packer').startup(function(use)
     use ({'j-hui/fidget.nvim', config = get_setup("fidget") })
     -- use {'filipdutescu/renamer.nvim',
     --         branch = 'master',
-    --         requires = { {'nvim-lua/plenary.nvim'} }
+    --         requires = { {'nvim-lua/plenary.nvim'} },
+    --         config = get_setup("renamer")
     --     }
 
     -- Telescope

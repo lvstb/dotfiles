@@ -31,6 +31,8 @@ lsp_installer.on_server_ready(function(server)
                     "!If",
                     "!Not",
                     "!Equals",
+                    "!Equals Scalar",
+                    "!Equals sequence",
                     "!Or",
                     "!FindInMap sequence",
                     "!Base64",
