@@ -110,7 +110,7 @@ return require('packer').startup(function(use)
     use 'onsails/lspkind-nvim' -- Vscode style pictograms
     use ({ 'folke/trouble.nvim', config = get_setup("trouble") })
     -- use ({'folke/lsp-colors.nvim', config = get_setup("lsp-colors") }) -- creates missing LSP diagnostics highlight groups
-    use ({'j-hui/fidget.nvim', config = get_setup("fidget") })
+    -- use ({'j-hui/fidget.nvim', config = get_setup("fidget") })
     -- use {'filipdutescu/renamer.nvim',
     --         branch = 'master',
     --         requires = { {'nvim-lua/plenary.nvim'} },

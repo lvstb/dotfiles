@@ -28,6 +28,10 @@ augroup restore_cursor
   autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g`\"" | endif
 augroup END
 
+"Set Cloudformation filetype and keep the yaml syntax
+au BufRead,BufNewFile *cf*.{yaml,yml} set filetype=yaml.cloudformation
+
+
 ""Cloudformation filetype
 " autocmd BufRead,BufNewFile *cf*.{yaml,yml} call SetCloudFormationOptions()
 "function SetCloudFormationOptions()
