@@ -61,7 +61,6 @@ local sources = {
   null_ls.builtins.diagnostics.flake8,
   null_ls.builtins.diagnostics.write_good,
   null_ls.builtins.diagnostics.markdownlint,
-  null_ls.builtins.code_actions.eslint_d,
   cfn_lint,
 }
 

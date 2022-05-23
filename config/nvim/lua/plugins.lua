@@ -125,12 +125,13 @@ return require('packer').startup(function(use)
       requires = {
         { "nvim-lua/popup.nvim" },
         { "nvim-lua/plenary.nvim" },
-        { "nvim-telescope/telescope-fzy-native.nvim" }
+        { "nvim-telescope/telescope-fzy-native.nvim" },
       },
       config = get_setup("telescope"),
     })
     use 'nvim-telescope/telescope-file-browser.nvim'
     use 'ThePrimeagen/git-worktree.nvim'
+    use {'stevearc/dressing.nvim'}
 
     -- Git
     use 'tpope/vim-fugitive'
