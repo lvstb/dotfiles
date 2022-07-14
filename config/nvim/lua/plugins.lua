@@ -104,7 +104,8 @@ return require('packer').startup(function(use)
     use("nvim-treesitter/nvim-treesitter-textobjects")
 
     -- LSP
-    use "neovim/nvim-lspconfig" -- enable LSP
+    use ({ "neovim/nvim-lspconfig" }) -- enable LSP
+    use ({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
     use ({ "williamboman/nvim-lsp-installer", config = get_setup("lsp-installer") }) -- simple to use language server installer
     use ({ 'jose-elias-alvarez/null-ls.nvim', config = get_setup("linter") }) -- for formatters and linters
     use 'onsails/lspkind-nvim' -- Vscode style pictograms

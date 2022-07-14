@@ -1,78 +1,71 @@
-local lsp_installer = require("nvim-lsp-installer")
+local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not status_ok then
+	return
+end
 
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
-    local opts = {}
+	local opts = {
+		on_attach = require("plugins.lsp.handlers").on_attach,
+		capabilities = require("plugins.lsp.handlers").capabilities,
+	}
 
-    if server.name == "sumneko_lua" then
-        opts.settings = {
-            Lua = {
-                diagnostics = {
-                    -- Get the language server to recognize the `vim` global
-                    globals = {'vim'},
-                },
-            },
-        }
+	if server.name == "yamlls" then
+	    local yamlls_opts = require("plugins.lsp.settings.yamlls")
+		opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
 	end
 
-    if server.name == "yamlls" then
-    opts.settings = {
-            yaml = {
-                format = {
-                        enable = true,
-                },
-                hover = true,
-                completion = true,
-                validate = true,
-                customTags = {
-                    "!fn",
-                    "!And",
-                    "!If",
-                    "!If Sequence",
-                    "!Not",
-                    "!Equals",
-                    "!Equals Scalar",
-                    "!Equals sequence",
-                    "!Or",
-                    "!FindInMap sequence",
-                    "!Base64",
-                    "!Cidr",
-                    "!Ref",
-                    "!Ref Scalar",
-                    "!Sub",
-                    "!GetAtt",
-                    "!GetAZs",
-                    "!ImportValue",
-                    "!Select",
-                    "!Split",
-                    "!Join sequence"
-                    },
-                schemaStore = {
-                    url = "https://www.schemastore.org/api/json/catalog.json",
-                    enable = true,
-                },
-                schemas = {
-                    ["https://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.ya?ml",
-                    ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-                    ["https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json"] = "*cf*.ya?ml",
-                    ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.ya?ml",
-                    ["https://json.schemastore.org/prettierrc.json"] = ".prettierrc.ya?ml",
-                    ["https://json.schemastore.org/eslintrc.json"] = ".eslintrc.ya?ml",
-                    ["https://json.schemastore.org/pre-commit-config.json"] = ".pre-commit-config.ya?ml",
-                    ["https://yarnpkg.com/configuration/yarnrc.json"] = ".yarnrc.ya?ml",
-                    ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.ya?ml",
-                },
-            },
-        }
+	if server.name == "jsonls" then
+	    local jsonls_opts = require("plugins.lsp.settings.jsonls")
+		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	end
 
-    -- (optional) Customize the options passed to the server
-    -- if server.name == "tsserver" then
-    --     opts.root_dir = function() ... end
-    -- end
+	if server.name == "sumneko" then
+		local sumneko_opts = require("plugins.lsp.settings.sumneko")
+		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+	end
 
-    -- This setup() function is exactly the same as lspconfig's setup function.
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    server:setup(opts)
+	-- if server.name == "pyright" then
+	-- 	local pyright_opts = require("config.lsp.settings.pyright")
+	-- 	opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+	-- end
+
+	-- if server.name == "gopls" then
+	-- 	local gopls_opts = require("config.lsp.settings.gopls")
+	-- 	opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+	-- end
+
+	-- if server.name == "dockerls" then
+	-- 	local dockerls_opts = require("config.lsp.settings.dockerls")
+	-- 	opts = vim.tbl_deep_extend("force", dockerls_opts, opts)
+	-- end
+
+	-- if server.name == "cssls" then
+	-- 	local cssls_opts = require("config.lsp.settings.cssls")
+	-- 	opts = vim.tbl_deep_extend("force", cssls_opts, opts)
+	-- end
+
+	-- if server.name == "html" then
+	-- 	local html_opts = require("config.lsp.settings.html")
+	-- 	opts = vim.tbl_deep_extend("force", html_opts, opts)
+	-- end
+
+	if server.name == "tsserver" then
+		local tsserver_opts = require("plugins.lsp.settings.tsserver")
+		opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+	end
+
+	-- if server.name == "zk" then
+	-- 	local zk_opts = require("config.lsp.settings.zk")
+	-- 	opts = vim.tbl_deep_extend("force", zk_opts, opts)
+	-- end
+
+	-- if server.name == "rust_analyzer" then
+	-- 	local rust_analyzer_opts = require("config.lsp.settings.rust_analyzer")
+	-- 	opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
+	-- end
+	-- This setup() function is exactly the same as lspconfig's setup function.
+	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+	server:setup(opts)
 end)

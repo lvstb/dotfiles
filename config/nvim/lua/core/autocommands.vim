@@ -28,23 +28,8 @@ augroup restore_cursor
   autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g`\"" | endif
 augroup END
 
-"Set Cloudformation filetype and keep the yaml syntax
-au BufRead,BufNewFile *cf*.{yaml,yml} set filetype=yaml.cloudformation
+""Set Cloudformation filetype and keep the yaml syntax
+"au BufRead,BufNewFile *cf*.{yaml,yml} set filetype=yaml.cloudformation
 
-
-""Cloudformation filetype
-" autocmd BufRead,BufNewFile *cf*.{yaml,yml} call SetCloudFormationOptions()
-"function SetCloudFormationOptions()
-"    setl nowrap
-"    set ft=cloudformation
-"    set syntax=yaml
-"    set tabstop=2
-"    set expandtab
-"    set shiftwidth=2
-"    set softtabstop=2
-"    set foldmethod=indent
-"    set foldlevel=99
-"    set commentstring=#\ %s
-"endfunction
-"
-autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+" autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({ ignore = {"null-ls"} })

@@ -27,7 +27,7 @@ luasnip.config.set_config({
 })
 
  -- require("luasnip/loaders/from_vscode").load({ paths = { "/Users/lvstb/dotfiles/config/nvim/snippets/" } })
-require("luasnip.loaders.from_vscode").lazy_load()
+-- require("luasnip.loaders.from_vscode").lazy_load()
 
 -- Load snippets from JSON files (VSCode syntax)
 require("luasnip/loaders/from_vscode").lazy_load({
@@ -35,7 +35,7 @@ require("luasnip/loaders/from_vscode").lazy_load({
     vim.fn.stdpath('config') .. '/snippets',
   }
 })
-luasnip.filetype_extend("cloudformation", { "yaml" })
+luasnip.filetype_extend("cloudformation", { "yaml.cloudformation" })
 
 cmp.setup {
     snippet = {
