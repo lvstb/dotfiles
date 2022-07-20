@@ -1,9 +1,12 @@
 require("filetype").setup({
     overrides = {
-        -- extensions = {
+        extensions = {
         --     -- Set the filetype of *.pn files to potion
         --     yaml = "cfn",
-        -- },
+            tf = "hcl",
+            tfvars = "hcl",
+            nomad = "hcl"
+        },
         -- literal = {
         --     -- Set the filetype of files named "MyBackupFile" to lua
         --     MyBackupFile = "lua",
@@ -12,6 +15,7 @@ require("filetype").setup({
             -- Set the filetype of any full filename matching the regex to gitconfig
             -- [".*git/config"] = "gitconfig", -- Included in the plugin
             -- ["cfn-.*%.ya?ml"] = "cloudformation",
+            -- ["*.tf, *.nomad, *.tfvars, *.hcl"] = "hcl",
         },
 
   --" autocmd BufRead,BufNewFile cfn-*.yaml,cfn-*.yml call SetCloudFormationOptions()
