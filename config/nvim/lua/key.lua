@@ -60,9 +60,9 @@ map("n", "<leader>fs", '<cmd>lua require("telescope.builtin").spell_suggest()<cr
 map("n", "<leader>fi", '<cmd>lua require("telescope.builtin").git_status()<cr>')
 -- map("n", "<leader>ca", '<cmd>lua require("telescope.builtin").lsp_code_actions( {layout_config={width=80, height=20} } ) <cr>')
 -- map("n", "<leader>cs", '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>')
-map("n", "<leader>di", '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<cr>')
-map("n", "<leader>df", '<cmd>lua require("telescope.builtin").lsp_definitions()<cr>')
-map("n", "<leader>td", '<cmd>lua require("telescope.builtin").lsp_type_definitions()<cr>')
+-- map("n", "<leader>di", '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<cr>')
+-- map("n", "<leader>df", '<cmd>lua require("telescope.builtin").lsp_definitions()<cr>')
+-- map("n", "<leader>td", '<cmd>lua require("telescope.builtin").lsp_type_definitions()<cr>')
 map("n", "<C-p>", '<cmd>lua require("telescope.builtin").git_files()<cr>')
 map("n", "<C-x>", '<cmd>lua require("plugins.telescope").search_dotfiles( { hidden = true })<cr>')
 
@@ -91,8 +91,11 @@ map("n", "<Leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", { noremap = tru
 map("n", "<Leader>xd", "<cmd>Trouble document_diagnostics<cr>", { noremap = true, silent = true})
 map("n", "<Leader>xl", "<cmd>Trouble loclist<cr>", { noremap = true, silent = true})
 map("n", "<Leader>xq", "<cmd>Trouble quicfix<cr>", { noremap = true, silent = true})
-map("n", "<Leader>gR", "<cmd>Trouble lsp_references<cr>", { noremap = true, silent = true})
-
+map("n", "gR", "<cmd>Trouble lsp_references<cr>", { noremap = true, silent = true})
+map("n", "gd", "<cmd>Trouble lsp_definitions<cr>", { noremap = true, silent = true})
+map("n", "gi", "<cmd>Trouble lsp_implementations<cr>", { noremap = true, silent = true})
+map("n", "gr", "<cmd>Trouble lsp_references<cr>", { noremap = true, silent = true})
+map("n", "gt", "<cmd>Trouble lsp_type_definitions<cr>", { noremap = true, silent = true})
 --LSP
 map("n", "<Leader>rn", "<cmd>:lua vim.lsp.buf.rename()<cr>")
 map("n", "gca", "<cmd>:lua vim.lsp.buf.code_action()<cr>")
