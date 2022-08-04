@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+require'lspconfig'.grammarly.setup{}
+
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)

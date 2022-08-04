@@ -212,6 +212,14 @@ gls.right[2] = {
     separator_highlight = { colors.bg, colors.section_bg },
   },
 }
+gls.right[3] = {
+  LinePercent = {
+    provider = 'LinePercent',
+    highlight = { colors.fg, colors.section_bg },
+    separator = ' | ',
+    separator_highlight = { colors.bg, colors.section_bg },
+  },
+}
 -- gls.right[3] = {
 --   Heart = {
 --     provider = function() return ' ' end,

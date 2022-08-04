@@ -49,23 +49,23 @@
   "contributes": {
     "snippets": [
       {
-        "language": "yaml",
+        "language": "cloudformation",
         "path": "./snippets/condition-functions.json"
       },
       {
-        "language": "yaml",
+        "language": "cloudformation",
         "path": "./snippets/custom.json"
       },
       {
-        "language": "yaml",
+        "language": "cloudformation",
         "path": "./snippets/intrinsic-functions.json"
       },
       {
-        "language": "yaml",
+        "language": "cloudformation",
         "path": "./snippets/parameter-types.json"
       },
       {
-        "language": "yaml",
+        "language": "cloudformation",
         "path": "./snippets/resource-types.json"
       }
     ]

@@ -121,10 +121,10 @@ export AWS_DEFAULT_SSO_REGION=eu-west-1
 # prompt pure
 
 # source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/lvstb/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lvstb/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 

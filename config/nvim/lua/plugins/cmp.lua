@@ -35,7 +35,6 @@ require("luasnip/loaders/from_vscode").lazy_load({
     vim.fn.stdpath('config') .. '/snippets',
   }
 })
-luasnip.filetype_extend("cloudformation", { "yaml.cloudformation" })
 
 cmp.setup {
     snippet = {

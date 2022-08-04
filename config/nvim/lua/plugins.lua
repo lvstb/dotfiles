@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
             event = "BufReadPre"
         })
     use ({ 'lukas-reineke/indent-blankline.nvim', config = get_setup("indent-blankline") })
-    use {'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
+    use {"ellisonleao/glow.nvim"}
     use({ "nathom/filetype.nvim", config = get_setup("filetype") })
 
     -- Galaxyline
@@ -62,7 +62,7 @@ return require('packer').startup(function(use)
         config = get_setup("galaxyline"),
         requires = {
             { "kyazdani42/nvim-web-devicons", opt = true },
-            { "SmiteshP/nvim-gps", opt = true}
+            { "SmiteshP/nvim-navic" }
         }
         })
 
@@ -87,8 +87,6 @@ return require('packer').startup(function(use)
     })
 
     -- colorscheme
-    use 'arcticicestudio/nord-vim'
-    use 'sainnhe/everforest'
     use 'rmehri01/onenord.nvim'
 
     -- snippets
@@ -110,13 +108,6 @@ return require('packer').startup(function(use)
     use ({ 'jose-elias-alvarez/null-ls.nvim', config = get_setup("linter") }) -- for formatters and linters
     use 'onsails/lspkind-nvim' -- Vscode style pictograms
     use ({ 'folke/trouble.nvim', config = get_setup("trouble") })
-    -- use ({'folke/lsp-colors.nvim', config = get_setup("lsp-colors") }) -- creates missing LSP diagnostics highlight groups
-    -- use ({'j-hui/fidget.nvim', config = get_setup("fidget") })
-    -- use {'filipdutescu/renamer.nvim',
-    --         branch = 'master',
-    --         requires = { {'nvim-lua/plenary.nvim'} },
-    --         config = get_setup("renamer")
-    --     }
 
     -- Telescope
     use({
