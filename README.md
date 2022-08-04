@@ -4,14 +4,15 @@
   <img src="img/dot.png" width="500" />
   </p>
 
-These are my personal dotfiles.  
+These are my personal dotfiles.
+test
 
 ## Install Dotfiles
 
 To install these dotfiles, clone the repo.
 After that just run the bootstrap script.
 
-If the bootstrap script is done, go in VIM and do :PlugInstall! to install all vim plugins.  
+If the bootstrap script is done, go in VIM and do :PlugInstall! to install all vim plugins.
 
 ## Features
 
@@ -20,7 +21,7 @@ If the bootstrap script is done, go in VIM and do :PlugInstall! to install all v
 - Tmux with personalization
 - Vim with plugins and personalization
 
-Theme  = Nord   
+Theme  = Nord
 Prompt = Pure
 
 To get Python 3.7 working on Apple silicon
