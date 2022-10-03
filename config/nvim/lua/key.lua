@@ -58,11 +58,6 @@ map("n", "<leader>fg", '<cmd>lua require("telescope.builtin").git_bcommits()<cr>
 map("n", "<space>fb", '<cmd>lua require("telescope").extensions.file_browser.file_browser()<CR>')
 map("n", "<leader>fs", '<cmd>lua require("telescope.builtin").spell_suggest()<cr>')
 map("n", "<leader>fi", '<cmd>lua require("telescope.builtin").git_status()<cr>')
--- map("n", "<leader>ca", '<cmd>lua require("telescope.builtin").lsp_code_actions( {layout_config={width=80, height=20} } ) <cr>')
--- map("n", "<leader>cs", '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>')
--- map("n", "<leader>di", '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<cr>')
--- map("n", "<leader>df", '<cmd>lua require("telescope.builtin").lsp_definitions()<cr>')
--- map("n", "<leader>td", '<cmd>lua require("telescope.builtin").lsp_type_definitions()<cr>')
 map("n", "<C-p>", '<cmd>lua require("telescope.builtin").git_files()<cr>')
 map("n", "<C-x>", '<cmd>lua require("plugins.telescope").search_dotfiles( { hidden = true })<cr>')
 

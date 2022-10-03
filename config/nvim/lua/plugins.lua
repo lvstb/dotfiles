@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
         })
     use ({ 'lukas-reineke/indent-blankline.nvim', config = get_setup("indent-blankline") })
     use {"ellisonleao/glow.nvim"}
-    use({ "nathom/filetype.nvim", config = get_setup("filetype") })
+    -- use({ "nathom/filetype.nvim", config = get_setup("filetype") })
 
     -- Galaxyline
     use ({

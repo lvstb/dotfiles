@@ -160,7 +160,4 @@ end
 
 vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float()]])
 
--- Enable the new way of ft detection
--- vim.g.do_filetype_lua = 1
---vim.g.did_load_filetypes = 0
 load_options()
