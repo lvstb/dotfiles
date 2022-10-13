@@ -52,7 +52,6 @@ return require('packer').startup(function(use)
         })
     use ({ 'lukas-reineke/indent-blankline.nvim', config = get_setup("indent-blankline") })
     use {"ellisonleao/glow.nvim"}
-    -- use({ "nathom/filetype.nvim", config = get_setup("filetype") })
 
     -- Galaxyline
     use ({
@@ -99,18 +98,27 @@ return require('packer').startup(function(use)
             run = ':TSUpdate',
             config = get_setup("treesitter-config")
         })
-    use("nvim-treesitter/nvim-treesitter-textobjects")
+    use({ "nvim-treesitter/nvim-treesitter-textobjects" })
 
     -- LSP
-    use ({ "neovim/nvim-lspconfig" }) -- enable LSP
-    use ({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
-    use ({ "williamboman/nvim-lsp-installer", config = get_setup("lsp-installer") }) -- simple to use language server installer
+    use ({
+      'neovim/nvim-lspconfig',
+      requires = {
+        'b0o/schemastore.nvim',
+        'ray-x/lsp_signature.nvim',
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig',
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+      },
+      config = get_setup("lspconfig")
+      })
+    use ({ "jose-elias-alvarez/typescript.nvim" })
     use ({ 'jose-elias-alvarez/null-ls.nvim', config = get_setup("linter") }) -- for formatters and linters
-    use 'onsails/lspkind-nvim' -- Vscode style pictograms
+    use ({ 'onsails/lspkind-nvim' })-- Vscode style pictograms
     use ({ 'folke/trouble.nvim', config = get_setup("trouble") })
 
     -- Telescope
-    use({
+    use ({
       "nvim-telescope/telescope.nvim",
       module = "telescope",
       cmd = "Telescope",
@@ -124,6 +132,11 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-file-browser.nvim'
     use 'ThePrimeagen/git-worktree.nvim'
     use {'stevearc/dressing.nvim'}
+    use ({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        -- config = get_setup("nvim-surround"),
+    })
 
     -- Git
     use 'tpope/vim-fugitive'

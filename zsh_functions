@@ -4,22 +4,22 @@ function digga() {
 	    }
 #print file size
 function fs() {
-	    if du -b /dev/null > /dev/null 2>&1; then 
+	    if du -b /dev/null > /dev/null 2>&1; then
 		    local arg=-sbh
 	    else
 		    local arg=-sh
 	    fi
     	    if [[ -n "$@" ]]; then
 	       du $arg -- "$@"
-	    else	
-               du $arg .[^.]* *										       
+	    else
+               du $arg .[^.]* *
             fi
        }
-function lazygit() {
-	git add .
-	git commit -a -m "$1"
-	git push
-}
+# function lazygit() {
+# 	git add .
+# 	git commit -a -m "$1"
+# 	git push
+# }
 # Create a new directory and enter it
 function mkd() {
     mkdir -p "$@" && cd "$_";
