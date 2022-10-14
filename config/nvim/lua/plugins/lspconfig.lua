@@ -11,11 +11,20 @@ require("mason").setup {
 
 require("mason-tool-installer").setup {
    ensure_installed = {
+    -- lsp
+    'lua-language-server',
+    'vim-language-server',
+    'yaml-language-server',
+    'json-lsp',
+    'bash-language-server',
+    'typescript-language-server',
+
     -- formatting
     'prettierd',
     'shfmt',
     'stylua',
     'black',
+    'eslint_d',
 
     -- diagnostics
     'markdownlint',
@@ -23,8 +32,9 @@ require("mason-tool-installer").setup {
     'write-good',
     'yamllint',
     'hadolint',
+    'cfn-lint',
     },
-    auto_update = false,
+    auto_update = true,
     run_on_start = true,
   }
 
