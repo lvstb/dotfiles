@@ -1,81 +1,122 @@
-local lspconfig = require "lspconfig"
+local lspconfig = require("lspconfig")
+local null_ls = require("null-ls")
+local null_helpers = require("null-ls.helpers")
 
-require("mason").setup {
-  -- ui = {
-  --   icons = {
-  --     package_installed = icons.server_installed,
-  --     package_pending = icons.server_pending,
-  --     package_uninstalled = icons.server_uninstalled,
-  --   },
-  }
+--Built in formatters
+local sources = {
+	--Formatting
+	null_ls.builtins.formatting.terraform_fmt.with({
+		timeout = 10000,
+		to_temp_file = false,
+		filetypes = { "terraform", "hcl" },
+	}),
+	null_ls.builtins.formatting.stylua,
+	null_ls.builtins.formatting.shfmt,
+	null_ls.builtins.formatting.eslint_d,
+	null_ls.builtins.formatting.gofumpt,
+	null_ls.builtins.formatting.prettierd,
+	null_ls.builtins.formatting.black.with({
+		extra_args = { "--experimental-string-processing" },
+	}),
+	null_ls.builtins.formatting.isort.with({
+		extra_args = { "--profile", "black" },
+	}),
+	--Diagnostics
+	null_ls.builtins.diagnostics.flake8,
+	null_ls.builtins.diagnostics.hadolint,
+	null_ls.builtins.diagnostics.write_good,
+	null_ls.builtins.diagnostics.markdownlint,
+	--Code Actions
+	null_ls.builtins.code_actions.gitsigns,
+	null_ls.builtins.diagnostics.cfn_lint,
+}
 
-require("mason-tool-installer").setup {
-   ensure_installed = {
-    -- lsp
-    'lua-language-server',
-    'vim-language-server',
-    'yaml-language-server',
-    'json-lsp',
-    'bash-language-server',
-    'typescript-language-server',
+null_ls.setup({
+	debug = false,
+	sources = sources,
+	diagnostics_format = "[#{c}] #{m}",
+})
 
-    -- formatting
-    'prettierd',
-    'shfmt',
-    'stylua',
-    'black',
-    'eslint_d',
+require("mason").setup({
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
+})
 
-    -- diagnostics
-    'markdownlint',
-    'shellcheck',
-    'write-good',
-    'yamllint',
-    'hadolint',
-    'cfn-lint',
-    },
-    auto_update = true,
-    run_on_start = true,
-  }
+require("mason-tool-installer").setup({
+	ensure_installed = {
+		-- lsp
+		"lua-language-server",
+		"vim-language-server",
+		"yaml-language-server",
+		"json-lsp",
+		"bash-language-server",
+		"typescript-language-server",
+
+		-- formatting
+		"prettierd",
+		"shfmt",
+		"stylua",
+		"black",
+		"eslint_d",
+		"gofumpt",
+		"isort",
+		"flake8",
+
+		-- diagnostics
+		"markdownlint",
+		"shellcheck",
+		"write-good",
+		"yamllint",
+		"hadolint",
+		"cfn-lint",
+	},
+	auto_update = true,
+	run_on_start = true,
+})
 
 require("mason-lspconfig").setup_handlers({
- function(server)
-      local opts = {
-           on_attach = require("plugins.lsp.handlers").on_attach,
-           capabilities = require("plugins.lsp.handlers").capabilities,
-      }
-      require("lspconfig")[server].setup(opts)
+	function(server)
+		local opts = {
+			on_attach = require("plugins.lsp.handlers").on_attach,
+			capabilities = require("plugins.lsp.handlers").capabilities,
+		}
+		require("lspconfig")[server].setup(opts)
 
-      require("typescript").setup({
-      server = {
-          on_attach = opts.on_attach,
-          capabilities = opts.capabilities
-      }
-     })
+		require("typescript").setup({
+			server = {
+				on_attach = opts.on_attach,
+				capabilities = opts.capabilities,
+			},
+		})
 
-      if server == "sumneko_lua" then
-           local sumneko_opts = require("plugins.lsp.settings.sumneko")
-           sumneko_opts["on_attach"] = opts.on_attach
-           sumneko_opts["capabilities"] = opts.capabilities
-           require("lspconfig")[server].setup(sumneko_opts)
-      end
+		if server == "sumneko_lua" then
+			local sumneko_opts = require("plugins.lsp.settings.sumneko")
+			sumneko_opts["on_attach"] = opts.on_attach
+			sumneko_opts["capabilities"] = opts.capabilities
+			require("lspconfig")[server].setup(sumneko_opts)
+		end
 
-      if server == "yamlls" then
-           local yamlls_opts = require("plugins.lsp.settings.yamlls")
-           yamlls_opts["on_attach"] = opts.on_attach
-           yamlls_opts["capabilities"] = opts.capabilities
-           require("lspconfig")[server].setup(yamlls_opts)
-      end
+		if server == "yamlls" then
+			local yamlls_opts = require("plugins.lsp.settings.yamlls")
+			yamlls_opts["on_attach"] = opts.on_attach
+			yamlls_opts["capabilities"] = opts.capabilities
+			require("lspconfig")[server].setup(yamlls_opts)
+		end
 
-      if server == "jsonls" then
-           local jsonls_opts = require("plugins.lsp.settings.jsonls")
-           jsonls_opts["on_attach"] = opts.on_attach
-           jsonls_opts["capabilities"] = opts.capabilities
-           require("lspconfig")[server].setup(jsonls_opts)
-      end
+		if server == "jsonls" then
+			local jsonls_opts = require("plugins.lsp.settings.jsonls")
+			jsonls_opts["on_attach"] = opts.on_attach
+			jsonls_opts["capabilities"] = opts.capabilities
+			require("lspconfig")[server].setup(jsonls_opts)
+		end
+	end,
+})
 
- end})
-
-require("mason-lspconfig").setup {
-    automatic_installation = false,
-}
+require("mason-lspconfig").setup({
+	automatic_installation = false,
+})

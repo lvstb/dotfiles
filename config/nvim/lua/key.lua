@@ -94,6 +94,7 @@ map("n", "gt", "<cmd>Trouble lsp_type_definitions<cr>", { noremap = true, silent
 --LSP
 map("n", "<Leader>rn", "<cmd>:lua vim.lsp.buf.rename()<cr>")
 map("n", "gca", "<cmd>:lua vim.lsp.buf.code_action()<cr>")
+map("n", "<space>f", "<cmd>:lua vim.lsp.buf.format({ timeout_ms = 2000 })<cr>")
 
 -- Copy/Paste
 map("v", "<Leader>c", "\"+y")

@@ -20,18 +20,13 @@ local createdir = function()
     end
 end
 
--- local leader_map = function()
---     vim.g.mapleader = ","
---     vim.api.nvim_set_keymap("n", " ", "", {noremap = true})
---     vim.api.nvim_set_keymap("x", " ", "", {noremap = true})
--- end
-
 local load_core = function()
     createdir()
     -- leader_map()
 
     require("core.options")
     require ("core.theme")
+    require ("core.augroup")
     --require("core.event")
     --Include autocommands in vimscript
     vim.cmd 'source $HOME/.config/nvim/lua/core/autocommands.vim'
