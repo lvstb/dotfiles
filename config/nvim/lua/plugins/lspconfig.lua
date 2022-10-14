@@ -11,7 +11,8 @@ local sources = {
 		filetypes = { "terraform", "hcl" },
 	}),
 	null_ls.builtins.formatting.stylua,
-	null_ls.builtins.formatting.shfmt,
+	null_ls.builtins.formatting.yamlfmt,
+	null_ls.builtins.formatting.shfmt.with({ filetypes = { "sh" } }),
 	null_ls.builtins.formatting.eslint_d,
 	null_ls.builtins.formatting.gofumpt,
 	null_ls.builtins.formatting.prettierd,
@@ -25,6 +26,7 @@ local sources = {
 	null_ls.builtins.diagnostics.flake8,
 	null_ls.builtins.diagnostics.hadolint,
 	null_ls.builtins.diagnostics.write_good,
+	null_ls.builtins.diagnostics.shellcheck.with({ diagnostics_format = "#{m} [#{c}]" }),
 	null_ls.builtins.diagnostics.markdownlint,
 	--Code Actions
 	null_ls.builtins.code_actions.gitsigns,
@@ -66,6 +68,7 @@ require("mason-tool-installer").setup({
 		"gofumpt",
 		"isort",
 		"flake8",
+		"yamlfmt",
 
 		-- diagnostics
 		"markdownlint",
