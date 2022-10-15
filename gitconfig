@@ -8,7 +8,7 @@
     autoctrl = input
     whitespace = space-before-tab, trailing-space
 	excludesfile = ~/.gitignore_global
-	hooksPath = ~/dotfiles/githook
+	hooksPath = ~/dotfiles/githook/hooks
 
 [credential]
     helper = osxkeychain
