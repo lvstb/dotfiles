@@ -7,8 +7,8 @@
     editor = vim
     autoctrl = input
     whitespace = space-before-tab, trailing-space
-	excludesfile = /Users/lvstb/.gitignore_global
-	hooksPath = /Users/lvansteenbergen/dotfiles/githook
+	excludesfile = ~/.gitignore_global
+	hooksPath = ~/dotfiles/githook
 
 [credential]
     helper = osxkeychain
