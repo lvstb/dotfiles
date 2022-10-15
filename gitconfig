@@ -8,6 +8,8 @@
     autoctrl = input
     whitespace = space-before-tab, trailing-space
 	excludesfile = /Users/lvstb/.gitignore_global
+	hooksPath = /Users/lvansteenbergen/dotfiles/githook
+
 [credential]
     helper = osxkeychain
 [pager]
