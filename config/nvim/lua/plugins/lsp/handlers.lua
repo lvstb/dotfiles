@@ -79,24 +79,24 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-	-- if client.name == "tsserver" then
-	--     client.server_capabilities.documentFormattingProvider = false
-	-- end
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
-			buffer = bufnr,
-			callback = function()
-				vim.lsp.buf.format({
-					bufnr = bufnr,
-					filter = function(client)
-						return client.name == "null-ls"
-					end,
-				})
-			end,
-		})
+	if client.name == "tsserver" then
+		client.server_capabilities.documentFormattingProvider = false
 	end
+	-- if client.supports_method("textDocument/formatting") then
+	-- 	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+	-- 	vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 		group = augroup,
+	-- 		buffer = bufnr,
+	-- 		callback = function()
+	-- 			vim.lsp.buf.format({
+	-- 				bufnr = bufnr,
+	-- 				filter = function(client)
+	-- 					return client.name == "null-ls"
+	-- 				end,
+	-- 			})
+	-- 		end,
+	-- 	})
+	-- end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 	require("lsp_signature").on_attach()
