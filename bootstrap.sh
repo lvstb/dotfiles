@@ -1,7 +1,7 @@
 #!/bin/bash
 shopt -s dotglob
 
-DOTFILES_DIR=`dirname $0`
+DOTFILES_DIR=$(dirname $0)
 echo $DOTFILES_DIR
 
 brew bundle --file=$DOTFILES_DIR/brewfile
@@ -29,7 +29,6 @@ ln -sf $DOTFILES_DIR/oh-my-zsh ~/
 
 # }}}
 
-
 # change prompt --------------------------------------------------{{{
 # mkdir -p ~/.oh-my-zsh/functions
 
@@ -40,7 +39,6 @@ ln -sf $DOTFILES_DIR/oh-my-zsh ~/
 # mv async.zsh ~/.oh-my-zsh/functions/async
 
 # }}}
-
 
 # change shell to zsh --------------------------------------------------{{{
 chsh -s $(which zsh)
