@@ -1,5 +1,3 @@
-
-
 <p align="center" style="text-align:center;">
   <img src="img/dot.png" width="500" />
   </p>
@@ -21,7 +19,7 @@ If the bootstrap script is done, go in VIM and do :PlugInstall! to install all v
 - Tmux with personalization
 - Vim with plugins and personalization
 
-Theme  = Nord
+Theme = Nord
 Prompt = Pure
 
 To get Python 3.7 working on Apple silicon
