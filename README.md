@@ -3,7 +3,7 @@
   </p>
 
 These are my personal dotfiles.
-password= AKIAtest123
+client_secret= AKIAtest123
 
 ## Install Dotfiles
 
