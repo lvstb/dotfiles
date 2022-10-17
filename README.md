@@ -3,6 +3,7 @@
   </p>
 
 These are my personal dotfiles.
+password= test123
 
 ## Install Dotfiles
 
