@@ -3,7 +3,6 @@
   </p>
 
 These are my personal dotfiles.
-test
 
 ## Install Dotfiles
 
