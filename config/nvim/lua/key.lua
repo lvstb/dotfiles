@@ -1,11 +1,11 @@
 require("plugins")
 
 function map(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Map leader to space
@@ -15,7 +15,7 @@ vim.g.mapleader = ","
 map("n", "j", "gj")
 map("n", "k", "gk")
 
- --Disable the mouse wheel
+--Disable the mouse wheel
 map("i", "<ScrollWheelUp>", "<Nop>")
 map("i", "<ScrollWheelDown>", "<Nop>")
 
@@ -23,9 +23,6 @@ map("i", "<ScrollWheelDown>", "<Nop>")
 map("i", "<esc>", "<Nop>")
 map("i", "jj", "<esc>")
 map("i", "jk", "<esc>")
-
--- Open terminal below window
-map("n", "<Leader>t", ":below 10sp term://$SHELL<cr>i", { noremap = true, silent = true})
 
 -- Switch Session
 map("n", "<Leader>1", ":Telescope sessions [save_current=true]<CR>")
@@ -81,21 +78,21 @@ map("v", ";", "<cmd>lua require'hop'.hint_lines()<cr>")
 map("n", "<leader>o", ":SymbolsOutline<cr>")
 
 -- Trouble keymaps
-map("n", "<Leader>xx", "<cmd>Trouble<cr>", { noremap = true, silent = true})
-map("n", "<Leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", { noremap = true, silent = true})
-map("n", "<Leader>xd", "<cmd>Trouble document_diagnostics<cr>", { noremap = true, silent = true})
-map("n", "<Leader>xl", "<cmd>Trouble loclist<cr>", { noremap = true, silent = true})
-map("n", "<Leader>xq", "<cmd>Trouble quicfix<cr>", { noremap = true, silent = true})
-map("n", "gR", "<cmd>Trouble lsp_references<cr>", { noremap = true, silent = true})
-map("n", "gd", "<cmd>Trouble lsp_definitions<cr>", { noremap = true, silent = true})
-map("n", "gi", "<cmd>Trouble lsp_implementations<cr>", { noremap = true, silent = true})
-map("n", "gr", "<cmd>Trouble lsp_references<cr>", { noremap = true, silent = true})
-map("n", "gt", "<cmd>Trouble lsp_type_definitions<cr>", { noremap = true, silent = true})
+map("n", "<Leader>xx", "<cmd>Trouble<cr>", { noremap = true, silent = true })
+map("n", "<Leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", { noremap = true, silent = true })
+map("n", "<Leader>xd", "<cmd>Trouble document_diagnostics<cr>", { noremap = true, silent = true })
+map("n", "<Leader>xl", "<cmd>Trouble loclist<cr>", { noremap = true, silent = true })
+map("n", "<Leader>xq", "<cmd>Trouble quicfix<cr>", { noremap = true, silent = true })
+map("n", "gR", "<cmd>Trouble lsp_references<cr>", { noremap = true, silent = true })
+map("n", "gd", "<cmd>Trouble lsp_definitions<cr>", { noremap = true, silent = true })
+map("n", "gi", "<cmd>Trouble lsp_implementations<cr>", { noremap = true, silent = true })
+map("n", "gr", "<cmd>Trouble lsp_references<cr>", { noremap = true, silent = true })
+map("n", "gt", "<cmd>Trouble lsp_type_definitions<cr>", { noremap = true, silent = true })
 --LSP
 map("n", "<Leader>rn", "<cmd>:lua vim.lsp.buf.rename()<cr>")
 map("n", "gca", "<cmd>:lua vim.lsp.buf.code_action()<cr>")
 map("n", "<space>f", "<cmd>:lua vim.lsp.buf.format({ timeout_ms = 2000 })<cr>")
 
 -- Copy/Paste
-map("v", "<Leader>c", "\"+y")
-map("n", "<Leader>v", "\"+p")
+map("v", "<Leader>c", '"+y')
+map("n", "<Leader>v", '"+p')

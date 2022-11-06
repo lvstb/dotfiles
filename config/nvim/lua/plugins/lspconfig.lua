@@ -16,7 +16,7 @@ local sources = {
 	null_ls.builtins.formatting.shfmt.with({ filetypes = { "sh" } }),
 	null_ls.builtins.diagnostics.eslint_d,
 	null_ls.builtins.formatting.gofumpt,
-	-- null_ls.builtins.formatting.prettierd,
+	null_ls.builtins.formatting.prettierd,
 	null_ls.builtins.formatting.black.with({
 		extra_args = { "--experimental-string-processing" },
 	}),
