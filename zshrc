@@ -10,7 +10,7 @@ source ~/.zsh_functions
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME=""
-fpath+=('$PWD/functions')
+fpath+=('$PWD/functions' '$ZSH/completions')
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -119,6 +119,7 @@ export AWS_DEFAULT_SSO_REGION=eu-west-1
 
 # autoload -U promptinit; promptinit
 # prompt pure
+#
 
 # source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -136,3 +137,4 @@ export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 export PATH="/usr/local/opt/binutils/bin:$PATH"
 
 eval "$(starship init zsh)"
+autoload -U compinit
