@@ -1,0 +1,88 @@
+{
+ "ConfigPath": {
+  "Path": "/Users/lvansteenbergen/.config/containers/podman/machine/qemu/podman-machine-default.json"
+ },
+ "CmdLine": [
+  "/opt/homebrew/bin/qemu-system-aarch64",
+  "-m",
+  "2048",
+  "-smp",
+  "1",
+  "-fw_cfg",
+  "name=opt/com.coreos/config,file=/Users/lvansteenbergen/.config/containers/podman/machine/qemu/podman-machine-default.ign",
+  "-qmp",
+  "unix:/var/folders/3w/sy2047y96vb2lnl0ljk6h5_r0000gp/T/podman/qmp_podman-machine-default.sock,server=on,wait=off",
+  "-netdev",
+  "socket,id=vlan,fd=3",
+  "-device",
+  "virtio-net-pci,netdev=vlan,mac=5a:94:ef:e4:0c:ee",
+  "-device",
+  "virtio-serial",
+  "-chardev",
+  "socket,path=/var/folders/3w/sy2047y96vb2lnl0ljk6h5_r0000gp/T/podman/podman-machine-default_ready.sock,server=on,wait=off,id=apodman-machine-default_ready",
+  "-device",
+  "virtserialport,chardev=apodman-machine-default_ready,name=org.fedoraproject.port.0",
+  "-pidfile",
+  "/var/folders/3w/sy2047y96vb2lnl0ljk6h5_r0000gp/T/podman/podman-machine-default_vm.pid",
+  "-accel",
+  "hvf",
+  "-accel",
+  "tcg",
+  "-cpu",
+  "host",
+  "-M",
+  "virt,highmem=on",
+  "-drive",
+  "file=/opt/homebrew/share/qemu/edk2-aarch64-code.fd,if=pflash,format=raw,readonly=on",
+  "-drive",
+  "file=/Users/lvansteenbergen/.local/share/containers/podman/machine/qemu/podman-machine-default_ovmf_vars.fd,if=pflash,format=raw",
+  "-virtfs",
+  "local,path=/Users/lvansteenbergen,mount_tag=vol0,security_model=mapped-xattr",
+  "-drive",
+  "if=virtio,file=/Users/lvansteenbergen/.local/share/containers/podman/machine/qemu/podman-machine-default_fedora-coreos-37.20221106.2.1-qemu.aarch64.qcow2"
+ ],
+ "Rootful": false,
+ "UID": 502,
+ "IgnitionFilePath": {
+  "Path": "/Users/lvansteenbergen/.config/containers/podman/machine/qemu/podman-machine-default.ign"
+ },
+ "ImageStream": "testing",
+ "ImagePath": {
+  "Path": "/Users/lvansteenbergen/.local/share/containers/podman/machine/qemu/podman-machine-default_fedora-coreos-37.20221106.2.1-qemu.aarch64.qcow2"
+ },
+ "Mounts": [
+  {
+   "ReadOnly": false,
+   "Source": "/Users/lvansteenbergen",
+   "Tag": "vol0",
+   "Target": "/Users/lvansteenbergen",
+   "Type": "9p"
+  }
+ ],
+ "Name": "podman-machine-default",
+ "PidFilePath": {
+  "Path": "/var/folders/3w/sy2047y96vb2lnl0ljk6h5_r0000gp/T/podman/podman-machine-default_proxy.pid"
+ },
+ "VMPidFilePath": {
+  "Path": "/var/folders/3w/sy2047y96vb2lnl0ljk6h5_r0000gp/T/podman/podman-machine-default_vm.pid"
+ },
+ "QMPMonitor": {
+  "Address": {
+   "Path": "/var/folders/3w/sy2047y96vb2lnl0ljk6h5_r0000gp/T/podman/qmp_podman-machine-default.sock"
+  },
+  "Network": "unix",
+  "Timeout": 2000000000
+ },
+ "ReadySocket": {
+  "Path": "/var/folders/3w/sy2047y96vb2lnl0ljk6h5_r0000gp/T/podman/podman-machine-default_ready.sock"
+ },
+ "CPUs": 1,
+ "DiskSize": 100,
+ "Memory": 2048,
+ "IdentityPath": "/Users/lvansteenbergen/.ssh/podman-machine-default",
+ "Port": 50681,
+ "RemoteUsername": "core",
+ "Starting": false,
+ "Created": "2022-11-18T21:04:53.248364+01:00",
+ "LastUp": "2022-11-18T21:56:34.313838+01:00"
+}
