@@ -118,7 +118,7 @@ return require("packer").startup(function(use)
 	use({ "jose-elias-alvarez/typescript.nvim" })
 	use({ "onsails/lspkind-nvim" }) -- Vscode style pictograms
 	use({ "folke/trouble.nvim", config = get_setup("trouble") })
-
+	use("simrat39/inlay-hints.nvim")
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",

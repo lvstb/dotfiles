@@ -2,6 +2,7 @@ local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 local null_helpers = require("null-ls.helpers")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local ih = require("inlay-hints")
 
 --Built in formatters
 local sources = {

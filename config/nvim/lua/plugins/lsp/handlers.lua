@@ -100,6 +100,7 @@ M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 	require("lsp_signature").on_attach()
+	-- require("inlay-hints").on_attach()
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

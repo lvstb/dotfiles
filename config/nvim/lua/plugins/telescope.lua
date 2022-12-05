@@ -23,17 +23,21 @@ require("telescope").setup({
 			override_generic_sorter = false,
 			override_file_sorter = true,
 		},
-		file_browser = { -- disables netrw and use telescope-file-browser in its place
-			hijack_netrw = true,
-			-- theme = "ivy",
+		file_browser = {
+			-- disables netrw and use telescope-file-browser in its place
+			hijack_netwrw = true,
+			hidden = true,
 			mappings = {
-				["i"] = {
-					-- your custom insert mode mappactionsings
-					["<C-a>"] = fb_actions.create_from_prompt,
-					["<C-r>"] = fb_actions.rename,
-					-- ["<C-m>"] = fb_actions.move,
+				i = {
+					["<c-n>"] = fb_actions.create,
+					["<c-r>"] = fb_actions.rename,
+					["<c-h>"] = fb_actions.toggle_hidden,
+					["<c-x>"] = fb_actions.remove,
+					["<c-p>"] = fb_actions.move,
+					["<c-y>"] = fb_actions.copy,
+					["<c-a>"] = fb_actions.select_all,
 				},
-				["n"] = {},
+				n = {},
 			},
 		},
 	},
