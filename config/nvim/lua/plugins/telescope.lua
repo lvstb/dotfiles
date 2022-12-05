@@ -31,7 +31,7 @@ require("telescope").setup({
 					-- your custom insert mode mappactionsings
 					["<C-a>"] = fb_actions.create_from_prompt,
 					["<C-r>"] = fb_actions.rename,
-					["<C-m>"] = fb_actions.move,
+					-- ["<C-m>"] = fb_actions.move,
 				},
 				["n"] = {},
 			},
