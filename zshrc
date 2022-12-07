@@ -86,21 +86,7 @@ export EDITOR=vim
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# The next line updates PATH for the Google Cloud SDK.
-#if [ -f '/Users/lvansteenbergen/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/lvansteenbergen/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-#if [ -f '/Users/lvansteenbergen/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/lvansteenbergen/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-#if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 export PATH="/usr/local/bin/:$PATH"
 export PATH="/usr/local/bin/brew:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
@@ -108,8 +94,8 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="~/Library/Python/3.7/bin:$PATH"
 export GOPATH=~/go export
 PATH=$GOPATH/bin:$PATH
-#export PATH="/usr/local/opt/vim@7.4/bin:$PATH"
-#fpath=( "$HOME/.zfunctions" $fpath )
+eval $(/opt/homebrew/bin/brew shellenv)
+
 
 # AWS SSO (DPG)
 export AWS_PROFILE=default
@@ -117,15 +103,14 @@ export AWS_DEFAULT_REGION=eu-west-1
 export AWS_DEFAULT_SSO_START_URL=https://d-93677093a7.awsapps.com/start
 export AWS_DEFAULT_SSO_REGION=eu-west-1
 
-# autoload -U promptinit; promptinit
-# prompt pure
-#
 
 # source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source <(kubectl completion zsh)
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/lvstb/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lvstb/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -135,6 +120,9 @@ export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/binutils/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 eval "$(starship init zsh)"
 autoload -U compinit
