@@ -4,6 +4,14 @@ export ZSH=~/.oh-my-zsh
 source ~/.zsh_alias
 source ~/.zsh_functions
 
+source $ZSH/oh-my-zsh.sh
+
+autoload -Uz compinit
+compinit
+
+
+# autoload -U +X compinit && compinit
+# source <(kubectl completion zsh)
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -31,7 +39,7 @@ fpath+=('$PWD/functions' '$ZSH/completions')
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -46,27 +54,7 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="dd.mm.yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(z git brew colored-man-pages awslars)
-
-# User configuration
-
-# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
+plugins=(z kubectl git brew colored-man-pages awslars)
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
@@ -75,54 +63,15 @@ export LANG=en_US.UTF-8
    export EDITOR='mvim'
  fi
 
-#set environment variables
-#export AWS_PROFILE=masl
-#Prevents the aws plugin of manipulating rprompt
-export SHOW_AWS_PROMPT=true
-export EDITOR=vim
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 #
-export PATH="/usr/local/bin/:$PATH"
-export PATH="/usr/local/bin/brew:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="~/Library/Python/3.7/bin:$PATH"
-export GOPATH=~/go export
-PATH=$GOPATH/bin:$PATH
-eval $(/opt/homebrew/bin/brew shellenv)
 
-
-# AWS SSO (DPG)
-export AWS_PROFILE=default
-export AWS_DEFAULT_REGION=eu-west-1
-export AWS_DEFAULT_SSO_START_URL=https://d-93677093a7.awsapps.com/start
-export AWS_DEFAULT_SSO_REGION=eu-west-1
-
-
-# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source <(kubectl completion zsh)
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/lvstb/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lvstb/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/lvstb/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lvstb/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/usr/local/opt/binutils/bin:$PATH"
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 eval "$(starship init zsh)"
-autoload -U compinit
+# autoload -U compinit; compinit
