@@ -1,5 +1,5 @@
 -- Necessary for colors
-vim.opt.termguicolors = true
+-- vim.opt.termguicolors = true
 
 -- "let g:nord_contrast = v:true
 -- ""let g:nord_borders = v:false
