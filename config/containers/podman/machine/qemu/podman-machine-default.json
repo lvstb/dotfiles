@@ -1,6 +1,6 @@
 {
  "ConfigPath": {
-  "Path": "/Users/lvstb/.config/containers/podman/machine/qemu/podman-machine-default.json"
+  "Path": "/Users/lvansteenbergen/.config/containers/podman/machine/qemu/podman-machine-default.json"
  },
  "CmdLine": [
   "/opt/homebrew/bin/qemu-system-aarch64",
@@ -84,5 +84,5 @@
  "RemoteUsername": "core",
  "Starting": false,
  "Created": "2022-12-07T15:01:56.158683+01:00",
- "LastUp": "0001-01-01T00:00:00Z"
+ "LastUp": "2022-12-07T15:01:56.158683+01:00"
 }

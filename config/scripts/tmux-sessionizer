@@ -56,6 +56,7 @@ find_directories() {
     # Responsible for chosing which directories to display
     possible_options="$HOME/Nextcloud/Wingu/Wingu"
     possible_options+=" $HOME/Nextcloud/DPP"
+    possible_options+=" $HOME/dotfiles"
     # if [ $LOC == "remote" ]; then
     #     possible_options+=" $HOME/Nextcloud/Wingu"
     # fi
