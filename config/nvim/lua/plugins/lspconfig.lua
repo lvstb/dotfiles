@@ -1,4 +1,5 @@
 local lspconfig = require("lspconfig")
+local util = require("lspconfig.util")
 local null_ls = require("null-ls")
 local null_helpers = require("null-ls.helpers")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -15,7 +16,6 @@ local sources = {
 	null_ls.builtins.formatting.stylua,
 	null_ls.builtins.formatting.yamlfmt,
 	null_ls.builtins.formatting.shfmt.with({ filetypes = { "sh" } }),
-	null_ls.builtins.diagnostics.eslint_d,
 	null_ls.builtins.formatting.gofumpt,
 	null_ls.builtins.formatting.prettierd,
 	null_ls.builtins.formatting.black.with({
@@ -30,8 +30,13 @@ local sources = {
 	null_ls.builtins.diagnostics.write_good,
 	null_ls.builtins.diagnostics.shellcheck.with({ diagnostics_format = "#{m} [#{c}]" }),
 	null_ls.builtins.diagnostics.markdownlint,
+	null_ls.builtins.diagnostics.eslint_d.with({
+		extra_args = { "-c ~/.eslintrc" },
+	}),
+
 	--Code Actions
 	null_ls.builtins.code_actions.gitsigns,
+	null_ls.builtins.code_actions.eslint_d,
 	null_ls.builtins.diagnostics.cfn_lint,
 }
 

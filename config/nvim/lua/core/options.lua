@@ -147,7 +147,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 
 -- since neovim 0.6 this is how to disable inline diagonostics
 -- https://github.com/neovim/nvim-lspconfig/issues/662
-vim.diagnostic.config({ virtual_text = false })
+-- vim.diagnostic.config({ virtual_text = false })
 
 local signs = {
 	Error = "ﰸ",

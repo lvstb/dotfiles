@@ -50,7 +50,6 @@ return require("packer").startup(function(use)
 	use({ "norcalli/nvim-colorizer.lua", config = get_setup("colorizer"), event = "BufReadPre" })
 	use({ "lukas-reineke/indent-blankline.nvim", config = get_setup("indent-blankline") })
 	use({ "ellisonleao/glow.nvim" })
-	use({ "editorconfig/editorconfig-vim" })
 	use({ "akinsho/toggleterm.nvim", tag = "*", config = get_setup("toggleterm") })
 	use({ "phelipetls/jsonpath.nvim" })
 
