@@ -24,3 +24,4 @@ vim/plugged
 
 gitconfig_*
 config/nvim/plugin/packer_compiled.lua
+zshenv zshenv

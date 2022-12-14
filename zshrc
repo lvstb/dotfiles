@@ -4,8 +4,6 @@ export ZSH=~/.oh-my-zsh
 source ~/.zsh_alias
 source ~/.zsh_functions
 
-source $ZSH/oh-my-zsh.sh
-
 autoload -Uz compinit
 compinit
 
@@ -54,7 +52,9 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="dd.mm.yyyy"
 
-plugins=(z kubectl git brew colored-man-pages awslars)
+plugins=(z fzf-tab aws kubectl git brew colored-man-pages awslars)
+
+source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then

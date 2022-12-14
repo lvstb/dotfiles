@@ -1,9 +1,6 @@
 local lspconfig = require("lspconfig")
-local util = require("lspconfig.util")
 local null_ls = require("null-ls")
-local null_helpers = require("null-ls.helpers")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local ih = require("inlay-hints")
 
 --Built in formatters
 local sources = {
@@ -149,4 +146,27 @@ require("mason-lspconfig").setup_handlers({
 
 require("mason-lspconfig").setup({
 	automatic_installation = false,
+})
+
+local configs = require("lspconfig.configs")
+
+if not configs.snyk then
+	configs.snyk = {
+		default_config = {
+			cmd = { "/usr/local/bin/snyk-ls" },
+			root_dir = function(name)
+				return lspconfig.util.find_git_ancestor(name) or vim.loop.os_homedir()
+			end,
+			init_options = {
+				activateSnykCode = "true",
+				cliPath = "/opt/homebrew/bin/snyk",
+				activateSnykIac = "false",
+				enableTelemetry = "false",
+				token = os.getenv("SNYK_TOKEN"),
+			},
+		},
+	}
+end
+lspconfig.snyk.setup({
+	on_attach = on_attach,
 })

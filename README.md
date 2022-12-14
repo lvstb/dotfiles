@@ -3,23 +3,22 @@
   </p>
 
 These are my personal dotfiles.
-client_secret= AKIAtest123
 
 ## Install Dotfiles
 
 To install these dotfiles, clone the repo.
-After that just run the bootstrap script.
+After that run the bootstrap script.
 
-If the bootstrap script is done, go in VIM and do :PlugInstall! to install all vim plugins.
+If the bootstrap script finishes, go in VIM and do :PlugInstall! to install all vim plugins.
 
 ## Features
 
-- Brewfile, depending on the os (mac/linux) it will install packages listed in the brewfile.
-- Zsh and oh-my-zsh config and tweaks
-- Tmux with personalization
-- Vim with plugins and personalization
+-   Brewfile, depending on the os (mac/linux) it will install packages listed in the brewfile.
+-   Zsh and oh-my-zsh config and tweaks
+-   Tmux with personalization
+-   Vim with plugins and personalization
 
-Theme = Nord
+Theme = OneNord
 Prompt = Pure
 
 To get Python 3.7 working on Apple silicon
@@ -51,3 +50,6 @@ python -c 'import _ctypes'. # works!
 bash dotfiles/bootstrap.sh
 
 ```
+
+All env variables are stored in zsh.env file which is not synced to git.
+Variables to store (SNYK_TOKEN,...)
