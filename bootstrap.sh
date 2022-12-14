@@ -1,7 +1,7 @@
 #!/bin/bash
 shopt -s dotglob
 
-DOTFILES_DIR=$(dirname $0)
+DOTFILES_DIR=~/dotfiles
 echo $DOTFILES_DIR
 
 brew bundle --file=$DOTFILES_DIR/brewfile
@@ -19,13 +19,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ln -sf $DOTFILES_DIR/gitconfig ~/.gitconfig
 ln -sf $DOTFILES_DIR/gitignore ~/.gitignore_global
 ln -sf $DOTFILES_DIR/tmux.conf ~/.tmux.conf
-ln -sf $DOTFILES_DIR/xterm-256color-italic.terminfo ~/xterm-256color-italic.terminfo
-ln -sf $DOTFILES_DIR/tmux.terminfo ~/tmux.terminfo
 ln -sf $DOTFILES_DIR/config ~/.config
 ln -sf $DOTFILES_DIR/zshrc ~/.zshrc
+ln -sf $DOTFILES_DIR/zshenv ~/.zshenv
+ln -sf $DOTFILES_DIR/zprofile ~/.zprofile
 ln -sf $DOTFILES_DIR/zsh_alias ~/.zsh_alias
 ln -sf $DOTFILES_DIR/zsh_functions ~/.zsh_functions
 ln -sf $DOTFILES_DIR/oh-my-zsh ~/
+ln -sf $DOTFILES_DIR/eslintrc.json ~/.eslintrc.json
+ln -sf $DOTFILES_DIR/prettierrc.toml ~/.prettierrc.toml
 
 # }}}
 
@@ -41,7 +43,7 @@ ln -sf $DOTFILES_DIR/oh-my-zsh ~/
 # }}}
 
 # change shell to zsh --------------------------------------------------{{{
-chsh -s $(which zsh)
+chsh -s "$(which zsh)"
 # }}}
 
 # Install Plug for all vim plugins--------------------------------------{{{
@@ -51,4 +53,4 @@ chsh -s $(which zsh)
 # fi
 # }}}
 
-source $HOME/.zshrc
+source "$HOME/.zshrc"
