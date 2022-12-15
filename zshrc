@@ -52,7 +52,7 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="dd.mm.yyyy"
 
-plugins=(z fzf-tab aws kubectl git brew colored-man-pages awslars)
+plugins=(zsh-autosuggestions z aws kubectl git brew colored-man-pages awslars)
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
