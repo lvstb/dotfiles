@@ -76,3 +76,4 @@ eval "$(starship init zsh)"
 # autoload -U compinit; compinit
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
