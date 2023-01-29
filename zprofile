@@ -34,3 +34,12 @@ export EDITOR=vim
 
 #Special keys
 bindkey -s ^a "~/.config/scripts/tmux-sessionizer\n"
+#pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+#zcli
+export CERT_PATH=$(python -m certifi)
+export SSL_CERT_FILE=${CERT_PATH}
+export REQUESTS_CA_BUNDLE=${CERT_PATH}

@@ -10,11 +10,11 @@ require("indent_blankline").setup {
     buftype_exclude = {"terminal", "nofile"},
     show_trailing_blankline_indent = false,
     show_current_context = true,
-    context_patterns = {
-        "class", "function", "method", "block", "list_literal", "selector",
-        "^if", "^table", "if_statement", "while", "for", "type", "var",
-        "import"
-    }
+    -- context_patterns = {
+    --     "class", "function", "method", "block", "list_literal", "selector",
+    --     "^if", "^table", "if_statement", "while", "for", "type", "var",
+    --     "import"
+    -- }
 }
 -- because lazy load indent-blankline so need readd this autocmd
 vim.cmd('autocmd CursorMoved * IndentBlanklineRefresh')

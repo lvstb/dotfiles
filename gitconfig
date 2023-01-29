@@ -59,3 +59,5 @@
 #	email = lars.van.steenbergen@persgroep.net
 [commit]
 	gpgsign = false
+[http]
+	sslCAInfo = /Users/lvansteenbergen/.zcli/zscaler_root.pem

@@ -38,7 +38,7 @@ local sources = {
 	null_ls.builtins.code_actions.gitsigns,
 	-- null_ls.builtins.code_actions.eslint_d,
 	null_ls.builtins.diagnostics.cfn_lint,
-},
+}
 
 null_ls.setup({
 	debug = false,
@@ -103,7 +103,7 @@ require("mason-tool-installer").setup({
 		"cfn-lint",
 	},
 	auto_update = true,
-	run_on_start = true,
+	run_on_start = false,
 })
 
 require("mason-lspconfig").setup_handlers({
@@ -159,6 +159,7 @@ if not configs.snyk then
 			end,
 			init_options = {
 				activateSnykCode = "true",
+                insecure= "true",
 				cliPath = "/opt/homebrew/bin/snyk",
 				activateSnykIac = "false",
 				enableTelemetry = "false",

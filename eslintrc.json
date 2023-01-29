@@ -7,10 +7,19 @@
         "project": "tsconfig.json"
     },
     "plugins": ["@typescript-eslint"],
-    "extends": ["airbnb-typescript", "plugin:promise/recommended", "eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"],
+    "extends": [
+        "airbnb-typescript",
+        "plugin:promise/recommended",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/recommended"
+    ],
     "rules": {
         "@typescript-eslint/naming-convention": "warn",
         "@typescript-eslint/semi": "warn",
+        "@typescript-eslint/indent": ["warn", 4],
+        "react/jsx-filename-extension": "off",
         "curly": "warn",
         "eqeqeq": "warn",
         "no-throw-literal": "warn",

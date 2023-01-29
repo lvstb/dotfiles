@@ -71,7 +71,7 @@ return require("packer").startup(function(use)
 		requires = {
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-buffer" }, -- Buffer completions
-			{ "hrsh7th/cmp-path" }, -- Path completions
+			{ "hrsh7th/cmp-path" }, -- Path complei/kkions
 			{ "hrsh7th/cmp-nvim-lua" },
 			{ "hrsh7th/cmp-cmdline" }, -- Cmdline completions
 			{ "saadparwaiz1/cmp_luasnip" }, -- Snippet completions
@@ -93,7 +93,7 @@ return require("packer").startup(function(use)
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
 	-- Treesitter
-	use("p00f/nvim-ts-rainbow")
+	use("mrjones2014/nvim-ts-rainbow")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
@@ -144,7 +144,7 @@ return require("packer").startup(function(use)
 	use({
 		"lewis6991/gitsigns.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
-		event = "BufReadPre",
+		-- event = "BufReadPre",
 		config = get_setup("gitsigns"),
 	})
 
