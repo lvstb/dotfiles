@@ -54,17 +54,21 @@ return require("packer").startup(function(use)
 	use({ "phelipetls/jsonpath.nvim" })
 
 	-- Galaxyline
+	-- use({
+	-- 	"NTBBloodbath/galaxyline.nvim",
+	-- 	branch = "main",
+	-- 	event = "VimEnter",
+	-- 	config = get_setup("galaxyline"),
+	-- 	requires = {
+	-- 		{ "kyazdani42/nvim-web-devicons", opt = true },
+	-- 		{ "SmiteshP/nvim-navic" },
+	-- 	},
+	-- })
 	use({
-		"NTBBloodbath/galaxyline.nvim",
-		branch = "main",
-		event = "VimEnter",
-		config = get_setup("galaxyline"),
-		requires = {
-			{ "kyazdani42/nvim-web-devicons", opt = true },
-			{ "SmiteshP/nvim-navic" },
-		},
+		"nvim-lualine/lualine.nvim",
+		config = get_setup("lualine"),
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
-
 	-- cmp plugins
 	use({
 		"hrsh7th/nvim-cmp",
@@ -87,7 +91,7 @@ return require("packer").startup(function(use)
 
 	-- colorscheme
 	use("rmehri01/onenord.nvim")
-
+	use("sam4llis/nvim-tundra")
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
