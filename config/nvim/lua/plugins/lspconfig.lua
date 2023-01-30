@@ -143,12 +143,13 @@ require("mason-lspconfig").setup({
 	automatic_installation = false,
 })
 
+--Add Snykls
 local configs = require("lspconfig.configs")
 
 if not configs.snyk then
 	configs.snyk = {
 		default_config = {
-			cmd = { "/usr/local/bin/snyk-ls" },
+			cmd = { "/usr/local/bin/snyk-ls", "-l", "error", "-c", "/var/log/snyk.log" },
 			root_dir = function(name)
 				return lspconfig.util.find_git_ancestor(name) or vim.loop.os_homedir()
 			end,
