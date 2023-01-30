@@ -28,11 +28,8 @@ local load_core = function()
 
 	require("core.options")
 	require("core.theme")
-	require("core.augroup")
+	require("core.autocommands")
 	require("core.disablebuiltins")
-	--Include autocommands in vimscript
-	vim.cmd("source $HOME/.config/nvim/lua/core/autocommands.vim")
-	-- vim.cmd [[colorscheme onenord]]
 end
 
 load_core()
