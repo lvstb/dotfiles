@@ -53,22 +53,13 @@ return require("packer").startup(function(use)
 	use({ "akinsho/toggleterm.nvim", tag = "*", config = get_setup("toggleterm") })
 	use({ "phelipetls/jsonpath.nvim" })
 
-	-- Galaxyline
-	-- use({
-	-- 	"NTBBloodbath/galaxyline.nvim",
-	-- 	branch = "main",
-	-- 	event = "VimEnter",
-	-- 	config = get_setup("galaxyline"),
-	-- 	requires = {
-	-- 		{ "kyazdani42/nvim-web-devicons", opt = true },
-	-- 		{ "SmiteshP/nvim-navic" },
-	-- 	},
-	-- })
+	-- Lualine
 	use({
 		"nvim-lualine/lualine.nvim",
 		config = get_setup("lualine"),
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
+
 	-- cmp plugins
 	use({
 		"hrsh7th/nvim-cmp",
@@ -83,6 +74,7 @@ return require("packer").startup(function(use)
 		},
 		config = get_setup("cmp"),
 	}) -- The completion plugin
+
 	use({
 		"windwp/nvim-autopairs",
 		after = "nvim-cmp",
@@ -92,6 +84,7 @@ return require("packer").startup(function(use)
 	-- colorscheme
 	use("rmehri01/onenord.nvim")
 	use("sam4llis/nvim-tundra")
+
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
@@ -122,6 +115,7 @@ return require("packer").startup(function(use)
 	use({ "onsails/lspkind-nvim" }) -- Vscode style pictograms
 	use({ "folke/trouble.nvim", config = get_setup("trouble") })
 	use("simrat39/inlay-hints.nvim")
+
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",

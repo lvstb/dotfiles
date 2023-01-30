@@ -82,7 +82,6 @@ require("mason-tool-installer").setup({
 		"shfmt",
 		"stylua",
 		"black",
-		"eslint_d",
 		"gofumpt",
 		"isort",
 		"flake8",
@@ -102,6 +101,8 @@ require("mason-tool-installer").setup({
 
 require("mason-lspconfig").setup_handlers({
 	function(server)
+		require("plugins.lsp.diagnostics").setup()
+
 		local opts = {
 			on_attach = require("plugins.lsp.handlers").on_attach,
 			capabilities = require("plugins.lsp.handlers").capabilities,
