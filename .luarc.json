@@ -3,6 +3,7 @@
     "Lua.diagnostics.globals": [
         "vim",
         "get_setup",
-        "map"
+        "map",
+        "colors"
     ]
 }

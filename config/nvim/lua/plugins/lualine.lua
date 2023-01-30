@@ -143,10 +143,10 @@ ins_left({
 	sources = { "nvim_diagnostic" },
 	always_visible = true,
 	symbols = {
-		-- error = " " .. Icons.diagnostics.ERROR,
-		-- warn = " " .. Icons.diagnostics.WARNING,
-		-- info = " " .. Icons.diagnostics.INFO,
-		-- hint = " " .. Icons.diagnostics.HINT,
+		error = " " .. utils.icons.diagnostics.ERROR,
+		warn = " " .. utils.icons.diagnostics.WARNING,
+		info = " " .. utils.icons.diagnostics.INFO,
+		hint = " " .. utils.icons.diagnostics.HINT,
 	},
 	padding = { left = 1 },
 	diagnostics_color = {
@@ -182,7 +182,7 @@ ins_right({
 
 		for _, client in ipairs(clients) do
 			local filetypes = client.config.filetypes
-			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 and client.name ~= "null-ls" then
 				return client.name
 			end
 		end
@@ -190,18 +190,18 @@ ins_right({
 		return msg
 	end,
 	icon = " ",
-	color = { fg = utils.colors.purple },
+	color = { fg = utils.colors.cyan },
 	cond = conditions.buffer_not_empty,
 })
 
 ins_right({
 	"diff",
 	colored = true,
-	-- symbols = {
-	-- 	added = Icons.git.status_added,
-	-- 	modified = Icons.git.status_modified,
-	-- 	removed = Icons.git.status_removed,
-	-- },
+	symbols = {
+		added = utils.icons.git.status_added,
+		modified = utils.icons.git.status_modified,
+		removed = utils.icons.git.status_removed,
+	},
 	cond = conditions.buffer_not_empty,
 	diff_color = {
 		added = { fg = utils.colors.green },
@@ -214,7 +214,7 @@ ins_right({
 ins_right({
 	"branch",
 	icon = " ",
-	color = { fg = utils.colors.purple },
+	color = { fg = utils.colors.magenta },
 })
 
 ins_right({
