@@ -15,8 +15,6 @@ local sources = {
 	null_ls.builtins.formatting.shfmt.with({ filetypes = { "sh" } }),
 	null_ls.builtins.formatting.gofumpt,
 	null_ls.builtins.formatting.prettierd,
-	-- null_ls.builtins.formatting.eslint_d.with({
-		-- extra_args = { "-c ~/.eslintrc.json" },
 	-- }),
 	null_ls.builtins.formatting.black.with({
 		extra_args = { "--experimental-string-processing" },
@@ -30,13 +28,9 @@ local sources = {
 	null_ls.builtins.diagnostics.write_good,
 	null_ls.builtins.diagnostics.shellcheck.with({ diagnostics_format = "#{m} [#{c}]" }),
 	null_ls.builtins.diagnostics.markdownlint,
-	-- null_ls.builtins.diagnostics.eslint_d.with({
-	-- 	extra_args = { "-c ~/.eslintrc.json" },
-	-- }),
 
 	--Code Actions
 	null_ls.builtins.code_actions.gitsigns,
-	-- null_ls.builtins.code_actions.eslint_d,
 	null_ls.builtins.diagnostics.cfn_lint,
 }
 
@@ -159,7 +153,7 @@ if not configs.snyk then
 			end,
 			init_options = {
 				activateSnykCode = "true",
-                insecure= "true",
+				insecure = "true",
 				cliPath = "/opt/homebrew/bin/snyk",
 				activateSnykIac = "false",
 				enableTelemetry = "false",
