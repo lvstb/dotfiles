@@ -24,7 +24,7 @@
   keepBackup = false
 
 [mergetool "fugitive"]
-  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+  cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 
 # default case
 [include]
@@ -69,5 +69,5 @@
 #	email = lars.van.steenbergen@persgroep.net
 [commit]
 	gpgsign = false
-[http]
-	sslCAInfo = /Users/lvansteenbergen/.zcli/zscaler_root.pem
+#[http]
+#	sslCAInfo = /Users/lvansteenbergen/.zcli/zscaler_root.pem
