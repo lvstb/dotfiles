@@ -17,7 +17,8 @@
     ],
     "rules": {
         "@typescript-eslint/naming-convention": "warn",
-        "@typescript-eslint/semi": "warn",
+        "@typescript-eslint/semi": "off",
+        "@typescript-eslint/comma-dangle": "off",
         "@typescript-eslint/indent": ["warn", 4],
         "react/jsx-filename-extension": "off",
         "curly": "warn",

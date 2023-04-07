@@ -77,3 +77,7 @@ eval "$(starship init zsh)"
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/lvansteenbergen/.sdkman"
+[[ -s "/Users/lvansteenbergen/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/lvansteenbergen/.sdkman/bin/sdkman-init.sh"

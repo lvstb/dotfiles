@@ -25,6 +25,9 @@ export PATH="/usr/local/opt/:$PATH"
 # export PATH="/usr/local/opt/binutils/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 # export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+export PATH="/Library/Java/JavaVirtualMachines/graalvm-ce-java11-22.3.1/Contents/Home/bin:$PATH"
+export GRAALVM_HOME="/Users/lvansteenbergen/.sdkman/candidates/java/22.3.r19-grl"
+export JAVA_HOME="/Users/lvansteenbergen/.sdkman/candidates/java/22.3.r19-grl"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -39,7 +42,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-#zcli
-export CERT_PATH=$(python -m certifi)
-export SSL_CERT_FILE=${CERT_PATH}
-export REQUESTS_CA_BUNDLE=${CERT_PATH}
+##zcli
+#export CERT_PATH=$(python -m certifi)
+#export SSL_CERT_FILE=${CERT_PATH}
+#export REQUESTS_CA_BUNDLE=${CERT_PATH}
