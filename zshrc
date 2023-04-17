@@ -81,3 +81,6 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/lvansteenbergen/.sdkman"
 [[ -s "/Users/lvansteenbergen/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/lvansteenbergen/.sdkman/bin/sdkman-init.sh"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
