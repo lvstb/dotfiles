@@ -1,140 +1,132 @@
----------------------------------------------------------------
--- => General Settings
----------------------------------------------------------------
 local global = require("core.global")
--- local utils = require("../utils")
-
-local function bind_option(options)
-	for k, v in pairs(options) do
-		if v == true then
-			vim.cmd("set " .. k)
-		elseif v == false then
-			vim.cmd("set no" .. k)
-		else
-			vim.cmd("set " .. k .. "=" .. v)
-		end
-	end
-end
 
 local function load_options()
 	local global_local = {
-		termguicolors = true,
-		mouse = "a",
-		errorbells = false,
-		visualbell = false,
-		hidden = true,
-		fileformats = "unix,mac,dos",
-		magic = true,
-		virtualedit = "onemore", -- Allow for cursor beyond the last character
-		encoding = "utf-8",
-		--viewoptions = "folds,cursor,curdir,slash,unix",
-		sessionoptions = "curdir,help,tabpages,winsize",
-		clipboard = "unnamedplus",
-		wildignorecase = true,
-		wildmode = "longest,list,full",
-		wildmenu = true,
-		wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
+		-- backupdir = global.cache_dir .. "backup/",
+		-- directory = global.cache_dir .. "swap/",
+		-- pumblend = 10,
+		-- spellfile = global.cache_dir .. "spell/en.uft-8.add",
+		-- viewdir = global.cache_dir .. "view/",
+		-- winblend = 10,
+		autoindent = true,
+		autoread = true,
+		autowrite = true,
+		backspace = "indent,eol,start",
 		backup = false,
-		writebackup = false,
-		swapfile = false,
-		undodir = global.cache_dir .. "undo/",
-		history = 2000, -- Remember ALL the commands
-		undolevels = 1000, -- Do ALL the undos
-		shada = "!,'300,<50,@100,s10,h",
 		backupskip = "/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim",
-		smarttab = true,
-		tabstop = 4, -- Number of spaces for a tab
-		softtabstop = 4, -- Number of spaces for a tab while editing
-		shiftwidth = 4, -- Shift width value
-		shiftround = true,
-		timeout = true,
-		ttimeout = true,
-		timeoutlen = 500, -- By default timeoutlen is 1000
-		ttimeoutlen = 0,
-		updatetime = 100,
-		redrawtime = 1500,
-		ignorecase = true, -- Case insensitive search
-		smartcase = true, -- Case sensitive when uppercase present
-		infercase = true,
-		incsearch = true, -- Incremental searches
-		hlsearch = true, -- Highlight searches
-		wrapscan = true, -- When searches reach end of file it goes back to the top
-		-- complete = ".,w,b,k",
-		inccommand = "nosplit", -- live substitions in place
+		breakat = [[\ \	;:,!?]],
+		breakindentopt = "shift:2,min:20",
+		clipboard = "unnamedplus",
+		cmdheight = 2, -- 0, 1, 2
+		cmdwinheight = 5,
+		complete = ".,w,b,k",
+		completeopt = "menuone,noselect",
+		concealcursor = "niv",
+		conceallevel = 0,
+		cursorcolumn = true,
+		cursorline = true,
+		diffopt = "filler,iwhite,internal,linematch:60,algorithm:patience",
+		display = "lastline",
+		encoding = "utf-8",
+		equalalways = false,
+		errorbells = true,
+		expandtab = true,
+		fileformats = "unix,mac,dos",
+		foldenable = true,
+		foldlevelstart = 99,
+		formatoptions = "1jcroql",
 		grepformat = "%f:%l:%c:%m",
 		grepprg = "rg --hidden --vimgrep --smart-case --",
-		-- breakat = [[\ \	;:,!?]],
-		-- whichwrap = "h,l,<,>,[,],~",
-		splitbelow = true, -- Split current window below
-		splitright = true, -- Split current window to the right
-		switchbuf = "useopen",
-		--backspace = "indent,eol,start",
-		diffopt = "filler,iwhite,internal,algorithm:patience",
-		completeopt = "menuone,noselect",
+		helpheight = 12,
+		hidden = true,
+		history = 2000,
+		ignorecase = true,
+		inccommand = "nosplit",
+		incsearch = true,
+		infercase = true,
 		jumpoptions = "stack",
-		showmode = false,
-		shortmess = "aoOTIcF",
-		scrolloff = 2,
-		sidescrolloff = 5,
-		foldlevelstart = 99, -- Default all folds open
-		--ruler = true,
-		cursorline = true, -- Highlight cursorline
-		--cursorcolumn = true,
-		list = true, -- Show special characters like tabs (^I),...
-		-- showtabline = 2,
-		-- winwidth = 30,
-		-- winminwidth = 10,
-		-- pumheight = 15,
-		--        helpheight = 12,
-		previewheight = 12,
-		showcmd = true,
-		--        cmdheight = 2,
-		--        cmdwinheight = 5,
-		-- equalalways = false,
 		laststatus = 2,
-		display = "lastline",
-		showbreak = "↳  ",
-		listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
-		pumblend = 10,
-		winblend = 10,
-		autowrite = true, -- Automatically :write before running commands
-	}
-
-	local bw_local = {
-		undofile = true,
-		synmaxcol = 2500,
-		formatoptions = "1jcroql",
-		textwidth = 80,
-		expandtab = true,
-		autoindent = true,
-		tabstop = 4,
-		shiftwidth = 4,
-		softtabstop = -1,
-		breakindentopt = "shift:2,min:20",
-		wrap = false,
 		linebreak = true,
+		list = true,
+		listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
+		magic = true,
+		mousescroll = "ver:3,hor:6",
 		number = true,
+		previewheight = 12,
+		pumheight = 15,
+		redrawtime = 1500,
 		relativenumber = true,
-		foldenable = true,
+		ruler = true,
+		scrolloff = 2,
+		sessionoptions = "buffers,curdir,help,tabpages,winsize",
+		shada = "!,'300,<50,@100,s10,h",
+		shiftround = true,
+		shiftwidth = 4,
+		shortmess = "aoOTIcF",
+		showbreak = "↳  ",
+		showcmd = false,
+		showmode = false,
+		showtabline = 2,
+		sidescrolloff = 5,
 		signcolumn = "yes",
-		conceallevel = 0,
-		concealcursor = "niv",
+		smartcase = true,
+		smarttab = true,
+		softtabstop = 4,
+		splitbelow = true,
+		splitkeep = "cursor",
+		splitright = true,
+		startofline = false,
+		swapfile = false,
+		switchbuf = "usetab,uselast",
+		synmaxcol = 2500,
+		tabstop = 4,
+		termguicolors = true,
+		timeout = true,
+		timeoutlen = 300,
+		ttimeout = true,
+		ttimeoutlen = 0,
+		undodir = global.cache_dir .. "undo/",
+		undofile = true,
+		-- Please do NOT set `updatetime` to above 500, otherwise most plugins may not function correctly
+		updatetime = 200,
+		viewoptions = "folds,cursor,curdir,slash,unix",
+		virtualedit = "block",
+		visualbell = true,
+		whichwrap = "h,l,<,>,[,],~",
+		wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
+		wildignorecase = true,
+		winminwidth = 10,
+		winwidth = 30,
+		wrap = false,
+		wrapscan = true,
+		writebackup = false,
 	}
-
-	if global.is_mac then
-		vim.g.clipboard = {
-			name = "macOS-clipboard",
-			copy = { ["+"] = "pbcopy", ["*"] = "pbcopy" },
-			paste = { ["+"] = "pbpaste", ["*"] = "pbpaste" },
-			cache_enabled = 0,
-		}
-		vim.g.python_host_prog = "/usr/bin/python"
-		vim.g.python3_host_prog = "/usr/local/bin/python3"
+	local function isempty(s)
+		return s == nil or s == ""
 	end
+
+	-- custom python provider
+	local conda_prefix = os.getenv("CONDA_PREFIX")
+	if not isempty(conda_prefix) then
+		vim.g.python_host_prog = conda_prefix .. "/bin/python"
+		vim.g.python3_host_prog = conda_prefix .. "/bin/python"
+	elseif global.is_mac then
+		vim.python_host_prog = "/usr/bin/python"
+		vim.g.python3_host_prog = "/usr/local/bin/python3"
+	else
+		vim.g.python_host_prog = "/usr/bin/python"
+		vim.g.python3_host_prog = "/usr/bin/python3"
+	end
+
 	for name, value in pairs(global_local) do
 		vim.o[name] = value
 	end
-	bind_option(bw_local)
+
+	-- Fix sqlite3 missing-lib issue on Windows
+	if global.is_windows then
+		-- Download the DLLs form https://www.sqlite.org/download.html
+		vim.g.sqlite_clib_path = global.home .. "/Documents/sqlite-dll-win64-x64-3400200/sqlite3.dll"
+	end
 end
 
 load_options()
