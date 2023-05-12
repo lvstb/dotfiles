@@ -83,5 +83,8 @@ ui["edluffy/specs.nvim"] = {
 	event = "CursorMoved",
 	config = require("ui.specs"),
 }
+ui["stevearc/dressing.nvim"] = {
+	opts = {},
+}
 
 return ui
