@@ -20,11 +20,6 @@ ui["rmehri01/onenord.nvim"] = {
 	name = "onenord",
 	config = require("ui.onenord"),
 }
--- ui["rmehri01/onenord.nvim"] = {
--- 	lazy = false,
--- 	name = "onenord-light",
--- 	config = require("ui.onenordlight"),
--- }
 ui["sainnhe/edge"] = {
 	lazy = true,
 	config = require("ui.edge"),

@@ -43,6 +43,15 @@ return function()
 			lualine_y = {},
 			lualine_z = {},
 		},
+		extensions = {
+			"quickfix",
+			"nvim-tree",
+			"nvim-dap-ui",
+			"toggleterm",
+			"fugitive",
+			outline,
+			diffview,
+		},
 	}
 
 	local function ins_left(component)
