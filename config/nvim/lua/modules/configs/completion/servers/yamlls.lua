@@ -1,9 +1,10 @@
 return {
 	settings = {
 		yaml = {
-			format = {
-				enable = true,
-			},
+			keyOrdering = false,
+			-- 		format = {
+			-- 			enable = true,
+			-- 		},
 			redhat = {
 				telemetry = {
 					enabled = false,
@@ -27,7 +28,10 @@ return {
 				"!Cidr",
 				"!Ref",
 				"!Ref Scalar",
+				"!Ref sequence",
 				"!Sub",
+				"!Sub Scalar",
+				"!Sub sequence",
 				"!GetAtt",
 				"!GetAZs",
 				"!ImportValue",
@@ -35,11 +39,11 @@ return {
 				"!Split",
 				"!Join sequence",
 			},
-			schemaStore = {
-				url = "https://www.schemastore.org/api/json/catalog.json",
-				enable = true,
-			},
-			schemas = require("schemastore").json.schemas(),
+			-- schemaStore = {
+			-- 	url = "https://www.schemastore.org/api/json/catalog.json",
+			-- 	enable = true,
+			-- },
+			-- schemas = require("schemastore").json.schemas(),
 		},
 	},
 }
