@@ -26,4 +26,5 @@ gitconfig_*
 config/nvim/plugin/packer_compiled.lua
 zshenv
 config/containers config/containers
-zprofile zprofile
+zprofile
+secrets

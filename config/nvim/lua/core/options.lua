@@ -90,7 +90,7 @@ local function load_options()
 		-- Please do NOT set `updatetime` to above 500, otherwise most plugins may not function correctly
 		updatetime = 200,
 		viewoptions = "folds,cursor,curdir,slash,unix",
-		virtualedit = "block",
+		virtualedit = "onemore",
 		visualbell = true,
 		whichwrap = "h,l,<,>,[,],~",
 		wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
