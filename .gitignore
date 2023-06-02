@@ -28,3 +28,4 @@ zshenv
 config/containers config/containers
 zprofile
 secrets
+zprofile

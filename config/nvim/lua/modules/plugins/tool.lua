@@ -1,5 +1,14 @@
 local tool = {}
 
+tool["jackMort/ChatGPT.nvim"] = {
+	event = "VeryLazy",
+	--	config = require("tool.chatgpt"),
+	dependencies = {
+		"MunifTanjim/nui.nvim",
+		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope.nvim",
+	},
+}
 tool["tpope/vim-fugitive"] = {
 	lazy = true,
 	cmd = { "Git", "G" },
