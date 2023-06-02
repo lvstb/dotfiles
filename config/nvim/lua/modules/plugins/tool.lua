@@ -2,7 +2,7 @@ local tool = {}
 
 tool["jackMort/ChatGPT.nvim"] = {
 	event = "VeryLazy",
-	--	config = require("tool.chatgpt"),
+	config = require("tool.chatgpt"),
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 		"nvim-lua/plenary.nvim",
