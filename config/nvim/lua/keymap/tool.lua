@@ -86,6 +86,15 @@ local plug_map = {
 		:with_desc("lsp: Show quickfix list"),
 	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
+	-- Plugin: ChatGPT
+	["n|ac"] = map_cr("ChatGPT"):with_noremap():with_silent():with_desc("chatgpt: ChatGPT"),
+	["n|aa"] = map_cr("ChatGPTActAs"):with_noremap():with_silent():with_desc("chatgpt: Act as GPT"),
+	["n|ae"] = map_cr("ChatGPTEditWithInstructions")
+		:with_noremap()
+		:with_silent()
+		:with_desc("chatgpt: Edit with instructions"),
+	["n|ar"] = map_cr("ChatGPTRun"):with_noremap():with_silent():with_desc("chatgpt: GPT run ..."),
+
 	-- Plugin: telescope
 	["n|<C-p>"] = map_callback(function()
 			_command_panel()
