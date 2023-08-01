@@ -37,7 +37,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-##zcli
-#export CERT_PATH=$(python -m certifi)
-#export SSL_CERT_FILE=${CERT_PATH}
-#export REQUESTS_CA_BUNDLE=${CERT_PATH}
+#ZCLI
+export AWS_CA_BUNDLE=/opt/homebrew/etc/ca-certificates/cert.pem;
+export NODE_EXTRA_CA_CERTS=/Users/lvansteenbergen/.zcli/zscaler_root.pem;

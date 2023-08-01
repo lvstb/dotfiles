@@ -5,11 +5,11 @@ editor["rainbowhxch/accelerated-jk.nvim"] = {
 	event = "VeryLazy",
 	config = require("editor.accelerated-jk"),
 }
-editor["rmagatti/auto-session"] = {
-	lazy = true,
-	cmd = { "SessionSave", "SessionRestore", "SessionDelete" },
-	config = require("editor.auto-session"),
-}
+-- editor["rmagatti/auto-session"] = {
+-- 	lazy = true,
+-- 	cmd = { "SessionSave", "SessionRestore", "SessionDelete" },
+-- 	config = require("editor.auto-session"),
+-- }
 editor["m4xshen/autoclose.nvim"] = {
 	lazy = true,
 	event = "InsertEnter",

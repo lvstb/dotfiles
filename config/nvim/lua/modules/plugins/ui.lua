@@ -73,6 +73,11 @@ ui["dstein64/nvim-scrollview"] = {
 	event = "BufReadPost",
 	config = require("ui.scrollview"),
 }
+ui["machakann/vim-sandwich"] = {
+	lazy = true,
+	event = "BufReadPost",
+	-- config = require("ui.scrollview"),
+}
 ui["edluffy/specs.nvim"] = {
 	lazy = true,
 	event = "CursorMoved",
