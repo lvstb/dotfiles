@@ -18,6 +18,8 @@ $line_break\
 $python\
 $golang\
 $nodejs\
+$terraform\
+$java\
 $character"""
 
 right_format = """
@@ -50,6 +52,10 @@ format = '[$symbol($version )]($style)'
 
 [java]
 symbol = " "
+
+[terraform]
+format = '[$workspace]($style) '
+
 
 [directory]
 style = "blue"
