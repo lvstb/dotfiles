@@ -1,31 +1,11 @@
 return function()
-	require("indent_blankline").setup({
-		char = "│",
-		show_first_indent_level = true,
-		filetype_exclude = {
-			"", -- for all buffers without a file type
-			"NvimTree",
-			"TelescopePrompt",
-			"dashboard",
-			"dotooagenda",
-			"flutterToolsOutline",
-			"fugitive",
-			"git",
-			"gitcommit",
-			"help",
-			"json",
-			"log",
-			"markdown",
-			"peekaboo",
-			"startify",
-			"todoist",
-			"txt",
-			"vimwiki",
-			"vista",
+	require("ibl").setup({
+		indent = {
+			char = { "│" },
 		},
-		buftype_exclude = { "terminal", "nofile" },
-		show_trailing_blankline_indent = false,
-		show_current_context = true,
+		scope = {
+			enabled = true,
+		},
 		context_patterns = {
 			"^if",
 			"^table",
@@ -42,6 +22,33 @@ return function()
 			"var",
 			"while",
 		},
+		show_trailing_blankline_indent = false,
 		space_char_blankline = " ",
+		exclude = {
+			filetypes = {
+				"NvimTree",
+				"TelescopePrompt",
+				"dashboard",
+				"dotooagenda",
+				"flutterToolsOutline",
+				"fugitive",
+				"git",
+				"gitcommit",
+				"help",
+				"json",
+				"log",
+				"markdown",
+				"peekaboo",
+				"startify",
+				"todoist",
+				"txt",
+				"vimwiki",
+				"vista",
+			},
+			buftypes = {
+				"terminal",
+				"nofile",
+			},
+		},
 	})
 end
