@@ -20,10 +20,6 @@ ui["rmehri01/onenord.nvim"] = {
 	name = "onenord",
 	config = require("ui.onenord"),
 }
-ui["sainnhe/edge"] = {
-	lazy = true,
-	config = require("ui.edge"),
-}
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
@@ -49,11 +45,6 @@ ui["zbirenbaum/neodim"] = {
 	event = "LspAttach",
 	config = require("ui.neodim"),
 }
--- ui["karb94/neoscroll.nvim"] = {
--- 	lazy = true,
--- 	event = "BufReadPost",
--- 	config = require("ui.neoscroll"),
--- }
 ui["shaunsingh/nord.nvim"] = {
 	lazy = true,
 	config = require("ui.nord"),
@@ -76,7 +67,6 @@ ui["dstein64/nvim-scrollview"] = {
 ui["machakann/vim-sandwich"] = {
 	lazy = true,
 	event = "BufReadPost",
-	-- config = require("ui.scrollview"),
 }
 ui["edluffy/specs.nvim"] = {
 	lazy = true,

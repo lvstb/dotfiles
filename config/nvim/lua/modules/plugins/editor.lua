@@ -47,12 +47,12 @@ editor["junegunn/vim-easy-align"] = {
 	lazy = true,
 	cmd = "EasyAlign",
 }
-editor["phaazon/hop.nvim"] = {
-	lazy = true,
-	branch = "v2",
-	event = "BufReadPost",
-	config = require("editor.hop"),
-}
+-- editor["phaazon/hop.nvim"] = {
+-- 	lazy = true,
+-- 	branch = "v2",
+-- 	event = "BufReadPost",
+-- 	config = require("editor.hop"),
+-- }
 editor["RRethy/vim-illuminate"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
@@ -95,10 +95,10 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			"NvChad/nvim-colorizer.lua",
 			config = require("editor.colorizer"),
 		},
-		{
-			"abecodes/tabout.nvim",
-			config = require("editor.tabout"),
-		},
+		-- {
+		-- 	"abecodes/tabout.nvim",
+		-- 	config = require("editor.tabout"),
+		-- },
 	},
 }
 
