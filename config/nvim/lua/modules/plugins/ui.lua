@@ -32,7 +32,7 @@ ui["lewis6991/gitsigns.nvim"] = {
 }
 ui["lukas-reineke/indent-blankline.nvim"] = {
 	lazy = true,
-    main = "ibl",
+	main = "ibl",
 	event = "BufReadPost",
 	config = require("ui.indent-blankline"),
 }
@@ -45,10 +45,6 @@ ui["zbirenbaum/neodim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = require("ui.neodim"),
-}
-ui["shaunsingh/nord.nvim"] = {
-	lazy = true,
-	config = require("ui.nord"),
 }
 ui["rcarriga/nvim-notify"] = {
 	lazy = true,

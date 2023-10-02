@@ -83,7 +83,6 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		{ "nvim-treesitter/nvim-treesitter-context" },
-		{ "mrjones2014/nvim-ts-rainbow" },
 		{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		{ "mfussenegger/nvim-treehopper" },
 		{ "andymass/vim-matchup" },
@@ -100,6 +99,11 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		-- 	config = require("editor.tabout"),
 		-- },
 	},
+}
+editor["HiPhish/rainbow-delimiters.nvim"] = {
+	lazy = true,
+	event = "BufReadPost",
+	config = require("editor.rainbow-delimiters"),
 }
 
 return editor
