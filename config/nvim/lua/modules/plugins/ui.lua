@@ -22,6 +22,7 @@ ui["rmehri01/onenord.nvim"] = {
 }
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
+	tag = "legacy",
 	event = "LspAttach",
 	config = require("ui.fidget"),
 }

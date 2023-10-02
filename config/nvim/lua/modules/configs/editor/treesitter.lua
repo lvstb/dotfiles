@@ -7,15 +7,12 @@ return vim.schedule_wrap(function()
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
 			"bash",
-			"c",
-			"cpp",
 			"css",
 			"go",
 			"gomod",
 			"html",
 			"javascript",
 			"json",
-			"latex",
 			"lua",
 			"make",
 			"markdown",
@@ -23,8 +20,8 @@ return vim.schedule_wrap(function()
 			"python",
 			"rust",
 			"typescript",
+			"java",
 			"vimdoc",
-			"vue",
 			"yaml",
 		},
 		highlight = {

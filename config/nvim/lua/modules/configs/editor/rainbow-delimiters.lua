@@ -9,14 +9,14 @@ return function()
 			[""] = "rainbow-delimiters",
 			lua = "rainbow-blocks",
 		},
-		highlight = {
-			"RainbowDelimiterRed",
-			"RainbowDelimiterYellow",
-			"RainbowDelimiterBlue",
-			"RainbowDelimiterOrange",
-			"RainbowDelimiterGreen",
-			"RainbowDelimiterViolet",
-			"RainbowDelimiterCyan",
-		},
+		-- highlight = {
+		-- 	"RainbowDelimiterRed",
+		-- 	"RainbowDelimiterYellow",
+		-- 	"RainbowDelimiterBlue",
+		-- 	"RainbowDelimiterOrange",
+		-- 	"RainbowDelimiterGreen",
+		-- 	"RainbowDelimiterViolet",
+		-- 	"RainbowDelimiterCyan",
+		-- },
 	})
 end

@@ -24,8 +24,8 @@
   keepBackup = false
 
 [mergetool "fugitive"]
-  cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
-
+  ; cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+    cmd = nvim -c DiffviewOpen
 # default case
 [include]
   path = ~/.gitconfig_personal
