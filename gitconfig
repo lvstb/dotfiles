@@ -24,13 +24,14 @@
   keepBackup = false
 
 [mergetool "fugitive"]
-  ; cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
     cmd = nvim -c DiffviewOpen
 # default case
 [include]
   path = ~/.gitconfig_personal
 # Depending on work
 [includeIf "gitdir:~/Nextcloud/DPP/"]
+  path = ~/.gitconfig_dpg
+[includeIf "gitdir:~/DPG/"]
   path = ~/.gitconfig_dpg
 
 [alias]
@@ -64,12 +65,7 @@
     # Will start a repo in this directory
     this = !git init && git add . && git commit -m \"initial commit\"
 
-#[user]
-#	name = Lars Van Steenbergen
-#	email = lars.van.steenbergen@persgroep.net
 [commit]
 	gpgsign = false
-#[http]
-#	sslCAInfo = /Users/lvansteenbergen/.zcli/zscaler_root.pem
 [http]
 	sslCAInfo = /Users/lvansteenbergen/.zcli/zscaler_root.pem

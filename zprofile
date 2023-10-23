@@ -14,8 +14,6 @@ export PATH="/usr/local/sbin:$PATH"
 # export PATH="/usr/local/bin/brew:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="~/Library/Python/3.7/bin:$PATH"
-export GOPATH=~/go export
-export PATH=$GOPATH/bin:$PATH
 export PATH="/usr/local/opt/:$PATH"
 # export PATH="/usr/local/opt/binutils/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -40,3 +38,9 @@ eval "$(pyenv init -)"
 #ZCLI
 export AWS_CA_BUNDLE=/opt/homebrew/etc/ca-certificates/cert.pem;
 export NODE_EXTRA_CA_CERTS=/Users/lvansteenbergen/.zcli/zscaler_root.pem;
+
+#GO
+export GOPATH=$HOME/go
+export PATH="$PATH:${GOPATH}/bin"
+export GOPROXY="https://${ARTIFACTORY_USERNAME}:${ARTIFACTORY_API_KEY}@artifactory.persgroep.cloud/artifactory/api/go/go,https://proxy.golang.org,direct"
+export GONOSUMDB="persgroep.cloud/*"

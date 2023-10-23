@@ -52,10 +52,11 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="dd.mm.yyyy"
 
-plugins=(zsh-autosuggestions z aws kubectl git brew colored-man-pages awslars)
+plugins=(yarn z aws kubectl git brew colored-man-pages dotenv )
+
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
@@ -68,22 +69,6 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 
 
-####-begin-cdk-completions-###
-_cdk_yargs_completions()
-{
-  local reply
-  local si=$IFS
-  IFS=$'
-' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" cdk --get-yargs-completions "${words[@]}"))
-  IFS=$si
-  _describe 'values' reply
-}
-compdef _cdk_yargs_completions cdk
-###-end-cdk-completions-### export SSH_KEY_PATH="~/.ssh/dsa_id"
-cdk() { npx -- cdk "$@" }
-
-#
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(starship init zsh)"
@@ -92,9 +77,4 @@ export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/lvansteenbergen/.sdkman"
-[[ -s "/Users/lvansteenbergen/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/lvansteenbergen/.sdkman/bin/sdkman-init.sh"
-
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
