@@ -76,7 +76,7 @@ settings["lsp_deps"] = {
 	"html",
 	"jsonls",
 	"lua_ls",
-	-- "gopls",
+	"gopls",
 }
 
 -- Set the general-purpose servers that will be installed during bootstrap here
@@ -88,11 +88,9 @@ settings["null_ls_deps"] = {
 	"black",
 	"clang_format",
 	"prettier",
-	"rustfmt",
 	"shfmt",
 	"stylua",
-	"vint",
-	"eslint_d",
+	"eslint_lsp",
 }
 
 return settings
