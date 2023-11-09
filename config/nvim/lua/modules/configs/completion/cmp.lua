@@ -114,6 +114,7 @@ return function()
 		mapping = cmp.mapping.preset.insert({
 			["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 			["<C-p>"] = cmp.mapping.select_prev_item(),
+			["<C-Space>"] = cmp.mapping.complete(),
 			["<C-n>"] = cmp.mapping.select_next_item(),
 			["<C-d>"] = cmp.mapping.scroll_docs(-4),
 			["<C-f>"] = cmp.mapping.scroll_docs(4),
