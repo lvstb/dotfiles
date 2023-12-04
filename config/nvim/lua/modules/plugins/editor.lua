@@ -72,7 +72,7 @@ editor["lambdalisue/suda.vim"] = {
 --                  :treesitter related plugins                    --
 ----------------------------------------------------------------------
 editor["nvim-treesitter/nvim-treesitter"] = {
-	lazy = true,
+	lazy = false,
 	build = function()
 		if #vim.api.nvim_list_uis() ~= 0 then
 			vim.api.nvim_command("TSUpdate")
@@ -83,7 +83,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		{ "nvim-treesitter/nvim-treesitter-context" },
-		{ "JoosepAlviste/nvim-ts-context-commentstring" },
+		-- { "JoosepAlviste/nvim-ts-context-commentstring" },
 		{ "mfussenegger/nvim-treehopper" },
 		{ "andymass/vim-matchup" },
 		{
