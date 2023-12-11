@@ -38,3 +38,28 @@ if [ $? -eq 0 ]; then
 		git diff --no-index --color-words "$@";
 	}
 fi;
+
+
+
+# Function to check if credentials are valid for the selected profile
+function check_credentials() {
+    local profile=$1
+    if ! aws sts get-caller-identity --profile "$profile" > /dev/null 2>&1; then
+        echo "No valid credentials found for '$profile'. Initiating SSO login..."
+        aws-sso-util login --profile "$profile"
+    fi
+}
+
+# Function to select AWS profile using fzf
+function saws() {
+    local profile
+    profile=$(awk -F '[][]' '/^\[profile /{print substr($2, 9, length($2) - 8)}' ~/.aws/config | fzf)
+
+    if [[ -n $profile ]]; then
+        export AWS_PROFILE=$profile
+        echo "AWS Profile set to '$AWS_PROFILE'"
+        check_credentials "$profile"
+    else
+        echo "No profile selected."
+    fi
+}
