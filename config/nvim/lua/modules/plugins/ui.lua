@@ -42,11 +42,12 @@ ui["nvim-lualine/lualine.nvim"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.lualine"),
 }
-ui["zbirenbaum/neodim"] = {
-	lazy = true,
-	event = "LspAttach",
-	config = require("ui.neodim"),
-}
+-- needs neovim 0.10
+-- ui["zbirenbaum/neodim"] = {
+-- 	lazy = true,
+-- 	event = "LspAttach",
+-- 	config = require("ui.neodim"),
+-- }
 ui["rcarriga/nvim-notify"] = {
 	lazy = true,
 	event = "VeryLazy",
