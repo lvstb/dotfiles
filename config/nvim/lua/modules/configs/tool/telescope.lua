@@ -1,80 +1,177 @@
 return function()
-	local icons = { ui = require("modules.utils.icons").get("ui", true) }
-	local lga_actions = require("telescope-live-grep-args.actions")
+	local telescope = require("telescope")
+	local actions = require("telescope.actions")
+	local trouble = require("trouble.providers.telescope")
+	-- local icons = require("modules.utils.icons")
+	local icons = {
+		ui = require("modules.utils.icons").get("ui"),
+	}
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = "TelescopeResults",
+		callback = function(ctx)
+			vim.api.nvim_buf_call(ctx.buf, function()
+				vim.fn.matchadd("TelescopeParent", "\t\t.*$")
+				vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
+			end)
+		end,
+	})
 
-	require("telescope").setup({
+	local function formattedName(_, path)
+		local tail = vim.fs.basename(path)
+		local parent = vim.fs.dirname(path)
+		if parent == "." then
+			return tail
+		end
+		return string.format("%s\t\t%s", tail, parent)
+	end
+
+	telescope.setup({
+		file_ignore_patterns = { "%.git/." },
 		defaults = {
-			initial_mode = "insert",
-			prompt_prefix = " " .. icons.ui.Telescope .. " ",
-			selection_caret = icons.ui.ChevronRight,
-			scroll_strategy = "limit",
-			results_title = false,
-			layout_strategy = "horizontal",
-			path_display = { "absolute" },
-			file_ignore_patterns = { ".git/", ".cache", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
-			layout_config = {
-				horizontal = {
-					preview_width = 0.5,
+			mappings = {
+				i = {
+					["<esc>"] = actions.close,
+					["<C-t>"] = trouble.open_with_trouble,
 				},
+
+				n = { ["<C-t>"] = trouble.open_with_trouble },
 			},
-			file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-			file_sorter = require("telescope.sorters").get_fuzzy_file,
-			generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+			previewer = false,
+			-- hidden = true,
+			prompt_prefix = icons.Telescope,
+			selection_caret = icons.ui.BoldArrowRight,
+			file_ignore_patterns = { "node_modules", "package-lock.json" },
+			initial_mode = "insert",
+			select_strategy = "reset",
+			sorting_strategy = "ascending",
+			-- path_display = { "smart" },
+			color_devicons = true,
+			set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+			-- layout_strategy = "horizontal",
+			layout_config = {
+				prompt_position = "top",
+				preview_cutoff = 120,
+			},
+			vimgrep_arguments = {
+				"rg",
+				"--color=never",
+				"--no-heading",
+				"--with-filename",
+				"--line-number",
+				"--column",
+				"--smart-case",
+				"--hidden",
+				"--glob=!.git/",
+			},
 		},
 		pickers = {
-			keymaps = {
-				theme = "dropdown",
-			},
 			find_files = {
-				hidden = true,
+				previewer = false,
+				path_display = formattedName,
+				layout_config = {
+					height = 0.4,
+					prompt_position = "top",
+					preview_cutoff = 120,
+				},
+			},
+			git_files = {
+				previewer = false,
+				path_display = formattedName,
+				layout_config = {
+					height = 0.4,
+					prompt_position = "top",
+					preview_cutoff = 120,
+				},
+			},
+			buffers = {
+				path_display = formattedName,
+				mappings = {
+					i = {
+						["<c-d>"] = actions.delete_buffer,
+					},
+					n = {
+						["<c-d>"] = actions.delete_buffer,
+					},
+				},
+				previewer = false,
+				initial_mode = "normal",
+				-- theme = "dropdown",
+				layout_config = {
+					height = 0.4,
+					width = 0.6,
+					prompt_position = "top",
+					preview_cutoff = 120,
+				},
+			},
+			current_buffer_fuzzy_find = {
+				previewer = true,
+				layout_config = {
+					prompt_position = "top",
+					preview_cutoff = 120,
+				},
+			},
+			live_grep = {
+				only_sort_text = true,
+				previewer = true,
+			},
+			grep_string = {
+				only_sort_text = true,
+				previewer = true,
+			},
+			lsp_references = {
+				show_line = false,
+				previewer = true,
+			},
+			lsp_definitions = {
+				jump_type = "never",
+			},
+			treesitter = {
+				show_line = false,
+				previewer = true,
+			},
+			colorscheme = {
+				enable_preview = true,
 			},
 		},
 		extensions = {
 			fzf = {
-				fuzzy = true,
-				override_generic_sorter = true,
-				override_file_sorter = true,
-				case_mode = "smart_case",
+				fuzzy = true, -- false will only do exact matching
+				override_generic_sorter = true, -- override the generic sorter
+				override_file_sorter = true, -- override the file sorter
+				case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+			},
+			["ui-select"] = {
+				require("telescope.themes").get_dropdown({
+					previewer = false,
+					initial_mode = "normal",
+					sorting_strategy = "ascending",
+					layout_strategy = "horizontal",
+					layout_config = {
+						horizontal = {
+							width = 0.5,
+							height = 0.4,
+							preview_width = 0.6,
+						},
+					},
+				}),
 			},
 			frecency = {
+				default_workspace = "CWD",
 				show_scores = true,
 				show_unindexed = true,
-				ignore_patterns = { "*.git/*", "*/tmp/*" },
-			},
-			live_grep_args = {
-				auto_quoting = true, -- enable/disable auto-quoting
-				-- define mappings, e.g.
-				mappings = { -- extend mappings
-					i = {
-						["<C-k>"] = lga_actions.quote_prompt(),
-						["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-					},
-				},
-			},
-			undo = {
-				side_by_side = true,
-				mappings = { -- this whole table is the default
-					i = {
-						-- IMPORTANT: Note that telescope-undo must be available when telescope is configured if
-						-- you want to use the following actions. This means installing as a dependency of
-						-- telescope in it's `requirements` and loading this extension from there instead of
-						-- having the separate plugin definition as outlined above. See issue #6.
-						["<cr>"] = require("telescope-undo.actions").yank_additions,
-						["<S-cr>"] = require("telescope-undo.actions").yank_deletions,
-						["<C-cr>"] = require("telescope-undo.actions").restore,
-					},
+				disable_devicons = false,
+				ignore_patterns = {
+					"*.git/*",
+					"*/tmp/*",
+					"*/lua-language-server/*",
 				},
 			},
 		},
 	})
-
-	require("telescope").load_extension("frecency")
-	require("telescope").load_extension("fzf")
-	require("telescope").load_extension("live_grep_args")
-	require("telescope").load_extension("notify")
-	require("telescope").load_extension("projects")
-	require("telescope").load_extension("undo")
-	require("telescope").load_extension("zoxide")
+	telescope.load_extension("fzf")
+	telescope.load_extension("ui-select")
+	telescope.load_extension("refactoring")
+	-- telescope.load_extension("dap")
+	telescope.load_extension("zoxide")
+	telescope.load_extension("frecency")
 end

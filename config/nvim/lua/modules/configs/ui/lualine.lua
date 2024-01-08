@@ -25,7 +25,7 @@ return function()
 			globalstatus = true,
 			component_separators = "",
 			section_separators = "",
-			theme = "onenord",
+			theme = "catppuccin",
 		},
 		sections = {
 			lualine_a = {},

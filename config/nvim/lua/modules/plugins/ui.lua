@@ -5,6 +5,21 @@ ui["goolord/alpha-nvim"] = {
 	event = "BufWinEnter",
 	config = require("ui.alpha"),
 }
+ui["folke/noice.nvim"] = {
+	event = "VeryLazy",
+	enabled = true,
+	opts = {
+		-- add any options here
+	},
+	dependencies = {
+		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+		"MunifTanjim/nui.nvim",
+		-- OPTIONAL:
+		--   `nvim-notify` is only needed, if you want to use the notification view.
+		--   If not available, we use `mini` as the fallback
+		-- "rcarriga/nvim-notify",
+	},
+}
 ui["akinsho/bufferline.nvim"] = {
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
@@ -19,12 +34,6 @@ ui["rmehri01/onenord.nvim"] = {
 	lazy = false,
 	name = "onenord",
 	config = require("ui.onenord"),
-}
-ui["j-hui/fidget.nvim"] = {
-	lazy = true,
-	tag = "legacy",
-	event = "LspAttach",
-	config = require("ui.fidget"),
 }
 ui["lewis6991/gitsigns.nvim"] = {
 	lazy = true,
@@ -48,11 +57,11 @@ ui["nvim-lualine/lualine.nvim"] = {
 -- 	event = "LspAttach",
 -- 	config = require("ui.neodim"),
 -- }
-ui["rcarriga/nvim-notify"] = {
-	lazy = true,
-	event = "VeryLazy",
-	config = require("ui.notify"),
-}
+-- ui["rcarriga/nvim-notify"] = {
+-- 	lazy = true,
+-- 	event = "VeryLazy",
+-- 	config = require("ui.notify"),
+-- }
 ui["folke/paint.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },

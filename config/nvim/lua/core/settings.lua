@@ -34,7 +34,7 @@ settings["palette_overwrite"] = {}
 -- Set the colorscheme to use here.
 -- Available values are: `catppuccin`, `catppuccin-latte`, `catppucin-mocha`, `catppuccin-frappe`, `catppuccin-macchiato`, `edge`, `nord`.
 ---@type string
-settings["colorscheme"] = "onenord"
+settings["colorscheme"] = "catppuccin"
 
 -- Set it to true if your terminal has transparent background.
 ---@type boolean
@@ -73,10 +73,10 @@ settings["server_formatting_block_list"] = {
 settings["lsp_deps"] = {
 	"bashls",
 	"clangd",
-	"html",
 	"jsonls",
 	"lua_ls",
 	"gopls",
+	-- "tsserver",
 }
 
 -- Set the general-purpose servers that will be installed during bootstrap here
@@ -85,12 +85,20 @@ settings["lsp_deps"] = {
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins
 ---@type string[]
 settings["null_ls_deps"] = {
-	"black",
-	"clang_format",
-	"prettier",
-	"shfmt",
-	"stylua",
-	"eslint_lsp",
+	"black", --python formatter
+	"eslint_lsp", -- TS linter
+	"prettier", -- prettier formatter
+	"stylua", -- lua formatter
+	"golangci_lint", -- go linter
+	"terraform_fmt", -- terraform formatter
+	"terraform_validate", -- terraform linter
+	"shellcheck", -- shell linter
+	"yamllint", -- yaml linter
+	"buf", -- buf formatter
+	"beautysh", -- shell formatter
+	"gofumpt", -- go formatter
+	"yamlfmt", -- yaml formatter
+	"spell", -- spell checker
 }
 
 return settings

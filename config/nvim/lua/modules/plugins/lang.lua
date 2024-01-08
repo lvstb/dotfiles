@@ -31,4 +31,9 @@ lang["phelipetls/jsonpath.nvim"] = {
 	lazy = true,
 	ft = "json",
 }
+lang["pmizio/typescript-tools.nvim"] = {
+	event = "BufReadPre",
+	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+	opts = {},
+}
 return lang

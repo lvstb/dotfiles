@@ -94,10 +94,6 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			"NvChad/nvim-colorizer.lua",
 			config = require("editor.colorizer"),
 		},
-		-- {
-		-- 	"abecodes/tabout.nvim",
-		-- 	config = require("editor.tabout"),
-		-- },
 	},
 }
 editor["HiPhish/rainbow-delimiters.nvim"] = {

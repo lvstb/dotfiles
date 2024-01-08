@@ -8,14 +8,9 @@ return function()
 
 	require("ibl").setup({
 		indent = {
-			highlight = { "LineNr" },
+			highlight = { "IblIndent" },
 			char = char[1],
 			tab_char = char[1],
-		},
-		scope = {
-			enabled = true,
-			char = char[2],
-			highlight = { "IndentBlanklineContextChar" },
 		},
 		exclude = {
 			filetypes = {
@@ -42,6 +37,11 @@ return function()
 				"terminal",
 				"nofile",
 			},
+		},
+		scope = {
+			char = char[2],
+			-- enabled = true,
+			highlight = { "IblScope" },
 		},
 	})
 end

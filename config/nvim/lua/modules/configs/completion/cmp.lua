@@ -74,15 +74,20 @@ return function()
 
 	cmp.setup({
 		window = {
-			completion = {
-				-- border = border("Normal"),
-				max_width = 80,
-				max_height = 20,
-			},
-			documentation = {
-				-- border = border("CmpDocBorder"),
-			},
+			completion = cmp.config.window.bordered(),
+			documentation = cmp.config.window.bordered(),
 		},
+		-- window = {
+		-- 	-- completion = {
+		-- 	-- 	border = border("Normal"),
+		-- 	-- 	max_width = 80,
+		-- 	-- 	max_height = 20,
+		-- 	-- },
+		-- 	documentation = {
+		-- 		border = border("CmpDocBorder"),
+		-- 	},
+		-- },
+
 		sorting = {
 			priority_weight = 2,
 			comparators = {

@@ -59,12 +59,6 @@ tool["folke/which-key.nvim"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("tool.which-key"),
 }
-tool["gelguy/wilder.nvim"] = {
-	lazy = true,
-	event = "CmdlineEnter",
-	config = require("tool.wilder"),
-	dependencies = { "romgrk/fzy-lua-native" },
-}
 
 ----------------------------------------------------------------------
 --                        Telescope Plugins                         --
@@ -78,6 +72,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "BurntSushi/ripgrep" },
 		{ "debugloop/telescope-undo.nvim" },
+		{ "nvim-telescope/telescope-ui-select.nvim" },
 		{
 			"ahmedkhalf/project.nvim",
 			event = "BufReadPost",
@@ -90,6 +85,15 @@ tool["nvim-telescope/telescope.nvim"] = {
 		{ "jvgrootveld/telescope-zoxide" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim" },
 	},
+}
+tool["ThePrimeagen/refactoring.nvim"] = {
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-treesitter/nvim-treesitter",
+	},
+	config = function()
+		require("refactoring").setup()
+	end,
 }
 
 ----------------------------------------------------------------------
