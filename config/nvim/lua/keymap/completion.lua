@@ -15,6 +15,19 @@ local plug_map = {
 	-- 	:with_noremap()
 	-- 	:with_silent()
 	-- 	:with_desc("lsp: Line diagnostic"),
+	["n|g["] = map_callback(function()
+			require("trouble").previous({ skip_groups = true, jump = true })
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("lsp: previous diagnostic"),
+
+	["n|g]"] = map_callback(function()
+			require("trouble").next({ skip_groups = true, jump = true })
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("lsp: next diagnostic"),
 
 	["n|<leader>v"] = map_cmd("<cmd>vsplit | lua vim.lsp.buf.definition()<cr>")
 		:with_noremap()
@@ -106,7 +119,7 @@ local plug_map = {
 		:with_silent()
 		:with_desc("lsp: Show outgoing_calls"),
 	-- ["n|gR"] = map_cr("Lspsaga rename ++project")
-	-- 	:with_noremap()
+	-- 	:with_noremap()wj
 	-- 	:with_silent()
 	-- 	:with_desc("lsp: Rename in project range"),
 	-- ["n|gd"] = map_cr("Lspsaga peek_definition"):with_noremap():with_silent():with_desc("lsp: Preview definition"),

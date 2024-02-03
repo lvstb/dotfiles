@@ -1,8 +1,15 @@
 return function()
 	require("typescript-tools").setup({
+		on_attach = function(client)
+			client.server_capabilities.documentFormattingProvider = false
+			client.server_capabilities.documentRangeFormattingProvider = false
+			client.resolved_capabilities.document_formatting = false
+			client.resolved_capabilities.document_range_formatting = false
+		end,
 		settings = {
-			separate_diagnostic_server = true,
+			separate_diagnostic_server = false,
 			expose_as_code_action = "all",
+
 			-- tsserver_plugins = {},
 			tsserver_max_memory = "auto",
 			complete_function_calls = true,
