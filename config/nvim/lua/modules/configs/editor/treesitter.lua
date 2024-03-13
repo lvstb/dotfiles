@@ -5,25 +5,29 @@ return vim.schedule_wrap(function()
 	vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
 
 	require("nvim-treesitter.configs").setup({
-		ensure_installed = {
-			"bash",
-			"css",
-			"go",
-			"gomod",
-			"html",
-			"javascript",
-			"json",
-			"lua",
-			"make",
-			"markdown",
-			"markdown_inline",
-			"python",
-			"rust",
-			"typescript",
-			"java",
-			"vimdoc",
-			"yaml",
-		},
+		-- ensure_installed = {
+		-- 	"bash",
+		-- 	"css",
+		-- 	"go",
+		-- 	"gomod",
+		-- 	"html",
+		-- 	"javascript",
+		-- 	"json",
+		-- 	"lua",
+		-- 	"make",
+		-- 	"markdown",
+		-- 	"markdown_inline",
+		-- 	"python",
+		-- 	"rust",
+		-- 	"typescript",
+		-- 	"java",
+		-- 	"vimdoc",
+		-- 	"templ",
+		-- 	"yaml",
+		-- },
+		-- auto_install = true,
+		-- sync_install = true,
+		-- ignore_install = {},
 		highlight = {
 			enable = true,
 			disable = function(ft, bufnr)
@@ -75,11 +79,11 @@ return vim.schedule_wrap(function()
 		indent = { enable = true },
 		matchup = { enable = true },
 	})
-	require("nvim-treesitter.install").prefer_git = true
-	if use_ssh then
-		local parsers = require("nvim-treesitter.parsers").get_parser_configs()
-		for _, p in pairs(parsers) do
-			p.install_info.url = p.install_info.url:gsub("https://github.com/", "git@github.com:")
-		end
-	end
+	-- require("nvim-treesitter.install").prefer_git = true
+	-- if use_ssh then
+	-- 	local parsers = require("nvim-treesitter.parsers").get_parser_configs()
+	-- 	for _, p in pairs(parsers) do
+	-- 		p.install_info.url = p.install_info.url:gsub("https://github.com/", "git@github.com:")
+	-- 	end
+	-- end
 end)

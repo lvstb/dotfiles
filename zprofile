@@ -36,8 +36,8 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 #ZCLI
-export AWS_CA_BUNDLE=/opt/homebrew/etc/ca-certificates/cert.pem;
-export NODE_EXTRA_CA_CERTS=/Users/lvansteenbergen/.zcli/zscaler_root.pem;
+# export AWS_CA_BUNDLE=/opt/homebrew/etc/ca-certificates/cert.pem;
+# export NODE_EXTRA_CA_CERTS=/Users/lvansteenbergen/.zcli/zscaler_root.pem;
 
 #GO
 export GOPATH=$HOME/go
