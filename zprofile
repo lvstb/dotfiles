@@ -44,3 +44,7 @@ export GOPATH=$HOME/go
 export PATH="$PATH:${GOPATH}/bin"
 export GOPROXY="https://${ARTIFACTORY_USERNAME}:${ARTIFACTORY_API_KEY}@artifactory.persgroep.cloud/artifactory/api/go/go,https://proxy.golang.org,direct"
 export GONOSUMDB="persgroep.cloud/*"
+export GONOSUMDB="persgroep.cloud/*"
+
+# Added by OrbStack: command-line tools and integration
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :

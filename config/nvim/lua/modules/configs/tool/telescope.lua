@@ -76,6 +76,7 @@ return function()
 			},
 			git_files = {
 				previewer = false,
+				cwd = "%:h:p",
 				path_display = formattedName,
 				layout_config = {
 					height = 0.4,

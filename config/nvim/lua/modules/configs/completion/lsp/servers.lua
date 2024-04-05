@@ -33,7 +33,7 @@ return {
 	vimls = {
 		filetypes = { "vim" },
 	},
-	-- tsserver = {},
+	tsserver = {},
 	gopls = {},
 	solidity_ls_nomicfoundation = {},
 	yamlls = {
