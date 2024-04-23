@@ -67,7 +67,8 @@ source $ZSH/oh-my-zsh.sh
  # fi
 
 # ssh
-
+# libpq
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

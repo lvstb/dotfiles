@@ -91,7 +91,7 @@ style = "yellow"
 [aws]
 format = '[$symbol($profile )(\($region\) )]($style)'
 style = "bold yellow"
-symbol = "🅰 "
+symbol = "󰫮 "
 #[aws.region_aliases]
 #eu-west-1 = "eu"
 ## [aws.profile_aliases]

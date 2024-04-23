@@ -34,7 +34,22 @@ return {
 		filetypes = { "vim" },
 	},
 	tsserver = {},
-	gopls = {},
+	gopls = {
+		semanticTokens = true,
+		analyses = {
+			unusedparams = true,
+		},
+		staticcheck = true,
+		hints = {
+			assignVariableTypes = true,
+			compositeLiteralFields = true,
+			compositeLiteralTypes = true,
+			constantValues = true,
+			functionTypeParameters = true,
+			parameterNames = true,
+			rangeVariableTypes = true,
+		},
+	},
 	solidity_ls_nomicfoundation = {},
 	yamlls = {
 		cmd = { "yaml-language-server", "--stdio" },
