@@ -39,11 +39,12 @@ return {
 				"!Split",
 				"!Join sequence",
 			},
-			-- schemaStore = {
-			-- 	url = "https://www.schemastore.org/api/json/catalog.json",
-			-- 	enable = true,
-			-- },
-			-- schemas = require("schemastore").json.schemas(),
+			schemaStore = {
+				-- 	url = "https://www.schemastore.org/api/json/catalog.json",
+				enable = false,
+				url = "",
+			},
+			schemas = require("schemastore").yaml.schemas(),
 		},
 	},
 }

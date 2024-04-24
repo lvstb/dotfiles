@@ -9,6 +9,13 @@ return function()
 		btns.formatting.black.with({
 			extra_args = { "--fast" },
 		}),
+		btns.diagnostics.yamllint.with({
+			extra_args = {
+				"-",
+				"--config-data",
+				"{extends: default, rules: {line-length: disable, braces: {max-spaces-inside: 0, level: warning}}}",
+			},
+		}),
 		btns.formatting.clang_format.with({
 			filetypes = { "c", "cpp" },
 			extra_args = require("completion.formatters.clang_format"),
