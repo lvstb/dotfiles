@@ -27,4 +27,6 @@ config/nvim/plugin/packer_compiled.lua
 config/containers config/containers
 secrets
 config/containers
+
 config/raycast
+config/raycast/extensions/5fdb86d3-dfcc-45a7-8969-8113b51434ab
