@@ -1,0 +1,1 @@
+return { '-d "extends: relaxed, rules: {line-length: {max: 120}}"' }
