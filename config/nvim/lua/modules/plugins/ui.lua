@@ -74,11 +74,6 @@ ui["machakann/vim-sandwich"] = {
 	lazy = true,
 	event = "BufReadPost",
 }
-ui["edluffy/specs.nvim"] = {
-	lazy = true,
-	event = "CursorMoved",
-	config = require("ui.specs"),
-}
 ui["stevearc/dressing.nvim"] = {
 	opts = {},
 }

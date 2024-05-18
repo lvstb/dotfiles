@@ -29,6 +29,7 @@ config.line_height = 1.1
 -- This is where you actually apply your config choices
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
+config.audible_bell = "Disabled"
 
 -- changing the color scheme:
 -- config.color_scheme = "catppuccin"
@@ -43,8 +44,5 @@ config.window_padding = {
 	top = 10,
 	bottom = 0,
 }
--- config.scrollback_lines =5000,
--- config.enable_scroll_bar = false,
--- config.check_for_updates = false,
 -- and finally, return the configuration to wezterm
 return config

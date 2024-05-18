@@ -30,3 +30,4 @@ config/containers
 
 config/raycast
 config/raycast/extensions/5fdb86d3-dfcc-45a7-8969-8113b51434ab
+config/testcontainers/services
