@@ -118,6 +118,13 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Show outgoing_calls"),
+	["n|<leader>hi"] = map_callback(function()
+			_toggle_inlay_hints()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("lsp: Toggle inlay hints"),
+
 	-- ["n|gR"] = map_cr("Lspsaga rename ++project")
 	-- 	:with_noremap()wj
 	-- 	:with_silent()

@@ -11,6 +11,10 @@ _G._command_panel = function()
 	})
 end
 
+_G._toggle_inlay_hints = function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(nil))
+end
+
 local _lazygit = nil
 _G._toggle_lazygit = function()
 	if vim.fn.executable("lazygit") then

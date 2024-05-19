@@ -14,6 +14,14 @@ return {
 				maxPreload = 100000,
 				preloadFileSize = 10000,
 			},
+			hint = {
+				enable = true,
+				setType = false,
+				paramType = true,
+				paramName = "Disable",
+				semicolon = "Disable",
+				arrayIndex = "Disable",
+			},
 			format = { enable = false },
 			telemetry = { enable = false },
 			-- Do not override treesitter lua highlighting with lua_ls's highlighting

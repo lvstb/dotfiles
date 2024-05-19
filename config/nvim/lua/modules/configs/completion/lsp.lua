@@ -10,7 +10,7 @@ return function()
 		},
 	})
 	require("mason-lspconfig").setup({
-		ensure_installed = vim.tbl_keys(require("modules.configs.completion.lsp.servers")),
+		ensure_installed = require("core.settings").lsp_deps,
 	})
 
 	require("lspconfig.ui.windows").default_options.border = "single"
@@ -20,18 +20,7 @@ return function()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-	local mason_lspconfig = require("mason-lspconfig")
-
-	mason_lspconfig.setup_handlers({
-		function(server_name)
-			require("lspconfig")[server_name].setup({
-				capabilities = capabilities,
-				on_attach = require("modules.configs.completion.lsp.on_attach").on_attach,
-				settings = require("modules.configs.completion.lsp.servers")[server_name],
-				filetypes = (require("modules.configs.completion.lsp.servers")[server_name] or {}).filetypes,
-			})
-		end,
-	})
+	require("modules.configs.completion.mason-lspconfig").setup()
 
 	vim.diagnostic.config({
 		title = false,

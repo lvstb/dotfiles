@@ -4,6 +4,11 @@ return {
 	cmd = { "gopls", "-remote=auto" },
 	settings = {
 		gopls = {
+			["ui.inlayhint.hints"] = {
+				compositeLiteralFields = true,
+				constantValues = true,
+				parameterNames = true,
+			},
 			usePlaceholders = true,
 			analyses = {
 				nilness = true,
