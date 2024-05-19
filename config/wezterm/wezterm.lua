@@ -7,7 +7,7 @@ local config = wezterm.config_builder()
 
 config.bold_brightens_ansi_colors = true
 -- font
-config.font = wezterm.font("Fira Code", { weight = "Regular", stretch = "Expanded", style = "Normal" })
+config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Regular", stretch = "Expanded", style = "Normal" })
 config.font_size = 15.0
 config.cell_width = 1.1
 config.line_height = 1.1
