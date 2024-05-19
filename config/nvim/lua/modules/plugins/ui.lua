@@ -49,17 +49,6 @@ ui["nvim-lualine/lualine.nvim"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.lualine"),
 }
--- needs neovim 0.10
--- ui["zbirenbaum/neodim"] = {
--- 	lazy = true,
--- 	event = "LspAttach",
--- 	config = require("ui.neodim"),
--- }
--- ui["rcarriga/nvim-notify"] = {
--- 	lazy = true,
--- 	event = "VeryLazy",
--- 	config = require("ui.notify"),
--- }
 ui["folke/paint.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },

@@ -13,9 +13,9 @@ M.on_attach = function(client, bufnr)
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, "Workspace List Folders")
 
-	if client.server_capabilities.inlayHintProvider then
-		vim.lsp.inlay_hint.enable(true)
-	end
+	-- if client.server_capabilities.inlayHintProvider then
+	-- 	vim.lsp.inlay_hint.enable(true)
+	-- end
 end
 
 return M
