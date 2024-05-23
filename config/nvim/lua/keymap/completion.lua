@@ -33,12 +33,6 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Open definition in v split"),
-	["n|gD"] = map_callback(function()
-			vim.lsp.buf.declaration()
-		end)
-		:with_noremap()
-		:with_silent()
-		:with_desc("lsp: Goto Declaration"),
 	["n|K"] = map_callback(function()
 			vim.lsp.buf.hover()
 		end)
@@ -63,19 +57,6 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Goto type definition"),
-	["n|gi"] = map_callback(function()
-			require("telescope.builtin").lsp_implementations()
-		end)
-		:with_noremap()
-		:with_silent()
-		:with_desc("lsp: Goto implementations"),
-	["n|gd"] = map_callback(function()
-			require("telescope.builtin").lsp_definitions()
-		end)
-		:with_noremap()
-		:with_silent()
-		:with_desc("lsp: Goto definition"),
-
 	["n|gs"] = map_callback(function()
 			vim.lsp.buf.signature_help()
 		end)
@@ -100,12 +81,12 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Rename all references"),
-	["n|gh"] = map_callback(function()
-			vim.lsp.buf.references()
-		end)
-		:with_noremap()
-		:with_silent()
-		:with_desc("lsp: Show references"),
+	-- ["n|gh"] = map_callback(function()
+	-- 		vim.lsp.buf.references()
+	-- 	end)
+	-- 	:with_noremap()
+	-- 	:with_silent()
+	-- 	:with_desc("lsp: Show references"),
 	["n|<leader>ci"] = map_callback(function()
 			vim.lsp.buf.incoming_calls()
 		end)
@@ -124,7 +105,10 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Toggle inlay hints"),
-
+	["n|gd"] = map_cr("Glance definitions"):with_silent():with_buffer(buf):with_desc("lsp: Preview definition"),
+	-- ["n|gD"] = map_cr("Lspsaga goto_definition"):with_silent():with_buffer(buf):with_desc("lsp: Goto definition"),
+	["n|gh"] = map_cr("Glance references"):with_silent():with_buffer(buf):with_desc("lsp: Show reference"),
+	["n|gi"] = map_cr("Glance implementations"):with_silent():with_buffer(buf):with_desc("lsp: Show implementation"),
 	-- ["n|gR"] = map_cr("Lspsaga rename ++project")
 	-- 	:with_noremap()wj
 	-- 	:with_silent()

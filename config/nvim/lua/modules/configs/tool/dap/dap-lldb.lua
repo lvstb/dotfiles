@@ -1,7 +1,7 @@
 local dap = require("dap")
 
 dap.adapters.lldb = {
-	type = "executable",
+    	type = "executable",
 	command = "/usr/bin/lldb-vscode",
 	name = "lldb",
 }
@@ -18,7 +18,7 @@ dap.configurations.cpp = {
 		args = function()
 			local input = vim.fn.input("Input args: ")
 			return vim.fn.split(input, " ", true)
-		end,
+		    end,
 
 		-- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
 		--

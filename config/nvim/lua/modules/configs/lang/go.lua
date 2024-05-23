@@ -2,7 +2,7 @@ return function()
 	require("go").setup({
 		-- By default, we've turned off these options to prevent clashes with our gopls config
 		icons = false,
-		diagnostic = false,
+		-- diagnostic = false,
 		lsp_cfg = true,
 		lsp_gofumpt = false,
 		lsp_keymaps = false,
