@@ -33,6 +33,8 @@
   path = ~/.gitconfig_dpg
 [includeIf "gitdir:~/DPG/"]
   path = ~/.gitconfig_dpg
+[includeIf "gitdir:~/DPG-GH/"]
+  path = ~/.gitconfig_dpg_gh
 
 [alias]
     l=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --no-merges
