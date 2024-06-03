@@ -67,7 +67,7 @@ local plug_map = {
 		:with_desc("git: Toggle lazygit"),
 
 	-- Plugin: trouble
-	["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
+	["n|gt"] = map_cr("Trouble diagnostics toggle focus=false filter.buf=0"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
 	["n|<leader>tr"] = map_cr("TroubleToggle lsp_references")
 		:with_noremap()
 		:with_silent()

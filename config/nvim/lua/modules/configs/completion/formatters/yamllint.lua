@@ -1,1 +1,0 @@
-return { '-d "extends: relaxed, rules: {line-length: {max: 120}}, {document-start: {present: false}}"' }

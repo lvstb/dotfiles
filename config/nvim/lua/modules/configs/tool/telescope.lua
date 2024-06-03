@@ -1,7 +1,7 @@
 return function()
 	local telescope = require("telescope")
 	local actions = require("telescope.actions")
-	local trouble = require("trouble.providers.telescope")
+	local trouble = require("trouble.sources.telescope")
 	-- local icons = require("modules.utils.icons")
 	local icons = {
 		ui = require("modules.utils.icons").get("ui"),
@@ -31,10 +31,10 @@ return function()
 			mappings = {
 				i = {
 					["<esc>"] = actions.close,
-					["<C-t>"] = trouble.open_with_trouble,
+					["<C-t>"] = trouble.open,
 				},
 
-				n = { ["<C-t>"] = trouble.open_with_trouble },
+				n = { ["<C-t>"] = trouble.open},
 			},
 			previewer = false,
 			-- hidden = true,

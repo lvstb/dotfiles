@@ -13,7 +13,7 @@ return function()
 			extra_args = {
 				"-",
 				"--config-data",
-				"{extends: default, rules: {line-length: disable, braces: {max-spaces-inside: 0, level: warning}}}",
+				"{extends: default, rules: {line-length: disable, braces: {max-spaces-inside: 0, level: warning}, document-start: {present: false}}}",
 			},
 		}),
 		btns.formatting.clang_format.with({
