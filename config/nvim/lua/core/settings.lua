@@ -5,19 +5,9 @@ local home = require("core.global").home
 ---@type boolean
 settings["use_ssh"] = false
 
--- Set it to false if there are no need to format on save.
----@type boolean
-settings["format_on_save"] = true
-
 -- Set it to false if diagnostics virtual text is annoying for you
 ---@type boolean
 settings["diagnostics_virtual_text"] = true
-
--- Set the format disabled directories here, files under these dirs won't be formatted on save.
----@type string[]
-settings["format_disabled_dirs"] = {
-	home .. "/format_disabled_dir_under_home",
-}
 
 -- NOTE: The startup time will be slowed down when it's true.
 -- Set it to false if you don't use nvim to open big files.
@@ -51,21 +41,18 @@ settings["background"] = "dark"
 ---@type string
 settings["external_browser"] = "chrome-cli open"
 
--- Filetypes in this list will skip lsp formatting if rhs is true
----@type table<string, boolean>
-settings["formatter_block_list"] = {
-	lua = false, -- example
+-- Set the linter that will be installed during bootstrap here
+---@type string[]
+settings["linter_deps"] = {
+	"shellcheck",
+	"selene",
+	"yamllint",
+	"markdownlint",
+	"hadolint",
+	"golangci-lint",
+	"prettier",
+	"black",
 }
-
--- Servers in this list will skip setting formatting capabilities if rhs is true
----@type table<string, boolean>
-settings["server_formatting_block_list"] = {
-	lua_ls = true,
-	tsserver = true,
-	clangd = true,
-	pylsp = true,
-}
-
 -- Set the language servers that will be installed during bootstrap here
 -- check the below link for all the supported LSPs:
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
@@ -77,34 +64,6 @@ settings["lsp_deps"] = {
 	"lua_ls",
 	"gopls",
 	-- "tsserver",
-}
--- Set it to true if you prefer formatting ONLY the *changed lines* as defined by your version control system.
--- NOTE: This entry will only be respected if:
---  > The buffer to be formatted is under version control (Git or Mercurial);
---  > Any of the server attached to that buffer supports |DocumentRangeFormattingProvider| server capability.
--- Otherwise Neovim would fall back to format the whole buffer, and a warning will be issued.
----@type boolean
-settings["format_modifications_only"] = true
--- Set the general-purpose servers that will be installed during bootstrap here
--- check the below link for all supported sources
--- in `code_actions`, `completion`, `diagnostics`, `formatting`, `hover` folders:
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins
----@type string[]
-settings["null_ls_deps"] = {
-	"black", --python formatter
-	"eslint_lsp", -- TS linter
-	"prettier", -- prettier formatter
-	"stylua", -- lua formatter
-	"golangci_lint", -- go linter
-	"terraform_fmt", -- terraform formatter
-	"terraform_validate", -- terraform linter
-	"shellcheck", -- shell linter
-	"yamllint", -- yaml linter
-	"buf", -- buf formatter
-	"beautysh", -- shell formatter
-	"gofumpt", -- go formatter
-	"yamlfmt", -- yaml formatter
-	"spell", -- spell checker
 }
 
 return settings

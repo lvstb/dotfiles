@@ -15,12 +15,17 @@ M.setup = function()
 
 	local nvim_lsp = require("lspconfig")
 	local mason_lspconfig = require("mason-lspconfig")
+	local mason_tool_installer = require("mason-tool-installer")
+
 	require("lspconfig.ui.windows").default_options.border = "rounded"
 
 	mason_lspconfig.setup({
 		ensure_installed = require("core.settings").lsp_deps,
 	})
 
+	mason_tool_installer.setup({
+		ensure_installed = require("core.settings").linter_deps,
+	})
 	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 		signs = true,
 		underline = true,

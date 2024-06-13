@@ -10,25 +10,23 @@ completion["neovim/nvim-lspconfig"] = {
 		{ "b0o/schemastore.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
 		{ "hrsh7th/cmp-nvim-lsp" },
+		{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 	},
 }
-completion["nvimtools/none-ls.nvim"] = {
+completion["stevearc/conform.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
-	config = require("completion.null-ls"),
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"jay-babu/mason-null-ls.nvim",
-	},
+	config = require("completion.formatter"),
+}
+completion["mfussenegger/nvim-lint"] = {
+	lazy = true,
+	event = { "BufReadPre", "BufNewFile" },
+	config = require("completion.linter"),
 }
 completion["dnlhc/glance.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = require("completion.glance"),
-}
-completion["joechrisellis/lsp-format-modifications.nvim"] = {
-	lazy = true,
-	event = "LspAttach",
 }
 completion["hrsh7th/nvim-cmp"] = {
 	lazy = true,
@@ -50,7 +48,6 @@ completion["hrsh7th/nvim-cmp"] = {
 		{ "hrsh7th/cmp-buffer" },
 		{ "kdheepak/cmp-latex-symbols" },
 		{ "ray-x/cmp-treesitter" },
-		-- { "tzachar/cmp-tabnine", build = "./install.sh", config = require("completion.tabnine") },
 		-- {
 		-- 	"jcdickinson/codeium.nvim",
 		-- 	dependencies = {
