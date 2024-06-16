@@ -7,18 +7,16 @@ These are my personal dotfiles.
 ## Install Dotfiles
 
 To install these dotfiles, clone the repo.
-After that run the bootstrap script.
-
-If the bootstrap script finishes, go in VIM and do :PlugInstall! to install all vim plugins.
+I use GNU stow to manage symlinking my dotfiles
 
 ## Features
 
 -   Brewfile, depending on the os (mac/linux) it will install packages listed in the brewfile.
--   Zsh and oh-my-zsh config and tweaks
+-   Zsh config and tweaks
 -   Tmux with personalization
--   Vim with plugins and personalization
+-   Neovim with plugins and personalization
 
-Theme = OneNord
+Theme = Custom theme
 Prompt = Pure
 
 To get Python 3.7 working on Apple silicon
@@ -42,12 +40,6 @@ pyenv local 3.7.10
 python -V
 # Python 3.7.10
 python -c 'import _ctypes'. # works!
-
-```
-
-```bash
-# This should get you going #
-bash dotfiles/bootstrap.sh
 
 ```
 

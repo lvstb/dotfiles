@@ -1,5 +1,13 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# XDG Paths
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+
+# zsh config dir
+export ZDOTDIR=$HOME/.config/zsh
+
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
     --color=fg:#e5e9f0,hl:#81a1c1
     --color=fg+:#e5e9f0,hl+:#81a1c1
@@ -26,7 +34,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 export SHOW_AWS_PROMPT=true
-export EDITOR=vim
+export EDITOR=nvim
 
 #Special keys
 bindkey -s ^a "~/.config/scripts/tmux-sessionizer\n"
