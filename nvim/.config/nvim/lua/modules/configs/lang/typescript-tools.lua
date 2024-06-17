@@ -3,8 +3,6 @@ return function()
 		on_attach = function(client)
 			client.server_capabilities.documentFormattingProvider = false
 			client.server_capabilities.documentRangeFormattingProvider = false
-			client.resolved_capabilities.document_formatting = false
-			client.resolved_capabilities.document_range_formatting = false
 		end,
 		settings = {
 			separate_diagnostic_server = false,

@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 os:
-    editCommand: 'nvim --server $NVIM_SERVER'
-    editCommandTemplate: "{{editor}} --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua Edit({{filename}}, {{line}})<CR>'"
+    # editCommand: 'nvim --server $NVIM_SERVER'
+    # editCommandTemplate: "{{editor}} --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua Edit({{filename}}, {{line}})<CR>'"
 git:
     branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --'
     commitPrefixes:
@@ -10,8 +10,9 @@ git:
             replace: '[$1] '
     paging:
         colorArg: always
-        pager: delta --dark --paging=never
-        # useConfig: use
+        pager: diff-so-fancy
+        # pager: delta --dark --paging=never
+        # useConfig: true
     commit:
         signOff: false
     merging:
@@ -38,9 +39,26 @@ git:
     parseEmoji: false
     diffContextSize: 3 # how many lines of context are shown around a change in diffs
 gui:
+    theme:
+        activeBorderColor:
+            - '#7daea3'
+            - bold
+        inactiveBorderColor:
+            - '#ebdbb2'
+        optionsTextColor:
+            - '#89b482'
+        selectedLineBgColor:
+            - '#313244'
+        selectedRangeBgColor:
+            - '#313244'
+        cherryPickedCommitBgColor:
+            - '#45475a'
+        cherryPickedCommitFgColor:
+            - '#d3869b'
+        unstagedChangesColor:
+            - '#ea6962'
+        defaultFgColor:
+            - '#ebdbb2"
+        searchingActiveBorderColor:
+            - '#a9b665'
     nerdFontsVersion: '3'
-theme:
-    # Border color of focused window
-    activeBorderColor:
-        - pink
-        - bold
