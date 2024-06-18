@@ -4,10 +4,10 @@ os:
     # editCommandTemplate: "{{editor}} --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua Edit({{filename}}, {{line}})<CR>'"
 git:
     branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --'
-    commitPrefixes:
-        my_project: # This is repository folder name
-            pattern: "^\\w+\\/(\\w+-\\w+).*"
-            replace: '[$1] '
+    # commitPrefixes:
+    #     my_project: # This is repository folder name
+    #         pattern: "^\\w+\\/(\\w+-\\w+).*"
+    #         replace: '[$1] '
     paging:
         colorArg: always
         pager: diff-so-fancy
@@ -37,7 +37,6 @@ git:
     overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
     disableForcePushing: false
     parseEmoji: false
-    diffContextSize: 3 # how many lines of context are shown around a change in diffs
 gui:
     theme:
         activeBorderColor:
