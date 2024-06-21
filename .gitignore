@@ -32,3 +32,8 @@ config/raycast
 config/raycast/extensions/5fdb86d3-dfcc-45a7-8969-8113b51434ab
 config/testcontainers/services
 config/github-copilot/hosts.json
+
+
+zsh/.config/zsh/zcompdump
+swap-pane
+zsh/.config/zsh/.zcompdump
