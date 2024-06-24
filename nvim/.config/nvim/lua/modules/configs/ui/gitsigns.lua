@@ -41,7 +41,7 @@ return function()
 						return "]g"
 					end
 					vim.schedule(function()
-						require("gitsigns.actions").next_hunk()
+						require("gitsigns.nav_hunk('next')")
 					end)
 					return "<Ignore>"
 				end)
@@ -53,7 +53,7 @@ return function()
 						return "[g"
 					end
 					vim.schedule(function()
-						require("gitsigns.actions").prev_hunk()
+						require("gitsigns.nav_hunk('previous')")
 					end)
 					return "<Ignore>"
 				end)

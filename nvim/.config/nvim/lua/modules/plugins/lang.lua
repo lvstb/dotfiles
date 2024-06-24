@@ -30,7 +30,7 @@ lang["ray-x/go.nvim"] = {
 	event = { "CmdlineEnter" },
 	ft = { "go", "gomod", "gosum" },
 	build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
-	coooonfig = require("lang.go"),
+	config = require("lang.go"),
 	dependencies = { "ray-x/guihua.lua" },
 }
 lang["pmizio/typescript-tools.nvim"] = {

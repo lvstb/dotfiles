@@ -58,9 +58,10 @@ return function()
 				surface1 = "#404040",
 				surface0 = "#292929",
 				base = "#1d2021",
-				mantle = "#1d2021",
-				-- mantle = "#191b1c",
-				crust = "#141617",
+				-- mantle = "#1d2021",
+				mantle = "#191b1c",
+				-- crust = "#141617",
+				crust = "#1d2021",
 			},
 		},
 		transparent_background = false,
@@ -352,4 +353,3 @@ return function()
 
 	vim.api.nvim_command("colorscheme catppuccin")
 end
-
