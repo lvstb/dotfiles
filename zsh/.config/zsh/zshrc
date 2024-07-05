@@ -2,7 +2,7 @@
 export ZDOTDIR=$HOME/.config/zsh
 HISTFILE=~/.zsh_history
 setopt appendhistory
-
+source /Users/lvansteenbergen/.config/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
 setopt interactive_comments
@@ -14,11 +14,12 @@ unsetopt BEEP
 
 
 # completions
-autoload -Uz compinit
-zstyle ':completion:*' menu select
+# autoload -Uz compinit
+zstyle ':completion:*'  list-colors '=*=90'
+# zstyle ':completion:*' menu select
 # zstyle ':completion::complete:lsof:*' menu yes select
 zmodload zsh/complist
-compinit
+# compinit
 setopt globdots
 _comp_options+=(globdots)		# Include hidden files.
 
@@ -42,6 +43,7 @@ zsh_add_file "zsh-aliases"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
+zsh_add_plugin "marlonrichert/zsh-autocomplete"
 # zsh_add_completion "esc/conda-zsh-completion" false
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
@@ -56,7 +58,7 @@ zsh_add_plugin "hlissner/zsh-autopair"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
 # export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
-compinit
+# compinit
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
@@ -66,6 +68,11 @@ autoload edit-command-line; zle -N edit-command-line
 export EDITOR="nvim"
 export TERMINAL="wezterm"
 export BROWSER="firefox"
+
+bindkey              '^I' menu-select
+bindkey "$terminfo[kcbt]" menu-select
+bindkey -M menuselect              '^I'         menu-complete
+bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
 
 #prompt theme
 eval "$(starship init zsh)"

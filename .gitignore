@@ -35,5 +35,6 @@ config/github-copilot/hosts.json
 
 
 zsh/.config/zsh/zcompdump
+zsh/.config/zsh/zsh_history
 swap-pane
 zsh/.config/zsh/.zcompdump
