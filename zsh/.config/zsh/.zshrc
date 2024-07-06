@@ -58,8 +58,9 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
-source "fzf_opts"
+source "$ZDOTDIR/fzf_opts"
 
+eval $(thefuck --alias fk)
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 
 export SDKMAN_DIR="$HOME/.sdkman"
