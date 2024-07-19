@@ -10,7 +10,6 @@ return function()
 				operators = false,
 				motions = false,
 				text_objects = false,
-				windows = false,
 				nav = false,
 				z = true,
 				g = true,
@@ -23,12 +22,15 @@ return function()
 			group = icons.misc.Add,
 		},
 
-		window = {
+		win = {
+			no_overlap = true,
 			border = "none",
-			position = "bottom",
-			margin = { 1, 0, 1, 0 },
+			-- position = "bottom",
+			-- margin = { 1, 0, 1, 0 },
 			padding = { 1, 1, 1, 1 },
-			winblend = 0,
+			wo = {
+				winblend = 0,
+			},
 		},
 	})
 end
