@@ -8,6 +8,9 @@ local config = wezterm.config_builder()
 config.bold_brightens_ansi_colors = true
 -- font
 config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Regular", stretch = "Expanded", style = "Normal" })
+-- Use this for a zero with a line through it rather than a dot
+-- when using the Fira Code font
+config.harfbuzz_features = { "cv01", "cv02", "cv04", "cv08", "cv20", "ss01", "ss02", "cv13", "cv14", "cv18", "cv29", "cv30", "cv31", "ss05", "ss03", "cv13" }
 config.font_size = 15.0
 config.cell_width = 1.1
 config.line_height = 1.1
@@ -39,10 +42,10 @@ config.scrollback_lines = 5000
 config.enable_scroll_bar = false
 config.check_for_updates = false
 config.window_padding = {
-	left = 15,
-	right = 15,
-	top = 10,
-	bottom = 0,
+    left = 15,
+    right = 15,
+    top = 10,
+    bottom = 0,
 }
 -- and finally, return the configuration to wezterm
 return config
