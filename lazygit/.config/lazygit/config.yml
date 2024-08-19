@@ -37,6 +37,13 @@ git:
     overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
     disableForcePushing: false
     parseEmoji: false
+customCommands:
+  - key: "C"
+    command: "git cz c"
+    description: "commit with commitizen"
+    context: "files"
+    loadingText: "opening commitizen commit tool"
+    subprocess: true
 gui:
     theme:
         activeBorderColor:
