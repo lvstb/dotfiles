@@ -1,4 +1,4 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # XDG Paths
 export XDG_CONFIG_HOME=$HOME/.config
@@ -13,3 +13,6 @@ bindkey -s ^a "~/.config/scripts/tmux-sessionizer\n"
 
 # Added by OrbStack: command-line tools and integration
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    [[ $(tty) = /dev/tty1 ]] && exec Hyprland
+fi
