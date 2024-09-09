@@ -18,13 +18,13 @@
     ],
     "modules-right": [
         "cpu",
-        "power-profiles-daemon",
+        //"power-profiles-daemon",
         "memory",
-        "disk",
+        //"disk",
         "temperature",
         "battery",
         "group/pulseaudio",
-        "group/backlight",
+        //"group/backlight",
         "network",
         "bluetooth",
         "tray"

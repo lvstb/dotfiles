@@ -66,7 +66,8 @@
     "network": { // https://github.com/Alexays/Waybar/wiki/Module:-Network
         "tooltip-format": "{ifname} via {gwaddr} 󰛳",
         //"format-wifi": "{essid} 󰤨",
-        "format-wifi": "󰤨",
+        "icon-size": 26,
+        "format-wifi": "",
         "format-ethernet": "{ipaddr}/{cidr} 󰈀",
         "format-linked": "{ifname} (No IP) 󰌘",
         "format-disconnected": "Disconnected ",

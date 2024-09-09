@@ -11,8 +11,10 @@ eval "$(zoxide init zsh)"
 # Go
 export GOPATH=$HOME/go
 export PATH="$PATH:${GOPATH}/bin"
-export GOPROXY="https://${ARTIFACTORY_USER}:${ARTIFACTORY_APIKEY}@artifactory.persgroep.cloud/artifactory/api/go/go,https://proxy.golang.org,direct"
-export GONOSUMDB="persgroep.cloud/*"
+export GOPROXY="direct"
+# export GOPROXY="https://${ARTIFACTORY_USER}:${ARTIFACTORY_APIKEY}@artifactory.persgroep.cloud/artifactory/api/go/go,https://proxy.golang.org,direct"
+# export GONOSUMDB="persgroep.cloud/*"
+
 
 # Java
 export PATH="/Library/Java/JavaVirtualMachines/graalvm-ce-java11-22.3.1/Contents/Home/bin:$PATH"
@@ -41,8 +43,8 @@ export PATH="/usr/local/opt/:$PATH"
 
 
 #ZCLI
-export AWS_CA_BUNDLE=/opt/homebrew/etc/ca-certificates/cert.pem;
-export NODE_EXTRA_CA_CERTS=/Users/lvansteenbergen/.zcli/zscaler_root.pem;
+# export AWS_CA_BUNDLE=/opt/homebrew/etc/ca-certificates/cert.pem;
+# export NODE_EXTRA_CA_CERTS=/Users/lvansteenbergen/.zcli/zscaler_root.pem;
 
 #ZSH
 export SHOW_AWS_PROMPT=true

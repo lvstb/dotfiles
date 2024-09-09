@@ -16,3 +16,6 @@ source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     [[ $(tty) = /dev/tty1 ]] && exec Hyprland
 fi
+
+
+export GDK_SCALE=2.6
