@@ -13,7 +13,7 @@ zsh_add_file "zsh-aliases"
 
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-completions"
+zsh_add_plugin "zsh-completions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "Aloxaf/fzf-tab"
 zsh_add_plugin "env"

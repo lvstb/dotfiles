@@ -1,0 +1,72 @@
+[push]
+    default = simple
+    autoSetupRemote = true
+[pull]
+	rebase = true
+[core]
+    editor = vim
+    autoctrl = input
+    whitespace = space-before-tab, trailing-space
+	excludesfile = ~/.gitignore_global
+
+[credential]
+    helper = osxkeychain
+
+[pager]
+       diff = diff-so-fancy | less --tabs=1,5 -RFX
+       show = diff-so-fancy | less --tabs=1,5 -RFX
+
+[merge]
+  tool = fugitive
+
+[mergetool]
+  keepBackup = false
+
+[mergetool "fugitive"]
+    cmd = nvim -c DiffviewOpen
+# default case
+[include]
+  path = ~/.gitconfig_personal
+# Depending on work
+[includeIf "gitdir:~/Nextcloud/DPP/"]
+  path = ~/.gitconfig_dpg
+[includeIf "gitdir:~/DPG/"]
+  path = ~/.gitconfig_dpg
+[includeIf "gitdir:~/DPG-GH/"]
+  path = ~/.gitconfig_dpg_gh
+
+[alias]
+    l=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --no-merges
+    rl = reflog --date=format:%T --pretty=format:\"%C(yellow)%h%Creset %C(037)%gD:%Creset %C(white)%gs%Creset%C(auto)%d%Creset\"
+    ls = "!cd ${GIT_PREFIX:-.} && git l --stat"
+    ld = log -p
+    ldf = ld --follow
+    lg = l --graph
+    msg = show -s --pretty=%b
+
+    modified = !git --no-pager diff HEAD --name-only
+    s = status -sb
+    st = status
+    sta = -c diff.ignoreSubmodules=none st
+    ss = !git --no-pager show --stat
+    untracked = ls-files --others --exclude-standard
+    last = log -1 HEAD --stat
+
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	# Amend the currently staged files to the latest commit
+	amend = commit --amend --reuse-message=HEAD
+
+    # delete changes from staging
+    unstage  = reset HEAD
+    # clean repo state from last commit
+    cleanout = !git clean -df && git checkout -- .
+    # will put a file into gitignore
+    ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
+    # Will start a repo in this directory
+    this = !git init && git add . && git commit -m \"initial commit\"
+
+[commit]
+	gpgsign = false
+[branch]
+	sort = -committerdate
