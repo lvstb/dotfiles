@@ -1,56 +1,45 @@
 {
-    "include": [
-        "~/.config/waybar/modules/index.jsonc",
-        "~/.config/waybar/modules/hypr.jsonc",
-        "~/.config/waybar/modules/clock.jsonc"
-    ],
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    "spacing": 5, // Gaps between modules (4px)
-    // Choose the order of the modules
-    "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
-        "cpu",
-        //"power-profiles-daemon",
-        "memory",
-        //"disk",
-        "temperature",
-        "battery",
-        "group/pulseaudio",
-        //"group/backlight",
-        "network",
-        "bluetooth",
-        "tray"
-    ],
-    "group/backlight": {
-        "orientation": "horizontal",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "not-power",
-            "transition-left-to-right": false
-        },
-        "modules": [
-            "backlight",
-            "backlight/slider"
-        ]
+  "position": "top",
+  "modules-left": ["hyprland/workspaces"],
+  "modules-right": ["network", "pulseaudio", "battery", "clock"],
+  "clock": {
+    "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
     },
-    "group/pulseaudio": {
-        "orientation": "horizontal",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "not-power",
-            "transition-left-to-right": false
-        },
-        "modules": [
-            "pulseaudio",
-            "pulseaudio/slider"
-        ]
+    "format": "<span size='10000' foreground='#a6e3a1'>{icon} </span> {capacity}%",
+    "format-warning": "<span size='10000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
+    "format-critical": "<span size='10000' foreground='#E38C8F'>{icon} </span> {capacity}%",
+    "format-charging": "<span size='10000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-plugged": "<span size='10000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-alt": "<span size='10000' foreground='#B1E3AD'>{icon} </span> {time}",
+    "format-full": "<span size='10000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{time}"
+  },
+  "network": {
+    "format-wifi": "<span size='10000' foreground='#f5e0dc'>  </span>{essid}",
+    "format-ethernet": "<span size='10000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "<span size='10000' foreground='#f5e0dc'>  </span>Disconnected",
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+  },
+  "pulseaudio": {
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format": "<span size='10000' foreground='#89b4fa'>{icon} </span> {volume}%",
+    "format-muted": "<span size='11000' foreground='#89b4fa'></span> Muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
     }
+  }
 }

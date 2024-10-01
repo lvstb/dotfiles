@@ -25,8 +25,8 @@ autoload -Uz compinit && compinit
 
 # Environment variables set everywhere
 export EDITOR="nvim"
-export TERMINAL="wezterm"
-export BROWSER="firefox"
+export TERMINAL="kitty"
+export BROWSER="zen-browser"
 
 # Keybindings
 bindkey -e
