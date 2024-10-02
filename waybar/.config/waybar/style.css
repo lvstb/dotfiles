@@ -1,8 +1,8 @@
-@import "lars.css"; 
+@import 'lars.css';
 
 * {
-    font-family: "MesloLGS Nerd Font Mono Bold";
-    font-size: 12px;
+    font-family: 'MesloLGS Nerd Font Mono Bold';
+    font-size: 16px;
     min-height: 0;
     font-weight: bold;
 }
@@ -30,8 +30,8 @@ button {
 
 button:hover {
     background: inherit;
-    color: @mauve;
-    border-top: 2px solid @mauve;
+    color: @teal;
+    border-top: 2px solid @teal;
 }
 
 #workspaces button {
@@ -40,14 +40,14 @@ button:hover {
 
 #workspaces button.focused {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @rosewater;
-    border-top: 2px solid @rosewater;
+    color: @lavender;
+    border-top: 2px solid @lavender;
 }
 
 #workspaces button.active {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @mauve;
-    border-top: 2px solid @mauve;
+    color: @sky;
+    border-top: 2px solid @sky;
 }
 
 #workspaces button.urgent {
@@ -67,12 +67,12 @@ button:hover {
 #network,
 #mode,
 #scratchpad {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 4px;
-  margin-right: 4px;
-  padding-left: 4px;
-  padding-right: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 #clock {
@@ -110,12 +110,12 @@ button:hover {
 }
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
+.modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
+.modules-right > widget:last-child > #workspaces {
     margin-right: 0;
 }
 
