@@ -46,21 +46,23 @@ dir2name() {
 	# Set of rules to transform directories into sesh_names
 	name="$1"
 	sesh_name=$(basename "$name")
-	# if [[ $name == *"/Nextcloud/Wingu/"* ]]; then
-	#     sesh_name="Wingu-$sesh_name"
+	# if [[ $name == *"/DPG/"* ]]; then
+	#     sesh_name="DPG-$sesh_name"
 	# fi
 	echo "$sesh_name"
 }
 
 find_directories() {
 	# Responsible for chosing which directories to display
-	possible_options="$HOME/Nextcloud/Wingu"
-	possible_options+=" $HOME/DPG"
+	possible_options="$HOME/DPG"
+	possible_options+=" $HOME/.dotfiles"
+	possible_options+=" $HOME/DPG_GH"
 	possible_options+=" $HOME/dotfiles"
+	possible_options+=" $HOME/Nextcloud/Wingu"
 	# if [ $LOC == "remote" ]; then
 	#     possible_options+=" $HOME/Nextcloud/Wingu"
 	# fi
-	find $possible_options -mindepth 1 -maxdepth 1 -type d -not -path '*/.*'
+    find $possible_options -mindepth 1 -maxdepth 1 -type d \( ! -name '.*' -o -name '.dotfiles' \)
 }
 
 tabulate() {

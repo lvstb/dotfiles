@@ -11,6 +11,25 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --marker=">" --pointer="◆" --separator="─" --scrollbar="│"
   --layout="reverse"'
 
+export _ZO_FZF_OPTS=$_ZO_FZF_OPTS'
+  --color=fg:-1,fg+:#a89984,bg:-1,bg+:#191b1c
+  --color=hl:#89b482,hl+:#97b892,info:#d8a657,marker:#7daea3
+  --color=prompt:#ea6962,spinner:#d3869b,pointer:#d3869b,header:#89b482
+  --color=border:#141617,preview-fg:#d5c4a1,preview-bg:#1d2021,preview-label:#c42c2c
+  --color=label:#36143d,query:#ebdbb2
+  --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="> "
+  --marker=">" --pointer="◆" --separator="─" --scrollbar="│"
+  --layout="reverse"'
+# export _ZO_FZF_OPTS=$_ZO_FZF_OPTS='
+#   --color=fg:-1,fg+:#a89984,bg:-1,bg+:#191b1c
+#   --color=hl:#89b482,hl+:#97b892,info:#d8a657,marker:#7daea3
+#   --color=prompt:#ea6962,spinner:#d3869b,pointer:#d3869b,header:#89b482
+#   --color=border:#141617,preview-fg:#d5c4a1,preview-bg:#1d2021,preview-label:#c42c2c
+#   --color=label:#36143d,query:#ebdbb2
+#   --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="> "
+#   --marker=">" --pointer="◆" --separator="─" --scrollbar="│"
+#   --layout="reverse"'
+
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"

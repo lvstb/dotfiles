@@ -36,7 +36,7 @@
     offset = 36x36
 
     # Scale factor. It is auto-detected if value is 0.
-    scale = 0
+    scale = 2
 
     # Maximum number of notification (0 means no limit)
     notification_limit = 20
@@ -81,7 +81,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 0
+    transparency = 35
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -100,7 +100,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 1
 
     # Defines color of the frame around the notification window.
     frame_color = "#d3c6aa"
@@ -213,7 +213,7 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Adwaita
+    icon_theme = Papirus-Dark
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 
