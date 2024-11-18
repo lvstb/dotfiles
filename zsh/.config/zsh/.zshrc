@@ -21,11 +21,11 @@ zsh_add_plugin "env"
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
 # Key-bindings
-autoload -Uz compinit && compinit
+
 
 # Environment variables set everywhere
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="ghostty"
 export BROWSER="zen-browser"
 
 # Keybindings
@@ -79,6 +79,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 #direnv
 eval "$(direnv hook zsh)"
 
+autoload -Uz compinit && compinit
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 
 export SDKMAN_DIR="$HOME/.sdkman"

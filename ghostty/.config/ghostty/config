@@ -1,0 +1,44 @@
+# The syntax is "key = value". The whitespace around the equals doesn't matter.
+background = #1d2021
+foreground = #ebdbb2
+
+# Comments start with a `#` and are only valid on their own line.
+# Blank lines are ignored!
+
+keybind = ctrl+z=close_surface
+keybind = ctrl+d=new_split:right
+
+# Empty values reset the configuration to the default value
+
+font-family = "FiraCode Nerd Font Mono"
+
+
+window-decoration = false
+clipboard-read = allow
+# Colors can be changed by setting the 16 colors of `palette`, which each color
+# being defined as regular and bold.
+#
+# black
+palette = 0=#595959
+palette = 8=#4d4d4d
+# red
+palette = 1=#ea6962
+palette = 9=#ea6962
+# green
+palette = 2=#a9b665
+palette = 10=#a9b677
+# yellow
+palette = 3=#d8a657
+palette = 11=#d8a657
+# blue
+palette = 4=#7daea3
+palette = 12=#7daea3
+# purple
+palette = 5=#d3869b
+palette = 13=#d3869b
+# aqua
+palette = 6=#89b482
+palette = 14=#89b482
+# white
+palette = 7=#E5E9F0
+palette = 15=#ECEFF4

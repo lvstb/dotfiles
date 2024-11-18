@@ -36,7 +36,7 @@
     offset = 36x36
 
     # Scale factor. It is auto-detected if value is 0.
-    scale = 2
+    scale = 0
 
     # Maximum number of notification (0 means no limit)
     notification_limit = 20
@@ -81,7 +81,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 35
+    transparency = 100
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
