@@ -3,6 +3,8 @@ export ZDOTDIR=$HOME/.config/zsh
 # beeping is annoying
 unsetopt BEEP
 
+test -z "$TMUX" && (tmux attach || tmux new-session)
+
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
 source "$ZDOTDIR/zsh-alias"
